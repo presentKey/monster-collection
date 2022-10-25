@@ -1,0 +1,25 @@
+%boss-base {
+  display: block;
+  overflow: hidden;
+  border: 1px solid $border;
+  border-radius: 50%;
+
+  img {
+    display: block;
+    width: 130%;
+    height: 130%;
+    object-fit: cover;
+  }
+}
+
+.avatar-32 {
+  @extend %boss-base;
+  width: 32px;
+  height: 32px;
+}
+
+.avatar-40 {
+  @extend %boss-base;
+  width: 40px;
+  height: 40px;
+}
