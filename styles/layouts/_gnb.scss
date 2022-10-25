@@ -1,0 +1,50 @@
+.gnb {
+  position: relative;
+  border-bottom: 1px solid $border;
+
+  &-wrapper {
+    @include flexbox(between);
+    height: 50px;
+  }
+
+  &-right {
+    .gnb-button-group {
+      @include flexbox(end);
+    }
+  }
+
+  &-menu-button,
+  &-bookmark-button,
+  &-timer-button {
+    @include flexbox;
+    width: 32px;
+    height: 32px;
+    color: $secondary;
+
+    .ic-menu {
+      font-size: 24px;
+      color: $green-dark;
+    }
+
+    .ic-alarm,
+    .ic-bookmark {
+      font-size: 20px;
+    }
+  }
+
+  &-timer-button {
+    margin-right: 4px;
+  }
+
+  .logo {
+    @include position-center;
+
+    a {
+      display: block;
+      font-size: 20px;
+      line-height: 20px;
+      color: $black;
+      letter-spacing: -0.1em;
+    }
+  }
+}
