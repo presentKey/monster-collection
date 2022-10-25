@@ -12,10 +12,10 @@
   background-color: $green;
 }
 
-.tag-green-dark {
+.tag-blue {
   @extend %tag-base;
   color: $white;
-  background-color: $green-dark;
+  background-color: $blue;
   transition: opacity 200ms ease-in-out;
 
   &:hover,
