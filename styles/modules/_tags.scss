@@ -16,4 +16,14 @@
   @extend %tag-base;
   color: $white;
   background-color: $green-dark;
+  transition: opacity 200ms ease-in-out;
+
+  &:hover,
+  &:active {
+    opacity: 0.6;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
