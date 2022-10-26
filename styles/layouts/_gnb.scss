@@ -47,4 +47,28 @@
       letter-spacing: -0.1em;
     }
   }
+
+  @include responsive(T) {
+    &-wrapper {
+      @include flexbox(start);
+      height: 60px;
+    }
+
+    &-bookmark-button {
+      .ic-bookmark {
+        font-size: 24px;
+      }
+    }
+
+    .logo {
+      position: static;
+      margin-right: 28px;
+      transform: none;
+
+      a {
+        font-size: 24px;
+        line-height: 24px;
+      }
+    }
+  }
 }
