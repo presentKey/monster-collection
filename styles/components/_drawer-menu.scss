@@ -1,0 +1,67 @@
+.drawer-menu {
+  $drawer-menu-item-height: 36px;
+  $drawer-menu-item-padding: 8px;
+  $job-menu-item-length: 9;
+
+  &.is-active {
+    .drawer-menu-button {
+      color: $green-dark;
+    }
+  }
+
+  &.is-open {
+    &.is-job {
+      .drawer-menu-content {
+        max-height: $drawer-menu-item-height * $job-menu-item-length +
+          $drawer-menu-item-padding;
+        padding-bottom: $drawer-menu-item-padding;
+      }
+    }
+
+    .drawer-menu-button .ic-chevron {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+
+  &-button {
+    @include flexbox(start);
+    @include text-style(18, $primary);
+    position: relative;
+    width: 100%;
+    height: 54px;
+    padding: 0 8px;
+    font-weight: 700;
+    transition: color 200ms ease-in-out;
+
+    .ic-chevron {
+      @include position-center-y;
+      right: 8px;
+      font-size: 16px;
+      color: $primary;
+      transition: transform 200ms ease-in-out;
+    }
+  }
+
+  &-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 200ms ease-in-out;
+  }
+
+  &-item {
+    &.is-active {
+      a {
+        color: $green-dark;
+      }
+    }
+
+    a {
+      @include flexbox(start);
+      @include text-style(14, $primary);
+      width: 100%;
+      height: $drawer-menu-item-height;
+      padding: 0 18px;
+      font-weight: 700;
+    }
+  }
+}
