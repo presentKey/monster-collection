@@ -1,4 +1,6 @@
 .gnb {
+  $padding: 8px;
+
   position: relative;
   border-bottom: 1px solid $border;
 
@@ -13,25 +15,6 @@
     }
   }
 
-  &-menu-button,
-  &-bookmark-button,
-  &-timer-button {
-    @include flexbox;
-    width: 32px;
-    height: 32px;
-    color: $secondary;
-
-    .ic-menu {
-      font-size: 24px;
-      color: $green-dark;
-    }
-
-    .ic-alarm,
-    .ic-bookmark {
-      font-size: 20px;
-    }
-  }
-
   &-timer-button {
     margin-right: 4px;
   }
@@ -40,7 +23,10 @@
     @include position-center;
 
     a {
+      position: relative;
+      left: -#{$padding};
       display: block;
+      padding: 8px;
       font-size: 20px;
       line-height: 20px;
       color: $black;
@@ -52,12 +38,6 @@
     &-wrapper {
       @include flexbox(start);
       height: 60px;
-    }
-
-    &-bookmark-button {
-      .ic-bookmark {
-        font-size: 24px;
-      }
     }
 
     .logo {
