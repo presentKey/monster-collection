@@ -1,5 +1,6 @@
 .sidebar {
   $padding: 8px;
+  $sidebar-width: 240px;
 
   position: fixed;
   top: 0;
@@ -11,6 +12,12 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   background-color: $white;
+  transition: transform 300ms ease-in-out;
+  transform: translate3d(-#{$sidebar-width}, 0, 0);
+
+  &.is-active {
+    transform: translate3d(0, 0, 0);
+  }
 
   &-logo {
     @include flexbox(start);
