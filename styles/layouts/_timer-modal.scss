@@ -1,0 +1,30 @@
+body {
+  background-color: black;
+}
+
+.timer-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 240px;
+  height: 100vh;
+  padding: 32px 20px;
+  background-color: $white;
+
+  &-header {
+    @include flexbox(start);
+    margin-bottom: 32px;
+
+    .timer-title {
+      @include text-style(18, $black);
+      order: 2;
+    }
+
+    i {
+      position: relative;
+      top: 1px;
+      order: 1;
+      margin-right: 8px;
+    }
+  }
+}
