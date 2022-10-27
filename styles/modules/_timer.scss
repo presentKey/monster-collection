@@ -32,18 +32,25 @@
 
   &-button-group {
     @include flexbox(start);
-    font-size: 18px;
+    font-size: 20px;
 
-    i {
-      padding: 8px;
-
-      &:active {
-        opacity: 0.6;
-      }
-
-      &:first-child {
-        margin-right: 4px;
-      }
+    .ic-history {
+      padding: 8px 4px 8px 8px;
+      margin-right: 4px;
     }
+
+    .ic-close {
+      padding: 8px 8px 8px 4px;
+    }
+
+    .ic-history:active,
+    .ic-close:active {
+      opacity: 0.6;
+    }
+  }
+
+  @include responsive(T) {
+    width: 190px;
+    height: 46px;
   }
 }
