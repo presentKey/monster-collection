@@ -1,13 +1,23 @@
 .timer-menu-content {
   .timer-menu-item {
     @include flexbox(between);
+    display: none;
     height: 54px;
     padding-left: 8px;
     margin-bottom: 12px;
     background-color: $green;
     border: 2px solid $primary;
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    transition: background-color 200ms ease-in-out;
+
+    &.is-alarm {
+      background-color: $red;
+    }
+
+    &.is-active {
+      display: flex;
+    }
 
     &:last-child {
       margin-bottom: 0;
