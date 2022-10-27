@@ -1,19 +1,7 @@
 .timer-menu-content {
   .timer-menu-item {
-    @include flexbox(between);
     display: none;
-    height: 54px;
-    padding-left: 8px;
     margin-bottom: 12px;
-    background-color: $green;
-    border: 2px solid $primary;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-    transition: background-color 200ms ease-in-out;
-
-    &.is-alarm {
-      background-color: $red;
-    }
 
     &.is-active {
       display: flex;
@@ -21,35 +9,6 @@
 
     &:last-child {
       margin-bottom: 0;
-    }
-
-    .timer-info {
-      @include flexbox(start);
-
-      .boss-36 {
-        margin-right: 8px;
-      }
-
-      .time {
-        @include text-style(18, $black);
-      }
-    }
-
-    .timer-button-group {
-      @include flexbox(start);
-      font-size: 18px;
-
-      i {
-        padding: 8px;
-
-        &:active {
-          opacity: 0.6;
-        }
-
-        &:first-child {
-          margin-right: 4px;
-        }
-      }
     }
   }
 }
