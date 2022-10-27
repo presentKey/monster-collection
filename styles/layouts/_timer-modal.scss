@@ -8,6 +8,8 @@
   width: 240px;
   height: 100vh;
   padding: 32px 20px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background-color: $white;
   transition: transform 300ms ease-in-out;
   transform: translate3d($timer-modal-width, 0, 0);
