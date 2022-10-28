@@ -38,7 +38,7 @@
     .timer-bar-content::-webkit-scrollbar {
       display: block;
       height: 4px;
-      background-color: $white;
+      background-color: rgba($white, 0);
     }
 
     .timer-bar-content::-webkit-scrollbar-thumb {
