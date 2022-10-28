@@ -1,16 +1,16 @@
 .timer-bar {
   z-index: $timer-bar-level;
-  height: 60px;
+  height: $timer-bar-height;
   border-bottom: 1px solid $border;
   transition: transform 300ms ease-in-out;
-  transform: translate3d(0, -60px, 0);
+  transform: translate3d(0, -#{$timer-bar-height}, 0);
 
   &.is-open {
     transform: translate3d(0, 0, 0);
   }
 
   &-content {
-    height: 60px;
+    height: $timer-bar-height;
     padding: 6px 8px;
     overflow-x: auto;
     overflow-y: hidden;

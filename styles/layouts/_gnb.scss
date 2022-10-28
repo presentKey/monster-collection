@@ -3,13 +3,13 @@
 
   position: relative;
   z-index: $gnb-level;
-  height: 50px;
+  height: $gnb-height-sm;
   background-color: $white;
   border-bottom: 1px solid $border;
 
   &-wrapper {
     @include flexbox(between);
-    height: 50px;
+    height: $gnb-height-sm;
   }
 
   &-right {
@@ -38,11 +38,11 @@
   }
 
   @include responsive(T) {
-    height: 60px;
+    height: $gnb-height-md;
 
     &-wrapper {
       @include flexbox(start);
-      height: 60px;
+      height: $gnb-height-md;
     }
 
     .logo {
