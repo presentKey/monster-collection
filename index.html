@@ -21,43 +21,241 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header class="gnb">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="gnb-wrapper">
-              <div class="gnb-left">
-                <h1 class="logo">
-                  <a href="/">몬스터컬렉션</a>
-                </h1>
+    <header class="global-header">
+      <div class="gnb">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="gnb-wrapper">
+                <div class="gnb-left">
+                  <h1 class="logo">
+                    <a href="/">몬스터컬렉션</a>
+                  </h1>
 
-                <button
-                  class="gnb-menu-button sm-only"
-                  type="button"
-                  aria-label="메뉴 버튼"
-                >
-                  <i class="ic-menu"></i>
-                </button>
-              </div>
-
-              <div class="gnb-right">
-                <div class="gnb-button-group">
                   <button
-                    class="gnb-timer-button sm-only"
+                    class="gnb-menu-button sm-only"
                     type="button"
-                    aria-label="타이머 버튼"
+                    aria-label="메뉴 버튼"
                   >
-                    <i class="ic-alarm"></i>
+                    <i class="ic-menu"></i>
                   </button>
-
-                  <a
-                    class="gnb-bookmark-button"
-                    href="/"
-                    aria-label="북마크 버튼"
-                  >
-                    <i class="ic-bookmark"></i>
-                  </a>
                 </div>
+
+                <div class="gnb-right">
+                  <div class="gnb-button-group">
+                    <button
+                      class="gnb-timer-button sm-only"
+                      type="button"
+                      aria-label="타이머 버튼"
+                    >
+                      <i class="ic-alarm"></i>
+                    </button>
+
+                    <a
+                      class="gnb-bookmark-button"
+                      href="/"
+                      aria-label="북마크 버튼"
+                    >
+                      <i class="ic-bookmark"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timer-bar is-open sm-hidden">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="timer-bar-content">
+                <ul class="timer-bar-list">
+                  <li class="timer-bar-item">
+                    <div class="timer">
+                      <div class="timer-info">
+                        <div class="boss-36">
+                          <!-- NOTE: 몬스터이름 -->
+                          <img
+                            src="./assets/images/monster/ar-ar-16.png"
+                            alt="몬스터이름"
+                          />
+                        </div>
+                        <strong class="time"
+                          ><span class="minute">10</span> :
+                          <span class="second">00</span></strong
+                        >
+                      </div>
+
+                      <div class="timer-button-group">
+                        <i class="ic-history" aria-label="타이머 재시작"></i>
+                        <i class="ic-close" aria-label="타이머 삭제"></i>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="timer-bar-item">
+                    <div class="timer">
+                      <div class="timer-info">
+                        <div class="boss-36">
+                          <!-- NOTE: 몬스터이름 -->
+                          <img
+                            src="./assets/images/monster/ar-ar-16.png"
+                            alt="몬스터이름"
+                          />
+                        </div>
+                        <strong class="time"
+                          ><span class="minute">10</span> :
+                          <span class="second">00</span></strong
+                        >
+                      </div>
+
+                      <div class="timer-button-group">
+                        <i class="ic-history" aria-label="타이머 재시작"></i>
+                        <i class="ic-close" aria-label="타이머 삭제"></i>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="timer-bar-item">
+                    <div class="timer is-alarm">
+                      <div class="timer-info">
+                        <div class="boss-36">
+                          <!-- NOTE: 몬스터이름 -->
+                          <img
+                            src="./assets/images/monster/ar-ar-16.png"
+                            alt="몬스터이름"
+                          />
+                        </div>
+                        <strong class="time"
+                          ><span class="minute">10</span> :
+                          <span class="second">00</span></strong
+                        >
+                      </div>
+
+                      <div class="timer-button-group">
+                        <i class="ic-history" aria-label="타이머 재시작"></i>
+                        <i class="ic-close" aria-label="타이머 삭제"></i>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="timer-bar-item">
+                    <div class="timer">
+                      <div class="timer-info">
+                        <div class="boss-36">
+                          <!-- NOTE: 몬스터이름 -->
+                          <img
+                            src="./assets/images/monster/ar-ar-16.png"
+                            alt="몬스터이름"
+                          />
+                        </div>
+                        <strong class="time"
+                          ><span class="minute">10</span> :
+                          <span class="second">00</span></strong
+                        >
+                      </div>
+
+                      <div class="timer-button-group">
+                        <i class="ic-history" aria-label="타이머 재시작"></i>
+                        <i class="ic-close" aria-label="타이머 삭제"></i>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="timer-bar-item">
+                    <div class="timer">
+                      <div class="timer-info">
+                        <div class="boss-36">
+                          <!-- NOTE: 몬스터이름 -->
+                          <img
+                            src="./assets/images/monster/ar-ar-16.png"
+                            alt="몬스터이름"
+                          />
+                        </div>
+                        <strong class="time"
+                          ><span class="minute">10</span> :
+                          <span class="second">00</span></strong
+                        >
+                      </div>
+
+                      <div class="timer-button-group">
+                        <i class="ic-history" aria-label="타이머 재시작"></i>
+                        <i class="ic-close" aria-label="타이머 삭제"></i>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="timer-bar-item">
+                    <div class="timer">
+                      <div class="timer-info">
+                        <div class="boss-36">
+                          <!-- NOTE: 몬스터이름 -->
+                          <img
+                            src="./assets/images/monster/ar-ar-16.png"
+                            alt="몬스터이름"
+                          />
+                        </div>
+                        <strong class="time"
+                          ><span class="minute">10</span> :
+                          <span class="second">00</span></strong
+                        >
+                      </div>
+
+                      <div class="timer-button-group">
+                        <i class="ic-history" aria-label="타이머 재시작"></i>
+                        <i class="ic-close" aria-label="타이머 삭제"></i>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="timer-bar-item">
+                    <div class="timer">
+                      <div class="timer-info">
+                        <div class="boss-36">
+                          <!-- NOTE: 몬스터이름 -->
+                          <img
+                            src="./assets/images/monster/ar-ar-16.png"
+                            alt="몬스터이름"
+                          />
+                        </div>
+                        <strong class="time"
+                          ><span class="minute">10</span> :
+                          <span class="second">00</span></strong
+                        >
+                      </div>
+
+                      <div class="timer-button-group">
+                        <i class="ic-history" aria-label="타이머 재시작"></i>
+                        <i class="ic-close" aria-label="타이머 삭제"></i>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="timer-bar-item">
+                    <div class="timer">
+                      <div class="timer-info">
+                        <div class="boss-36">
+                          <!-- NOTE: 몬스터이름 -->
+                          <img
+                            src="./assets/images/monster/ar-ar-16.png"
+                            alt="몬스터이름"
+                          />
+                        </div>
+                        <strong class="time"
+                          ><span class="minute">10</span> :
+                          <span class="second">00</span></strong
+                        >
+                      </div>
+
+                      <div class="timer-button-group">
+                        <i class="ic-history" aria-label="타이머 재시작"></i>
+                        <i class="ic-close" aria-label="타이머 삭제"></i>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -65,201 +263,9 @@
       </div>
     </header>
 
-    <div class="timer-bar is-open sm-hidden">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="timer-bar-content">
-              <ul class="timer-bar-list">
-                <li class="timer-bar-item">
-                  <div class="timer">
-                    <div class="timer-info">
-                      <div class="boss-36">
-                        <!-- NOTE: 몬스터이름 -->
-                        <img
-                          src="./assets/images/monster/ar-ar-16.png"
-                          alt="몬스터이름"
-                        />
-                      </div>
-                      <strong class="time"
-                        ><span class="minute">10</span> :
-                        <span class="second">00</span></strong
-                      >
-                    </div>
+    <main class="job-category"></main>
 
-                    <div class="timer-button-group">
-                      <i class="ic-history" aria-label="타이머 재시작"></i>
-                      <i class="ic-close" aria-label="타이머 삭제"></i>
-                    </div>
-                  </div>
-                </li>
-
-                <li class="timer-bar-item">
-                  <div class="timer">
-                    <div class="timer-info">
-                      <div class="boss-36">
-                        <!-- NOTE: 몬스터이름 -->
-                        <img
-                          src="./assets/images/monster/ar-ar-16.png"
-                          alt="몬스터이름"
-                        />
-                      </div>
-                      <strong class="time"
-                        ><span class="minute">10</span> :
-                        <span class="second">00</span></strong
-                      >
-                    </div>
-
-                    <div class="timer-button-group">
-                      <i class="ic-history" aria-label="타이머 재시작"></i>
-                      <i class="ic-close" aria-label="타이머 삭제"></i>
-                    </div>
-                  </div>
-                </li>
-
-                <li class="timer-bar-item">
-                  <div class="timer is-alarm">
-                    <div class="timer-info">
-                      <div class="boss-36">
-                        <!-- NOTE: 몬스터이름 -->
-                        <img
-                          src="./assets/images/monster/ar-ar-16.png"
-                          alt="몬스터이름"
-                        />
-                      </div>
-                      <strong class="time"
-                        ><span class="minute">10</span> :
-                        <span class="second">00</span></strong
-                      >
-                    </div>
-
-                    <div class="timer-button-group">
-                      <i class="ic-history" aria-label="타이머 재시작"></i>
-                      <i class="ic-close" aria-label="타이머 삭제"></i>
-                    </div>
-                  </div>
-                </li>
-
-                <li class="timer-bar-item">
-                  <div class="timer">
-                    <div class="timer-info">
-                      <div class="boss-36">
-                        <!-- NOTE: 몬스터이름 -->
-                        <img
-                          src="./assets/images/monster/ar-ar-16.png"
-                          alt="몬스터이름"
-                        />
-                      </div>
-                      <strong class="time"
-                        ><span class="minute">10</span> :
-                        <span class="second">00</span></strong
-                      >
-                    </div>
-
-                    <div class="timer-button-group">
-                      <i class="ic-history" aria-label="타이머 재시작"></i>
-                      <i class="ic-close" aria-label="타이머 삭제"></i>
-                    </div>
-                  </div>
-                </li>
-
-                <li class="timer-bar-item">
-                  <div class="timer">
-                    <div class="timer-info">
-                      <div class="boss-36">
-                        <!-- NOTE: 몬스터이름 -->
-                        <img
-                          src="./assets/images/monster/ar-ar-16.png"
-                          alt="몬스터이름"
-                        />
-                      </div>
-                      <strong class="time"
-                        ><span class="minute">10</span> :
-                        <span class="second">00</span></strong
-                      >
-                    </div>
-
-                    <div class="timer-button-group">
-                      <i class="ic-history" aria-label="타이머 재시작"></i>
-                      <i class="ic-close" aria-label="타이머 삭제"></i>
-                    </div>
-                  </div>
-                </li>
-
-                <li class="timer-bar-item">
-                  <div class="timer">
-                    <div class="timer-info">
-                      <div class="boss-36">
-                        <!-- NOTE: 몬스터이름 -->
-                        <img
-                          src="./assets/images/monster/ar-ar-16.png"
-                          alt="몬스터이름"
-                        />
-                      </div>
-                      <strong class="time"
-                        ><span class="minute">10</span> :
-                        <span class="second">00</span></strong
-                      >
-                    </div>
-
-                    <div class="timer-button-group">
-                      <i class="ic-history" aria-label="타이머 재시작"></i>
-                      <i class="ic-close" aria-label="타이머 삭제"></i>
-                    </div>
-                  </div>
-                </li>
-
-                <li class="timer-bar-item">
-                  <div class="timer">
-                    <div class="timer-info">
-                      <div class="boss-36">
-                        <!-- NOTE: 몬스터이름 -->
-                        <img
-                          src="./assets/images/monster/ar-ar-16.png"
-                          alt="몬스터이름"
-                        />
-                      </div>
-                      <strong class="time"
-                        ><span class="minute">10</span> :
-                        <span class="second">00</span></strong
-                      >
-                    </div>
-
-                    <div class="timer-button-group">
-                      <i class="ic-history" aria-label="타이머 재시작"></i>
-                      <i class="ic-close" aria-label="타이머 삭제"></i>
-                    </div>
-                  </div>
-                </li>
-
-                <li class="timer-bar-item">
-                  <div class="timer">
-                    <div class="timer-info">
-                      <div class="boss-36">
-                        <!-- NOTE: 몬스터이름 -->
-                        <img
-                          src="./assets/images/monster/ar-ar-16.png"
-                          alt="몬스터이름"
-                        />
-                      </div>
-                      <strong class="time"
-                        ><span class="minute">10</span> :
-                        <span class="second">00</span></strong
-                      >
-                    </div>
-
-                    <div class="timer-button-group">
-                      <i class="ic-history" aria-label="타이머 재시작"></i>
-                      <i class="ic-close" aria-label="타이머 삭제"></i>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <footer class="global-footer"></footer>
 
     <aside class="sidebar sm-only">
       <h2 class="sidebar-logo">
