@@ -1,0 +1,42 @@
+.timer-bar {
+  border-bottom: 1px solid $border;
+
+  &-content {
+    height: 60px;
+    padding: 6px 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &-list {
+    @include inline-flexbox(start);
+    position: relative;
+    left: -8px;
+  }
+
+  &-item {
+    margin-right: 16px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @include responsive(D) {
+    .timer-bar-content::-webkit-scrollbar {
+      display: block;
+      height: 4px;
+      background-color: $white;
+    }
+
+    .timer-bar-content::-webkit-scrollbar-thumb {
+      height: 4px;
+      background-color: rgba($black, 0.4);
+      border-radius: 2px;
+    }
+  }
+}
