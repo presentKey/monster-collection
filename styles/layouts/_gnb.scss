@@ -2,6 +2,9 @@
   $padding: 8px;
 
   position: relative;
+  z-index: $gnb-level;
+  height: 50px;
+  background-color: $white;
   border-bottom: 1px solid $border;
 
   &-wrapper {
@@ -35,6 +38,8 @@
   }
 
   @include responsive(T) {
+    height: 60px;
+
     &-wrapper {
       @include flexbox(start);
       height: 60px;
