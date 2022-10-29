@@ -1,0 +1,46 @@
+.monster-card {
+  $card-margin-sm: 2px;
+  $card-margin-md: 4px;
+
+  @include column-flexbox;
+  flex-direction: column-reverse;
+  width: calc(25% - #{$card-margin-sm});
+  padding: 2px;
+  margin-right: $card-margin-sm;
+  margin-bottom: 4px;
+  background-color: $green-dark;
+  border-radius: 4px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &-name {
+    @include text-style(12, $white);
+    width: 100%;
+    padding: 4px 2px 2px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-image {
+    display: block;
+    overflow: hidden;
+    background-color: $background;
+    border-radius: 4px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include responsive(T) {
+    width: calc(12.5% - #{$card-margin-md});
+    margin-right: $card-margin-md;
+  }
+}
