@@ -1,0 +1,41 @@
+.detail-tab {
+  $grid-margin: 15px;
+
+  margin: 0 -#{$grid-margin};
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &-list {
+    @include inline-flexbox(start);
+    white-space: nowrap;
+  }
+
+  &-item {
+    &.is-active {
+      button {
+        color: $green-dark;
+        border-bottom-color: $green-dark;
+      }
+    }
+    button {
+      @include inline-flexbox;
+      @include text-style(13, $dark);
+      height: $detail-tab-height;
+      padding: 0 8px;
+      font-weight: 700;
+      border-bottom: 2px solid transparent;
+    }
+  }
+
+  @include responsive(T) {
+    margin: 30px 0;
+    background-color: $background;
+
+    &-list {
+      // background-color: $background;
+    }
+  }
+}
