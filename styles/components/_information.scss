@@ -1,6 +1,10 @@
 .information {
+  &-list {
+    padding: 20px 0;
+  }
+
   &-item {
-    margin-bottom: 56px;
+    margin-bottom: 88px;
 
     &:last-child {
       margin-bottom: 0;
@@ -9,12 +13,65 @@
 
   &-detail {
     .title {
-      @include text-style(16);
+      @include text-style(16, $dark);
+      margin-bottom: 20px;
     }
   }
 
   .monster-group {
-    @include flexbox(start, start);
+    @include flexbox(start);
     flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  &-content {
+    @include text-style(14);
+    margin-bottom: 36px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .location-group {
+      margin-bottom: 4px;
+    }
+
+    .tag-green {
+      margin-right: 4px;
+    }
+
+    .tag-blue {
+      margin-left: 4px;
+    }
+
+    i {
+      display: inline-block;
+
+      margin-right: 4px;
+      color: $red;
+    }
+
+    .ic-chevron {
+      position: relative;
+      top: 2px;
+      margin-right: 0;
+      font-size: 16px;
+      color: $black;
+      transform: rotate(-90deg);
+    }
+  }
+
+  @include responsive(T) {
+    &-detail {
+      .title {
+        @include text-style(18);
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-content {
+      @include text-style(16);
+    }
   }
 }
