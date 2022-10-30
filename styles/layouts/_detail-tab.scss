@@ -41,9 +41,10 @@
     position: sticky;
     top: $gnb-height-md + $timer-bar-height - $detail-tab-padding-md;
     margin: 0;
+    background-color: none;
 
     &-content {
-      padding: $detail-tab-padding-md 0;
+      padding-top: $detail-tab-padding-md;
     }
 
     &-list {
