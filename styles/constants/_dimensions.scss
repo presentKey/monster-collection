@@ -1,8 +1,9 @@
 $gnb-height-sm: 50px;
 $gnb-height-md: 60px;
 
-$detail-tab-height: 39px;
+$detail-tab-height: 40px - 1px;
 $divider-height-sm: 1px;
+
 $detail-tab-height-sm: $detail-tab-height + $divider-height-sm;
 $detail-tab-height-md: 54px;
 

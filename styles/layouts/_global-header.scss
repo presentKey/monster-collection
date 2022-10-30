@@ -1,0 +1,23 @@
+.global-header {
+  width: 100%;
+  height: $gnb-height-sm;
+
+  .gnb,
+  .timer-bar {
+    position: fixed;
+    left: 0;
+    width: 100%;
+  }
+
+  .gnb {
+    top: 0;
+  }
+
+  @include responsive(T) {
+    height: $gnb-height-md + $timer-bar-height;
+
+    .timer-bar {
+      top: $gnb-height-md;
+    }
+  }
+}
