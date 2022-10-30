@@ -1,9 +1,9 @@
-.divider {
+.line {
   $grid-margin: 15px;
 
   position: relative;
-  top: -#{$divider-height-sm};
-  height: $divider-height-sm;
+  top: -#{$line-height-sm};
+  height: $line-height-sm;
   margin: 0 -#{$grid-margin};
   background-color: rgba($black, 0.1);
 }
