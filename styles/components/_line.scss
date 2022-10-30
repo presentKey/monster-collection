@@ -1,8 +1,10 @@
 .line {
   $grid-margin: 15px;
 
-  position: relative;
-  top: -#{$line-height-sm};
+  position: fixed;
+  top: $gnb-height-sm + $detail-tab-height;
+  z-index: $detail-tab-level;
+  width: 100%;
   height: $line-height-sm;
   margin: 0 -#{$grid-margin};
   background-color: rgba($black, 0.1);
