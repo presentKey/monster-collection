@@ -25,7 +25,7 @@
   }
 
   &-wrapper {
-    @include text-style(14);
+    @include text-style(14, $dark);
     margin-bottom: 36px;
 
     &:last-child {
@@ -33,7 +33,7 @@
     }
 
     .location-group {
-      margin-bottom: 4px;
+      margin-top: 4px;
 
       .main-location {
         font-weight: 700;
@@ -50,8 +50,13 @@
 
     i {
       display: inline-block;
-      margin-right: 4px;
+      margin-right: 2px;
       color: $red;
+    }
+
+    .ic-info {
+      position: relative;
+      top: 1px;
     }
 
     .ic-chevron {
