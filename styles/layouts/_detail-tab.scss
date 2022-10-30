@@ -31,8 +31,16 @@
   }
 
   @include responsive(T) {
-    margin: 30px 0;
-    background-color: $background;
+    margin: 0;
+
+    &-content {
+      padding: 30px 0;
+    }
+
+    &-list {
+      width: 100%;
+      background-color: $background;
+    }
 
     &-item {
       button {
