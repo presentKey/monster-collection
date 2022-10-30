@@ -1,6 +1,6 @@
 .information {
   &-list {
-    padding: 60px 0;
+    padding: 20px 0;
   }
 
   &-item {
@@ -65,6 +65,10 @@
   }
 
   @include responsive(T) {
+    &-list {
+      padding: 80px 0;
+    }
+
     &-detail {
       .title {
         @include text-style(18);
