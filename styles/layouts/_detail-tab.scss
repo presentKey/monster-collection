@@ -1,8 +1,15 @@
 .detail-tab {
   $grid-margin: 15px;
+  $detail-tab-padding-md: 30px;
 
+  position: fixed;
+  top: $gnb-height-sm;
+
+  z-index: $detail-tab-level;
+  width: 100%;
   margin: 0 -#{$grid-margin};
   overflow-x: auto;
+  background-color: $white;
 
   &::-webkit-scrollbar {
     display: none;
@@ -31,10 +38,12 @@
   }
 
   @include responsive(T) {
+    position: sticky;
+    top: $gnb-height-md + $timer-bar-height - $detail-tab-padding-md;
     margin: 0;
 
     &-content {
-      padding: 30px 0;
+      padding: $detail-tab-padding-md 0;
     }
 
     &-list {
