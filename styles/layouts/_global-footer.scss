@@ -1,0 +1,17 @@
+.global-footer {
+  background-color: $background;
+
+  &-wrapper {
+    @include column-flexbox(center, start);
+    height: 100px;
+  }
+
+  &-title {
+    @include text-style(13);
+    margin-bottom: 4px;
+  }
+
+  &-content {
+    @include text-style(12);
+  }
+}
