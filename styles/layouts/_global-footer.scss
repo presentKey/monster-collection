@@ -1,7 +1,7 @@
 .global-footer {
   background-color: $background;
 
-  &-wrapper {
+  &-info {
     @include column-flexbox(center, start);
     height: 100px;
   }
