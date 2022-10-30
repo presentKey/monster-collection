@@ -29,4 +29,22 @@
       }
     }
   }
+
+  @include responsive(T) {
+    &-item {
+      a {
+        @include text-style(12);
+        height: 50px;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-item {
+      a {
+        @include text-style(16);
+        height: 60px;
+      }
+    }
+  }
 }
