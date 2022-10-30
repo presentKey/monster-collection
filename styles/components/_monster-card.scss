@@ -4,7 +4,7 @@
 
   @include column-flexbox;
   flex-direction: column-reverse;
-  width: calc(25% - #{$card-margin-sm});
+  width: calc(20% - #{$card-margin-sm});
   padding: 2px;
   margin-right: $card-margin-sm;
   margin-bottom: 4px;
@@ -46,7 +46,7 @@
   }
 
   @include responsive(T) {
-    width: calc(12.5% - #{$card-margin-md});
+    width: calc(10% - #{$card-margin-md});
     margin-right: $card-margin-md;
   }
 }
