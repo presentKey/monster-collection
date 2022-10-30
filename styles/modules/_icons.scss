@@ -59,4 +59,12 @@ i {
   content: '\e90d';
 }
 
+.ic-clipboard:before {
+  content: '\e9b8';
+}
+
+.ic-info:before {
+  content: '\ea0c';
+}
+
 /* stylelint-enable */
