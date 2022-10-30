@@ -12,9 +12,7 @@
 
   &-content {
     height: $timer-bar-height;
-    padding: 6px 8px;
     overflow-x: auto;
-    overflow-y: hidden;
 
     &::-webkit-scrollbar {
       display: none;
@@ -23,8 +21,7 @@
 
   &-list {
     @include inline-flexbox(start);
-    position: relative;
-    left: -8px;
+    height: 100%;
   }
 
   &-item {
@@ -35,17 +32,25 @@
     }
   }
 
-  @include responsive(D) {
-    .timer-bar-content::-webkit-scrollbar {
-      display: block;
-      height: 4px;
-      background-color: rgba($white, 0);
-    }
+  @include responsive(T) {
+    &-content {
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-thumb {
+        height: 4px;
+        background-color: transparent;
 
-    .timer-bar-content::-webkit-scrollbar-thumb {
-      height: 4px;
-      background-color: rgba($black, 0.4);
-      border-radius: 2px;
+        &:hover {
+          background-color: rgba($primary, 0.3);
+        }
+      }
+
+      &::-webkit-scrollbar {
+        display: block;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+      }
     }
   }
 }
