@@ -1,10 +1,6 @@
 .information {
   padding: 20px 0;
 
-  // &-list {
-  //   padding: 20px 0;
-  // }
-
   &-item {
     margin-bottom: 88px;
 
@@ -16,77 +12,49 @@
   &-detail {
     .title {
       @include text-style(16, $dark);
-      margin-bottom: 20px;
+      padding: 2px;
+      margin-bottom: 16px;
+      background-color: rgba($green, 0.6);
+      border-radius: 4px;
+
+      .limit-info {
+        @include inline-flexbox(start);
+
+        i {
+          margin-right: 4px;
+          color: $red;
+        }
+
+        span {
+          font-size: 14px;
+          font-weight: 400;
+          text-decoration: underline;
+          text-underline-position: under;
+        }
+      }
     }
   }
 
   .monster-group {
     @include flexbox(start);
     flex-wrap: wrap;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
-  .register {
-    @include text-style(14, $dark);
+  .content-wrapper {
     margin-bottom: 36px;
 
     &:last-child {
       margin-bottom: 0;
     }
-
-    i {
-      display: inline-block;
-      margin-right: 2px;
-      color: $red;
-    }
-
-    &-info {
-      @include inline-flexbox(start);
-      flex-wrap: wrap;
-
-      .ic-info {
-        position: relative;
-        top: 1px;
-        margin-right: 4px;
-      }
-
-      .ic-chevron {
-        position: relative;
-        top: 1px;
-        margin: 0 4px;
-        font-size: 20px;
-        color: $black;
-        transform: rotate(-90deg);
-      }
-    }
-
-    .location-info {
-      margin-top: 2px;
-
-      .main-location {
-        font-weight: 700;
-      }
-    }
-
-    .limit-info {
-      margin-top: 2px;
-
-      strong {
-        font-weight: 400;
-      }
-    }
-
-    .tag-green {
-      margin-right: 4px;
-    }
-
-    .tag-blue {
-      margin-left: 4px;
-    }
   }
 
   @include responsive(T) {
-    padding: 80px 15px;
+    padding: 50px 15px;
+
+    &-item {
+      margin-bottom: 100px;
+    }
 
     &-detail {
       .title {
@@ -96,8 +64,18 @@
   }
 
   @include responsive(D) {
-    .register {
-      @include text-style(16);
+    &-detail {
+      .title {
+        font-size: 22px;
+
+        .limit-info span {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .content-wrapper {
+      margin-bottom: 56px;
     }
   }
 }

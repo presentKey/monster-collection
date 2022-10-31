@@ -1,0 +1,65 @@
+.register {
+  @include text-style(14, $dark);
+
+  i {
+    margin-right: 2px;
+    color: $red;
+  }
+
+  &-info {
+    @include inline-flexbox(start);
+    flex-wrap: wrap;
+
+    .ic-info {
+      position: relative;
+      top: 1px;
+      margin-right: 4px;
+    }
+
+    .ic-chevron {
+      position: relative;
+      top: 1px;
+      margin: 0 4px;
+      font-size: 20px;
+      color: $black;
+      transform: rotate(-90deg);
+    }
+  }
+
+  .location-info {
+    .main-location {
+      font-weight: 700;
+    }
+  }
+
+  .limit-info {
+    margin-top: 2px;
+  }
+
+  .alarm-info {
+    .ic-alarm {
+      position: relative;
+      top: 1px;
+    }
+
+    .time {
+      &.is-hour {
+        &::after {
+          content: '시간';
+        }
+      }
+
+      &::after {
+        content: '분';
+      }
+    }
+  }
+
+  .tag-green {
+    margin-right: 4px;
+  }
+
+  @include responsive(D) {
+    @include text-style(16);
+  }
+}
