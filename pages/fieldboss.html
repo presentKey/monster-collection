@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>필드보스 - 몬스터 컬렉션</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="global-header">
+      <div class="gnb">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="gnb-wrapper">
+                <div class="gnb-left">
+                  <h1 class="logo">
+                    <a href="/">몬스터컬렉션</a>
+                  </h1>
+
+                  <button
+                    class="gnb-menu-button sm-only"
+                    type="button"
+                    aria-label="메뉴 버튼"
+                  >
+                    <i class="ic-menu"></i>
+                  </button>
+                </div>
+
+                <div class="gnb-right">
+                  <div class="gnb-button-group">
+                    <button
+                      class="gnb-timer-button sm-only"
+                      type="button"
+                      aria-label="타이머 버튼"
+                    >
+                      <i class="ic-alarm"></i>
+                    </button>
+
+                    <a
+                      class="gnb-bookmark-button"
+                      href="/"
+                      aria-label="북마크 버튼"
+                    >
+                      <i class="ic-bookmark"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timer-bar is-open sm-hidden">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="timer-bar-content">
+                <ul class="timer-bar-list"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="job-category">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <nav class="category-nav sm-hidden">
+              <h2 class="visually-hidden">메뉴</h2>
+
+              <div class="category-nav-content">
+                <ul class="category-nav-list">
+                  <li class="category-nav-item">
+                    <a href="/pages/job.html">직업</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/crosshunter.html">크로스헌터</a>
+                  </li>
+                  <li class="category-nav-item is-active">
+                    <a href="/pages/fieldboss.html">필드보스</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/victoria-island.html">빅토리아 아일랜드</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/victoria-isles.html">빅토리아 인근 섬</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/edlstein.html">에델슈타인</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/elnath.html">엘나스 산맥</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/ludus-lake.html">루더스 호수</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/aqua-road.html">아쿠아로드</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/nihal-desert.html">니할사막</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/mu-lung.html">무릉도원</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/minar-forest.html">미나르 숲</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/temple-of-time.html">시간의 신전</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/grandis.html">그란디스</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/arcane-river.html">아케인리버</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+
+          <div class="col-sm-4 col-md-10">
+            <div class="detail-tab">
+              <div class="detail-tab-content">
+                <ul class="detail-tab-list" role="tablist">
+                  <li
+                    class="detail-tab-item is-active"
+                    role="tab"
+                    aria-labelledby="fieldboss"
+                  >
+                    <button type="button">필드보스</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="line sm-only"></div>
+
+            <div class="information">
+              <ul class="information-list">
+                <li class="information-item">
+                  <article
+                    id="fieldboss"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">필드보스</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">머쉬맘</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-01.png"
+                              alt="머쉬맘"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">머쉬맘의 오솔길</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">블루 머쉬맘</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-02.png"
+                              alt="블루 머쉬맘"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">블루머쉬맘의 숲</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">좀비 머쉬맘</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-03.png"
+                              alt="좀비 머쉬맘"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">개미굴2</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">스텀피</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-04.png"
+                              alt="스텀피"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">돌풍지대</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">15</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">다일</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-05.png"
+                              alt="다일"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">보이지 않는 위험</span>
+                          <span class="add-location">+ 깊은 수렁</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">10</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">주니어발록</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-06.png"
+                              alt="주니어발록"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">금지된 제단</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">포장마차</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-07.png"
+                              alt="포장마차"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">동굴의 출구</span>
+                          <span class="add-location">- 3층 왼쪽 포탈</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">마노</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-08.png"
+                              alt="마노"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">오솔길2</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">엘리쟈</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-09.png"
+                              alt="엘리쟈"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">검은빛의정원2</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">설산의 마녀</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-10.png"
+                              alt="설산의 마녀"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">차디찬벌판</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">10</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">스노우맨</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-11.png"
+                              alt="스노우맨"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">날카로운절벽3</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">리치</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/cr-cr-02.png"
+                              alt="리치"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">죽은나무의숲4</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">롬바드</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-12.png"
+                              alt="롬바드"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">에오스탑 4층</span>
+                          <span class="add-location">- 중앙 히든 포탈</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button" disabled>
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">?</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">타이머</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/cr-cr-03.png"
+                              alt="타이머"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location"
+                            >잃어버린시간 &lt;2&gt;</span
+                          >
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">세르프</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-13.png"
+                              alt="세르프"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">바다 해초 탑</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">피아누스</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/aq-aq-01.png"
+                              alt="피아누스"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">피아누스의 동굴</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button" disabled>
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">?</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">데우</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/cr-cr-06.png"
+                              alt="데우"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">메마른 사막</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">루루모</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-14.png"
+                              alt="루루모"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">연구소 103호</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">자동경비시스템</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-15.png"
+                              alt="자동경비시스템"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">연구소 C-1 구역</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">키메라</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/cr-cr-08.png"
+                              alt="키메라"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>[마가티아의 비밀] 유령 파웬 </span>
+                          <i class="ic-chevron"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>마스터키를 찾아서</span>
+                          <i class="ic-chevron"></i>
+                          <span>맵 입장 조건 달성</span>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">요괴선사</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/mu-mu-01.png"
+                              alt="요괴선사"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">요괴의 숲</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">대왕지네</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/mu-mu-02.png"
+                              alt="대왕지네"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">50년 된 약초밭</span>
+                          <span class="add-location">- 3층 왼쪽 포탈</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">거대 도라지</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-16.png"
+                              alt="거대 도라지"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">도라지 골</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">30</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">태륜</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/mu-mu-03.png"
+                              alt="태륜"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">떠돌이곰의 영토</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">무공</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/mu-mu-04.png"
+                              alt="무공"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">떠돌이곰의 영토</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button" disabled>
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time is-hour">12</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">선인인형</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/mu-mu-05.png"
+                              alt="선인인형"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">상급 수련장</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">대나무 무사</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/mu-mu-06.png"
+                              alt="대나무 무사"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">50년 된 약초밭</span>
+                          <span class="add-location">- 3층 오른쪽 포탈</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">30</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">그리프</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/mi-mi-03.png"
+                              alt="그리프"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">그리프의 숲</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button" disabled>
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">?</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">마스터 버크</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/mi-mi-05.png"
+                              alt="마스터 버크"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">산양의 골짜기1</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">마뇽</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/cr-cr-13.png"
+                              alt="마뇽"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">마뇽의 숲</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button" disabled>
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">?</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">레비아탄</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/mi-dr-01.png"
+                              alt="레비아탄"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">와이번의 협곡</span>
+                          <span class="add-location">- 1층 왼쪽 히든 포탈</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">도도</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-pa-01.png"
+                              alt="도도"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">추억의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">5</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">릴리노흐</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-pa-02.png"
+                              alt="릴리노흐"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">후회의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">5</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">라이카</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-pa-05.png"
+                              alt="라이카"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">망각의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">5</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">변형된 스텀피</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-17.png"
+                              alt="변형된 스텀피"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">칼바람의 묘지</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">10</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">하늘 수호령</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-18.png"
+                              alt="하늘 수호령"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">수호령의 산책로</span>
+                          <span class="add-location">+ 산책로2, 산책로3</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">?</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">아르마</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-19.png"
+                              alt="아르마"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">아르마의 은신처</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">15</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">거대한 골렘</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-20.png"
+                              alt="거대한 골렘"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">부서진 골렘</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-21.png"
+                              alt="부서진 골렘"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">조각난 골렘</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-22.png"
+                              alt="조각난 골렘"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span
+                            >거대한 골렘 퇴치 시, 부서진 골렘과 조각난 골렘으로
+                            분해</span
+                          >
+                        </div>
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">고통의 미궁 내부4</span>
+                          <span class="add-location">+ 내부5, 내부6</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">10</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">리버스 다크소울</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/fb-23.png"
+                              alt="리버스 다크소울"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">고통의 미궁 최심부1</span>
+                          <span class="add-location"
+                            >+ 최심부2, 최심부6, 중심부2, 중심부4</span
+                          >
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">10</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="global-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="global-footer-info">
+              <h2 class="global-footer-title">몬스터컬렉션</h2>
+              <p class="global-footer-content">
+                MONSTER-COLLECTION site is not associated with NEXON Korea.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <aside class="sidebar sm-only">
+      <h2 class="sidebar-logo">
+        <a href="/">Monster Collection</a>
+      </h2>
+
+      <nav class="sidebar-nav">
+        <h2 class="visually-hidden">메뉴</h2>
+
+        <div class="drawer-menu is-cr">
+          <a class="drawer-menu-button" href="/pages/job.html">직업</a>
+        </div>
+
+        <div class="drawer-menu is-cr">
+          <a class="drawer-menu-button" href="/pages/crosshunter.html"
+            >크로스헌터</a
+          >
+        </div>
+
+        <div class="drawer-menu is-fb is-active">
+          <a class="drawer-menu-button" href="/pages/fieldboss.html"
+            >필드보스</a
+          >
+        </div>
+
+        <div class="drawer-menu is-vi">
+          <a class="drawer-menu-button" href="/pages/victoria-island.html"
+            >빅토리아 아일랜드</a
+          >
+        </div>
+
+        <div class="drawer-menu is-vn">
+          <a class="drawer-menu-button" href="/pages/victoria-isles.html"
+            >빅토리아 인근 섬</a
+          >
+        </div>
+
+        <div class="drawer-menu is-ed">
+          <a class="drawer-menu-button" href="/pages/edlstein.html"
+            >에델슈타인</a
+          >
+        </div>
+
+        <div class="drawer-menu is-el">
+          <a class="drawer-menu-button" href="/pages/elnath.html"
+            >엘나스 산맥</a
+          >
+        </div>
+
+        <div class="drawer-menu is-lu">
+          <a class="drawer-menu-button" href="/pages/ludus-lake.html"
+            >루더스 호수</a
+          >
+        </div>
+
+        <div class="drawer-menu is-aq">
+          <a class="drawer-menu-button" href="/pages/aqua-road.html"
+            >아쿠아로드</a
+          >
+        </div>
+
+        <div class="drawer-menu is-ni">
+          <a class="drawer-menu-button" href="/pages/nihal-desert.html"
+            >니할사막</a
+          >
+        </div>
+
+        <div class="drawer-menu is-mu">
+          <a class="drawer-menu-button" href="/pages/mu-lung.html">무릉도원</a>
+        </div>
+
+        <div class="drawer-menu is-mi">
+          <a class="drawer-menu-button" href="/pages/minar-forest.html"
+            >미나르 숲</a
+          >
+        </div>
+
+        <div class="drawer-menu is-ti">
+          <a class="drawer-menu-button" href="/pages/temple-of-time.html"
+            >시간의 신전</a
+          >
+        </div>
+
+        <div class="drawer-menu is-gr">
+          <a class="drawer-menu-button" href="/pages/grandis.html">그란디스</a>
+        </div>
+
+        <div class="drawer-menu is-ar">
+          <a class="drawer-menu-button" href="/pages/arcane-river.html"
+            >아케인리버</a
+          >
+        </div>
+      </nav>
+    </aside>
+
+    <aside class="timer-modal sm-only">
+      <div class="timer-modal-header">
+        <h2 class="timer-title">타이머</h2>
+        <i class="ic-alarm" aria-hidden></i>
+      </div>
+
+      <div class="timer-menu-content">
+        <ul class="timer-menu-list"></ul>
+      </div>
+    </aside>
+
+    <div class="overlay" aria-hidden></div>
+  </body>
+</html>
