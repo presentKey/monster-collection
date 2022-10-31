@@ -26,4 +26,13 @@
   &:hover {
     cursor: pointer;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $secondary;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
