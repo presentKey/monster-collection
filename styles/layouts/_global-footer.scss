@@ -3,7 +3,7 @@
 
   &-info {
     @include column-flexbox(center, start);
-    height: 100px;
+    height: $global-footer-height;
   }
 
   &-title {
