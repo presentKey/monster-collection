@@ -125,7 +125,7 @@
       </div>
     </header>
 
-    <main class="job-category">
+    <main class="collection-show">
       <div class="container">
         <div class="row">
           <div class="col-md-2">
@@ -202,9 +202,7 @@
                   >
                     <button type="button">엔젤릭버스터</button>
                   </li>
-                  <li class="detail-tab-item" role="tab" aria-labelledby="ark">
-                    <button type="button">아크</button>
-                  </li>
+
                   <li
                     class="detail-tab-item"
                     role="tab"
@@ -234,6 +232,13 @@
                   </li>
                   <li class="detail-tab-item" role="tab" aria-labelledby="zero">
                     <button type="button">제로</button>
+                  </li>
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="demon-slayer"
+                  >
+                    <button type="button">데몬 슬레이어</button>
                   </li>
                 </ul>
               </div>
@@ -480,44 +485,6 @@
                 </li>
 
                 <li class="information-item">
-                  <article id="ark" role="tabpanel" class="information-detail">
-                    <h2 class="title">아크</h2>
-
-                    <div class="content-wrapper">
-                      <div class="monster-group">
-                        <dl class="monster-card">
-                          <dt class="monster-card-name">전사 스펙터</dt>
-                          <dd class="monster-card-image">
-                            <img
-                              src="/assets/images/monster/gr-ve-01.png"
-                              alt="전사 스펙터"
-                            />
-                          </dd>
-                        </dl>
-                        <dl class="monster-card">
-                          <dt class="monster-card-name">마법사 스펙터</dt>
-                          <dd class="monster-card-image">
-                            <img
-                              src="/assets/images/monster/gr-ve-02.png"
-                              alt="마법사 스펙터"
-                            />
-                          </dd>
-                        </dl>
-                      </div>
-                      <div class="register">
-                        <div class="register-info">
-                          <i class="ic-info"></i>
-                          <span
-                            >베르딜에서 헬리시움보다 레벨 낮은 스펙터 등록
-                            가능</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </li>
-
-                <li class="information-item">
                   <article
                     id="illium"
                     role="tabpanel"
@@ -676,7 +643,10 @@
                           <strong class="tag-green">QUEST</strong>
                           <span>험상궃은 녀석들</span>
                           <i class="ic-chevron"></i>
-                          <span>몬스터 처치 후, 퀘스트 포기(반복)</span>
+                          <span
+                            >Mr. 해저드의 부하 A 처치 후, 퀘스트
+                            포기(반복)</span
+                          >
                         </div>
                       </div>
                     </div>
@@ -984,6 +954,14 @@
                           <span>피라미드 던전 (4, 5단계 맵)</span>
                         </div>
                       </div>
+
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">파티퀘스트</strong>
+                          <span>네트의 피라미드</span>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="content-wrapper">
@@ -1006,6 +984,13 @@
                           <span>피라미드 던전(7단계 맵)</span>
                         </div>
                       </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">파티퀘스트</strong>
+                          <span>네트의 피라미드</span>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="content-wrapper">
@@ -1026,6 +1011,21 @@
                           <span>무릉</span>
                           <i class="ic-chevron"></i>
                           <span>선인들의 수련장 던전(5단계 맵)</span>
+                        </div>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">상급 수련장</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
                         </div>
                       </div>
                     </div>
@@ -1116,6 +1116,17 @@
                           <span> 시계탑 최하층 던전(7단계 맵)</span>
                         </div>
                       </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>미스틱 게이트를 통해 입장 </span>
+                        </div>
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">시계탑 깊은 곳</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="content-wrapper">
@@ -1140,6 +1151,67 @@
                         <div class="limit-info">
                           <i class="ic-clipboard"></i>
                           <span>1일 입장 제한 - <strong>6</strong>회</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="information-item">
+                  <article
+                    id="demon-slayer"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">데몬 슬레이어</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">라이카</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-pa-05.png"
+                              alt="라이카"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>데몬슬레이어 생성 시, 초반 스토리 진행</span>
+                          <i class="ic-chevron"></i>
+                          <span
+                            >라이카 3마리 처치 시, 캐릭터 선택창
+                            재접속(반복)</span
+                          >
+                        </div>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>미스틱 게이트를 통해 입장 </span>
+                        </div>
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">망각의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">망각의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">5</strong>
                         </div>
                       </div>
                     </div>
@@ -1170,6 +1242,9 @@
     <aside class="sidebar sm-only">
       <h2 class="sidebar-logo">
         <a href="/">Monster Collection</a>
+        <button class="close-btn" type="button">
+          <i class="ic-close"></i>
+        </button>
       </h2>
 
       <nav class="sidebar-nav">
@@ -1300,6 +1375,9 @@
       <div class="timer-modal-header">
         <h2 class="timer-title">타이머</h2>
         <i class="ic-alarm" aria-hidden></i>
+        <button class="close-btn" type="button">
+          <i class="ic-close"></i>
+        </button>
       </div>
 
       <div class="timer-menu-content">

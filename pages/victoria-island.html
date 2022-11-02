@@ -66,7 +66,7 @@
         </div>
       </div>
 
-      <div class="timer-bar is-open sm-hidden">
+      <div class="timer-bar sm-hidden">
         <div class="container">
           <div class="row">
             <div class="col-sm-4">
@@ -79,7 +79,7 @@
       </div>
     </header>
 
-    <main class="job-category">
+    <main class="collection-show">
       <div class="container">
         <div class="row">
           <div class="col-md-2">
@@ -250,13 +250,6 @@
                           <span class="main-location">미접근 지역</span>
                           <button class="tag-blue" type="button">복사</button>
                         </div>
-                        <div class="limit-info">
-                          <i class="ic-clipboard"></i>
-                          <span
-                            >1일 미스틱 게이트 입장 제한 -
-                            <strong>15</strong>회</span
-                          >
-                        </div>
                       </div>
                     </div>
 
@@ -284,7 +277,7 @@
                           <i class="ic-chevron"></i>
                           <span>'성 후문' 입장</span>
                           <i class="ic-chevron"></i>
-                          <span>퀘스트 포기 후, 바이킹 군단 사냥(반복)</span>
+                          <span>퀘스트 포기 후, 바이킹 군단 처치(반복)</span>
                         </div>
                       </div>
                     </div>
@@ -312,7 +305,7 @@
                           <span>거대 괴수 소환!</span>
                           <i class="ic-chevron"></i>
                           <span
-                            >유적의 거대 괴물 사냥 후, 퀘스트 포기(반복)</span
+                            >유적의 거대 괴물 처치 후, 퀘스트 포기(반복)</span
                           >
                         </div>
                       </div>
@@ -334,6 +327,12 @@
                         <div class="register-info">
                           <i class="ic-info"></i>
                           <span>무릉도장 6층</span>
+                        </div>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>더 시드 6층</span>
                         </div>
                       </div>
                     </div>
@@ -412,7 +411,22 @@
                           <strong class="tag-green">QUEST</strong>
                           <span>쪽지의 주인은?</span>
                           <i class="ic-chevron"></i>
-                          <span>주니어 발록 사냥 후, 퀘스트 포기(반복)</span>
+                          <span>주니어 발록 처치 후, 퀘스트 포기(반복)</span>
+                        </div>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">금지된 제단</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">25</strong>
                         </div>
                       </div>
                     </div>
@@ -443,6 +457,9 @@
     <aside class="sidebar sm-only">
       <h2 class="sidebar-logo">
         <a href="/">Monster Collection</a>
+        <button class="close-btn" type="button">
+          <i class="ic-close"></i>
+        </button>
       </h2>
 
       <nav class="sidebar-nav">
@@ -538,6 +555,9 @@
       <div class="timer-modal-header">
         <h2 class="timer-title">타이머</h2>
         <i class="ic-alarm" aria-hidden></i>
+        <button class="close-btn" type="button">
+          <i class="ic-close"></i>
+        </button>
       </div>
 
       <div class="timer-menu-content">
