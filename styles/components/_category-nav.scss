@@ -1,33 +1,32 @@
 .category-nav {
-  $category-nav-padding-md: 30px;
-
   position: sticky;
-  top: $gnb-height-md + $timer-bar-height - $category-nav-padding-md - 1px;
+  top: $gnb-height-md - 1px;
+  min-height: calc(
+    100vh - #{$gnb-height-md + $timer-bar-height + $global-footer-height}
+  );
+  max-height: calc(100vh - #{$gnb-height-md});
+  margin-top: 30px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 
-  &-content {
-    padding: $category-nav-padding-md 0;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($dark, 0.6);
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba($secondary, 0.4);
+    border-radius: 100px;
   }
 
   &-list {
-    height: 90vh;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba($dark, 0.6);
-      background-clip: padding-box;
-      border: 1px solid transparent;
-      border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: rgba($secondary, 0.4);
-      border-radius: 100px;
-    }
+    width: 100%;
   }
 
   &-item {
@@ -58,6 +57,10 @@
   }
 
   @include responsive(D) {
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
     &-item {
       a {
         @include text-style(16);
