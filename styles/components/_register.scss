@@ -1,45 +1,79 @@
 .register {
   @include text-style(14, $dark);
+  margin-bottom: 20px;
+
+  &:nth-child(odd) {
+    padding: 6px 0;
+    background-color: rgba($black, 0.1);
+    border-radius: 4px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   i {
     margin-right: 2px;
     color: $red;
   }
 
-  &-info {
-    @include inline-flexbox(start);
-    flex-wrap: wrap;
+  &-info,
+  .location-info,
+  .limit-info,
+  .alarm-info {
+    position: relative;
+    padding-left: 20px;
+  }
 
-    .ic-info {
-      position: relative;
-      top: 1px;
-      margin-right: 4px;
-    }
-
+  &-info,
+  .location-info {
     .ic-chevron {
       position: relative;
-      top: 1px;
-      margin: 0 4px;
+      top: 4px;
+      display: inline-block;
       font-size: 20px;
       color: $black;
       transform: rotate(-90deg);
     }
   }
 
+  &-info {
+    .ic-info {
+      position: absolute;
+      top: 6px;
+      left: 0;
+    }
+  }
+
   .location-info {
+    .ic-location {
+      position: absolute;
+      top: 6px;
+      left: 0;
+    }
+
     .main-location {
       font-weight: 700;
+    }
+
+    .tag-blue {
+      margin-left: 4px;
     }
   }
 
   .limit-info {
-    margin-top: 2px;
+    .ic-clipboard {
+      position: absolute;
+      top: 5px;
+      left: 0;
+    }
   }
 
   .alarm-info {
     .ic-alarm {
-      position: relative;
-      top: 1px;
+      position: absolute;
+      top: 6px;
+      left: 0;
     }
 
     .time {
@@ -61,5 +95,32 @@
 
   @include responsive(D) {
     @include text-style(16);
+
+    &:nth-child(odd) {
+      padding: 10px 0;
+    }
+
+    &-info,
+    .location-info {
+      margin-bottom: 4px;
+    }
+
+    &-info .ic-info,
+    .location-info .ic-location {
+      top: 5px;
+    }
+
+    &-info .ic-chevron {
+      top: 3px;
+    }
+
+    .limit-info .ic-clipboard {
+      top: 4px;
+    }
+
+    .tag-green,
+    .tag-blue {
+      @include text-style(14);
+    }
   }
 }

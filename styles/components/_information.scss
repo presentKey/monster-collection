@@ -28,8 +28,6 @@
         span {
           font-size: 14px;
           font-weight: 400;
-          text-decoration: underline;
-          text-underline-position: under;
         }
       }
     }
@@ -50,7 +48,7 @@
   }
 
   @include responsive(T) {
-    padding: 50px 15px;
+    padding: 50px 0px;
 
     &-item {
       margin-bottom: 100px;
@@ -66,7 +64,7 @@
   @include responsive(D) {
     &-detail {
       .title {
-        font-size: 22px;
+        font-size: 20px;
 
         .limit-info span {
           font-size: 16px;
