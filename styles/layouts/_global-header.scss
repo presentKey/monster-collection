@@ -14,7 +14,7 @@
   }
 
   @include responsive(T) {
-    height: $gnb-height-md + $timer-bar-height;
+    height: $gnb-height-md;
 
     .timer-bar {
       top: $gnb-height-md;
