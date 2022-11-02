@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시간의 신전 - 몬스터 컬렉션</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="global-header">
+      <div class="gnb">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="gnb-wrapper">
+                <div class="gnb-left">
+                  <h1 class="logo">
+                    <a href="/">몬스터컬렉션</a>
+                  </h1>
+
+                  <button
+                    class="gnb-menu-button sm-only"
+                    type="button"
+                    aria-label="메뉴 버튼"
+                  >
+                    <i class="ic-menu"></i>
+                  </button>
+                </div>
+
+                <div class="gnb-right">
+                  <div class="gnb-button-group">
+                    <button
+                      class="gnb-timer-button sm-only"
+                      type="button"
+                      aria-label="타이머 버튼"
+                    >
+                      <i class="ic-alarm"></i>
+                    </button>
+
+                    <a
+                      class="gnb-bookmark-button"
+                      href="/"
+                      aria-label="북마크 버튼"
+                    >
+                      <i class="ic-bookmark"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timer-bar sm-hidden">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="timer-bar-content">
+                <ul class="timer-bar-list"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="collection-show">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <nav class="category-nav sm-hidden">
+              <h2 class="visually-hidden">메뉴</h2>
+
+              <div class="category-nav-content">
+                <ul class="category-nav-list">
+                  <li class="category-nav-item">
+                    <a href="/pages/job.html">직업</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/crosshunter.html">크로스헌터</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/fieldboss.html">필드보스</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/victoria-island.html">빅토리아 아일랜드</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/victoria-isles.html">빅토리아 인근 섬</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/edlstein.html">에델슈타인</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/elnath.html">엘나스 산맥</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/ludus-lake.html">루더스 호수</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/aqua-road.html">아쿠아로드</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/nihal-desert.html">니할사막</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/mu-lung.html">무릉도원</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/minar-forest.html">미나르 숲</a>
+                  </li>
+                  <li class="category-nav-item is-active">
+                    <a href="/pages/temple-of-time.html">시간의 신전</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/grandis.html">그란디스</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/pages/arcane-river.html">아케인리버</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+
+          <div class="col-sm-4 col-md-10">
+            <div class="detail-tab">
+              <div class="detail-tab-content">
+                <ul class="detail-tab-list" role="tablist">
+                  <li
+                    class="detail-tab-item is-active"
+                    role="tab"
+                    aria-labelledby="gate-of-the-past"
+                  >
+                    <button type="button">과거의 문</button>
+                  </li>
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="temple-of-time"
+                  >
+                    <button type="button">시간의 신전</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="line sm-only"></div>
+
+            <div class="information">
+              <ul class="information-list">
+                <li class="information-item">
+                  <article
+                    id="gate-of-the-past"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">과거의 문</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">도도</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-pa-01.png"
+                              alt="도도"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>미스틱 게이트를 통해 입장 </span>
+                        </div>
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">추억의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">추억의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">5</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">릴리노흐</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-pa-02.png"
+                              alt="릴리노흐"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>미스틱 게이트를 통해 입장 </span>
+                        </div>
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">후회의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">후회의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">5</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">아카이럼</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-pa-03.png"
+                              alt="아카이럼"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">제로</strong>
+                          <span>챕터 7-4</span>
+                          <i class="ic-chevron"></i>
+                          <span>아카이럼 처치 후, 퀘스트 포기(반복)</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">이계의 사제</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-pa-04.png"
+                              alt="이계의 사제"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">보스</strong>
+                          <span>아카이럼</span>
+                          <i class="ic-chevron"></i>
+                          <span>일정 시간 후, 소환</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">라이카</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-pa-05.png"
+                              alt="라이카"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>데몬슬레이어 생성 시, 초반 스토리 진행</span>
+                          <i class="ic-chevron"></i>
+                          <span
+                            >라이카 3마리 처치 시, 캐릭터 선택창
+                            재접속(반복)</span
+                          >
+                        </div>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>미스틱 게이트를 통해 입장 </span>
+                        </div>
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">망각의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                      </div>
+                      <div class="register">
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">망각의 길5</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                        <div class="alarm-info">
+                          <i class="ic-alarm"></i>
+                          <button class="tag-blue" type="button">
+                            타이머 등록
+                          </button>
+                          <span>젠 시간 - </span>
+                          <strong class="time">5</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="information-item">
+                  <article
+                    id="temple-of-time"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">시간의 신전</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">미하일</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-ti-01.png"
+                              alt="미하일"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">오즈</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-ti-02.png"
+                              alt="오즈"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">이리나</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-ti-03.png"
+                              alt="이리나"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">이카르트</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-ti-04.png"
+                              alt="이카르트"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">호크아이</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-ti-05.png"
+                              alt="호크아이"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">보스</strong>
+                          <span>시그너스 이지</span>
+                          <i class="ic-chevron"></i>
+                          <span>각 기사단장 1번씩 소환</span>
+                        </div>
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">보스</strong>
+                          <span>시그너스 노말</span>
+                          <i class="ic-chevron"></i>
+                          <span
+                            >각 기사단장 1번씩 소환 후, 시그너스 HP가 20% 이하면
+                            모든 기사단장 재소환</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">신수</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-ti-06.png"
+                              alt="신수"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">보스</strong>
+                          <span>시그너스 이지/노말</span>
+                          <i class="ic-chevron"></i>
+                          <span>일정 시간 후, 소환</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">이프리트</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/assets/images/monster/ti-ti-07.png"
+                              alt="이프리트"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+
+                          <span>상급기사B 타격 시, 이프리트 소환</span>
+                        </div>
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">기사의 전당2</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="global-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="global-footer-info">
+              <h2 class="global-footer-title">몬스터컬렉션</h2>
+              <p class="global-footer-content">
+                MONSTER-COLLECTION site is not associated with NEXON Korea.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <aside class="sidebar sm-only">
+      <h2 class="sidebar-logo">
+        <a href="/">Monster Collection</a>
+        <button class="close-btn" type="button">
+          <i class="ic-close"></i>
+        </button>
+      </h2>
+
+      <nav class="sidebar-nav">
+        <h2 class="visually-hidden">메뉴</h2>
+
+        <div class="drawer-menu is-cr">
+          <a class="drawer-menu-button" href="/pages/job.html">직업</a>
+        </div>
+
+        <div class="drawer-menu is-cr">
+          <a class="drawer-menu-button" href="/pages/crosshunter.html"
+            >크로스헌터</a
+          >
+        </div>
+
+        <div class="drawer-menu is-fb">
+          <a class="drawer-menu-button" href="/pages/fieldboss.html"
+            >필드보스</a
+          >
+        </div>
+
+        <div class="drawer-menu is-vi">
+          <a class="drawer-menu-button" href="/pages/victoria-island.html"
+            >빅토리아 아일랜드</a
+          >
+        </div>
+
+        <div class="drawer-menu is-vn">
+          <a class="drawer-menu-button" href="/pages/victoria-isles.html"
+            >빅토리아 인근 섬</a
+          >
+        </div>
+
+        <div class="drawer-menu is-ed">
+          <a class="drawer-menu-button" href="/pages/edlstein.html"
+            >에델슈타인</a
+          >
+        </div>
+
+        <div class="drawer-menu is-el">
+          <a class="drawer-menu-button" href="/pages/elnath.html"
+            >엘나스 산맥</a
+          >
+        </div>
+
+        <div class="drawer-menu is-lu">
+          <a class="drawer-menu-button" href="/pages/ludus-lake.html"
+            >루더스 호수</a
+          >
+        </div>
+
+        <div class="drawer-menu is-aq">
+          <a class="drawer-menu-button" href="/pages/aqua-road.html"
+            >아쿠아로드</a
+          >
+        </div>
+
+        <div class="drawer-menu is-ni">
+          <a class="drawer-menu-button" href="/pages/nihal-desert.html"
+            >니할사막</a
+          >
+        </div>
+
+        <div class="drawer-menu is-mu">
+          <a class="drawer-menu-button" href="/pages/mu-lung.html">무릉도원</a>
+        </div>
+
+        <div class="drawer-menu is-mi">
+          <a class="drawer-menu-button" href="/pages/minar-forest.html"
+            >미나르 숲</a
+          >
+        </div>
+
+        <div class="drawer-menu is-ti is-active">
+          <a class="drawer-menu-button" href="/pages/temple-of-time.html"
+            >시간의 신전</a
+          >
+        </div>
+
+        <div class="drawer-menu is-gr">
+          <a class="drawer-menu-button" href="/pages/grandis.html">그란디스</a>
+        </div>
+
+        <div class="drawer-menu is-ar">
+          <a class="drawer-menu-button" href="/pages/arcane-river.html"
+            >아케인리버</a
+          >
+        </div>
+      </nav>
+    </aside>
+
+    <aside class="timer-modal sm-only">
+      <div class="timer-modal-header">
+        <h2 class="timer-title">타이머</h2>
+        <i class="ic-alarm" aria-hidden></i>
+        <button class="close-btn" type="button">
+          <i class="ic-close"></i>
+        </button>
+      </div>
+
+      <div class="timer-menu-content">
+        <ul class="timer-menu-list"></ul>
+      </div>
+    </aside>
+
+    <div class="overlay" aria-hidden></div>
+  </body>
+</html>
