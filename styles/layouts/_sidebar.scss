@@ -20,17 +20,24 @@
   }
 
   &-logo {
-    @include flexbox(start);
+    @include flexbox(between);
     position: relative;
     top: -#{$padding};
     left: -#{$padding};
-    margin-bottom: 32px;
 
     a {
-      @include text-style(18);
+      @include text-style(14);
       display: block;
       padding: $padding;
+      margin-bottom: 16px;
       color: $black;
+    }
+
+    .close-btn {
+      position: relative;
+      top: -#{$padding};
+      right: -#{$padding};
+      padding: $padding;
     }
   }
 

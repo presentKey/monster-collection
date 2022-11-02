@@ -1,5 +1,6 @@
 .timer-modal {
   $timer-modal-width: 240px;
+  $padding: 8px;
 
   position: fixed;
   top: 0;
@@ -20,6 +21,7 @@
 
   &-header {
     @include flexbox(start);
+    position: relative;
     margin-bottom: 32px;
 
     .timer-title {
@@ -27,11 +29,19 @@
       order: 2;
     }
 
-    i {
+    .ic-alarm {
       position: relative;
       top: 1px;
       order: 1;
       margin-right: 8px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -6px;
+      right: -#{$padding};
+      padding: $padding;
+      font-size: 24px;
     }
   }
 }
