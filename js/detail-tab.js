@@ -50,10 +50,10 @@ function detectDetailTabPanelId() {
   return detailTabPanelList
 }
 
+const detailTabPanelPositionMap = {}
+
 function detectTabPanelPosition() {
   const panelList = detectDetailTabPanelId()
-
-  const detailTabPanelPositionMap = {}
 
   panelList.forEach((panel) => {
     const id = panel.getAttribute('id')
@@ -62,5 +62,31 @@ function detectTabPanelPosition() {
   })
 }
 
+function updateActiveTabOnScroll() {
+  const scrolledAmount =
+    window.scrollY +
+    (window.innerWidth >= 768
+      ? TOP_HEADER_DESKTOP + 100
+      : TOP_HDEDER_MOBILE + 88)
+
+  let newActiveTab
+  if (scrolledAmount >= detailTabPanelPositionMap['replace']) {
+    newActiveTab = detailTabButtonList[1]
+  } else if (scrolledAmount >= detailTabPanelPositionMap['crosshunter-only']) {
+    newActiveTab = detailTabButtonList[0]
+  }
+
+  if (newActiveTab) {
+    newActiveTab = newActiveTab.parentNode
+
+    if (newActiveTab !== currentActiveTab) {
+      newActiveTab.classList.add('is-active')
+      currentActiveTab.classList.remove('is-active')
+      currentActiveTab = newActiveTab
+    }
+  }
+}
+
 window.addEventListener('load', detectTabPanelPosition)
 window.addEventListener('resize', detectTabPanelPosition)
+window.addEventListener('scroll', updateActiveTabOnScroll)
