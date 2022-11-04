@@ -1,11 +1,6 @@
 .timer-menu-content {
   .timer-menu-item {
-    display: none;
     margin-bottom: 12px;
-
-    &.is-active {
-      display: flex;
-    }
 
     &:last-child {
       margin-bottom: 0;
