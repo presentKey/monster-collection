@@ -274,9 +274,18 @@ function executeScrollActiveTab(currentCategory, scrolledAmount) {
 }
 
 function updateActiveTabOnScroll() {
-  const currentCategory = document.querySelector(
-    '.category-nav-item.is-active'
-  ).innerText
+  let currentCategory
+
+  if (window.innerWidth < 768) {
+    currentCategory = document.querySelector(
+      '.sidebar-nav-item.is-active a'
+    ).innerHTML
+  } else {
+    currentCategory = document.querySelector(
+      '.category-nav-item.is-active a'
+    ).innerText
+  }
+
   const scrolledAmount =
     window.scrollY +
     (window.innerWidth >= 768
