@@ -107,7 +107,7 @@ function crosshunter(scrolledAmount) {
     newActiveTab = detailTabButtonList[1]
   }
 }
-function fieldboss(scrolledAmount) {
+function fieldboss() {
   newActiveTab = detailTabButtonList[0]
 }
 function victoriaIsland(scrolledAmount) {
@@ -121,10 +121,10 @@ function victoriaIsland(scrolledAmount) {
     newActiveTab = detailTabButtonList[1]
   }
 }
-function victoriaIsles(scrolledAmount) {
+function victoriaIsles() {
   newActiveTab = detailTabButtonList[0]
 }
-function edlstein(scrolledAmount) {
+function edlstein() {
   newActiveTab = detailTabButtonList[0]
 }
 function elnath(scrolledAmount) {
@@ -153,7 +153,7 @@ function ludusLake(scrolledAmount) {
     newActiveTab = detailTabButtonList[3]
   }
 }
-function aquaLoad(scrolledAmount) {
+function aquaLoad() {
   newActiveTab = detailTabButtonList[0]
 }
 function nihalDesert(scrolledAmount) {
@@ -167,7 +167,7 @@ function nihalDesert(scrolledAmount) {
     newActiveTab = detailTabButtonList[1]
   }
 }
-function muLung(scrolledAmount) {
+function muLung() {
   newActiveTab = detailTabButtonList[0]
 }
 function minarForest(scrolledAmount) {
@@ -194,10 +194,12 @@ function templeOfTime(scrolledAmount) {
 }
 function grandis(scrolledAmount) {
   if (scrolledAmount >= detailTabPanelPositionMap['toolen-city']) {
-    newActiveTab = detailTabButtonList[7]
+    newActiveTab = detailTabButtonList[8]
   } else if (scrolledAmount >= detailTabPanelPositionMap['narin']) {
-    newActiveTab = detailTabButtonList[6]
+    newActiveTab = detailTabButtonList[7]
   } else if (scrolledAmount >= detailTabPanelPositionMap['cheong-woon']) {
+    newActiveTab = detailTabButtonList[6]
+  } else if (scrolledAmount >= detailTabPanelPositionMap['savage-terminal']) {
     newActiveTab = detailTabButtonList[5]
   } else if (scrolledAmount >= detailTabPanelPositionMap['asylum']) {
     newActiveTab = detailTabButtonList[4]
@@ -212,61 +214,80 @@ function grandis(scrolledAmount) {
   }
 
   if (window.scrollY + window.innerHeight === document.body.offsetHeight) {
-    newActiveTab = detailTabButtonList[7]
+    newActiveTab = detailTabButtonList[8]
   }
 }
-function arcaneRiver(scrolledAmount) {
+function arcaneRiver() {
   newActiveTab = detailTabButtonList[0]
+}
+
+const ActiveTabMap = {
+  직업(scrolledAmount) {
+    job(scrolledAmount)
+  },
+  크로스헌터(scrolledAmount) {
+    crosshunter(scrolledAmount)
+  },
+  필드보스() {
+    fieldboss()
+  },
+  '빅토리아 아일랜드'(scrolledAmount) {
+    victoriaIsland(scrolledAmount)
+  },
+  '빅토리아 인근 섬'() {
+    victoriaIsles()
+  },
+  에델슈타인() {
+    edlstein()
+  },
+  '엘나스 산맥'(scrolledAmount) {
+    elnath(scrolledAmount)
+  },
+  '루더스 호수'(scrolledAmount) {
+    ludusLake(scrolledAmount)
+  },
+  아쿠아로드() {
+    aquaLoad()
+  },
+  니할사막(scrolledAmount) {
+    nihalDesert(scrolledAmount)
+  },
+  무릉도원() {
+    muLung()
+  },
+  '미나르 숲'(scrolledAmount) {
+    minarForest(scrolledAmount)
+  },
+  '시간의 신전'(scrolledAmount) {
+    templeOfTime(scrolledAmount)
+  },
+  그란디스(scrolledAmount) {
+    grandis(scrolledAmount)
+  },
+  아케인리버() {
+    arcaneRiver()
+  },
+}
+
+function executeScrollActiveTab(currentCategory, scrolledAmount) {
+  ActiveTabMap[currentCategory](scrolledAmount)
 }
 
 function updateActiveTabOnScroll() {
   const currentCategory = document.querySelector(
     '.category-nav-item.is-active'
   ).innerText
-
-  if (disableUpdating) {
-    return
-  }
-
   const scrolledAmount =
     window.scrollY +
     (window.innerWidth >= 768
       ? TOP_HEADER_DESKTOP + 100
       : TOP_HDEDER_MOBILE + 88)
 
-  if (currentCategory === '직업') {
-    job(scrolledAmount)
-  } else if (currentCategory === '크로스헌터') {
-    crosshunter(scrolledAmount)
-  } else if (currentCategory === '필드보스') {
-    fieldboss(scrolledAmount)
-  } else if (currentCategory === '빅토리아 아일랜드') {
-    victoriaIsland(scrolledAmount)
-  } else if (currentCategory === '빅토리아 인근 섬') {
-    victoriaIsles(scrolledAmount)
-  } else if (currentCategory === '에델슈타인') {
-    edlstein(scrolledAmount)
-  } else if (currentCategory === '엘나스 산맥') {
-    elnath(scrolledAmount)
-  } else if (currentCategory === '루더스 호수') {
-    ludusLake(scrolledAmount)
-  } else if (currentCategory === '아쿠아로드') {
-    aquaLoad(scrolledAmount)
-  } else if (currentCategory === '니할사막') {
-    nihalDesert(scrolledAmount)
-  } else if (currentCategory === '무릉도원') {
-    muLung(scrolledAmount)
-  } else if (currentCategory === '미나르 숲') {
-    minarForest(scrolledAmount)
-  } else if (currentCategory === '시간의 신전') {
-    templeOfTime(scrolledAmount)
-  } else if (currentCategory === '그란디스') {
-    grandis(scrolledAmount)
-  } else if (currentCategory === '아케인리버') {
-    arcaneRiver(scrolledAmount)
-  } else {
+  if (disableUpdating) {
     return
   }
+
+  executeScrollActiveTab(currentCategory, scrolledAmount)
 
   if (newActiveTab) {
     newActiveTab = newActiveTab.parentNode
