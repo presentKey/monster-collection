@@ -1,7 +1,6 @@
 const setTimerButtonList = document.querySelectorAll(
   '.register .alarm-info button'
 )
-
 const timerBar = document.querySelector('.timer-bar')
 const timerBarList = timerBar.querySelector('.timer-bar-list')
 const _timerModal = document.querySelector('.timer-modal')
@@ -9,7 +8,7 @@ const timerModalList = _timerModal.querySelector('.timer-menu-list')
 
 let deleteButtonList = timerBar.querySelectorAll('.ic-close')
 let deleteButtonList_timerModal = timerModalList.querySelectorAll('.ic-close')
-
+let registeredMonsterNameSet = new Set()
 let currentTimerBarItems
 let currentTimermodalItems
 
@@ -36,6 +35,8 @@ function deleteTimer_timerBar() {
     if (existMonster === selectMonster) {
       timerBarList.removeChild(selectTimerBarItem)
       timerModalList.removeChild(item)
+      registeredMonsterNameSet.delete(selectMonster)
+      updateTimerBarItems()
     }
   })
 }
@@ -55,6 +56,8 @@ function deleteTimer_timerModal() {
     if (existMonster === selectMonster) {
       timerBarList.removeChild(item)
       timerModalList.removeChild(selectTimerModalItem)
+      registeredMonsterNameSet.delete(selectMonster)
+      updateTimerBarItems()
     }
   })
 }
@@ -113,6 +116,18 @@ function SetTimer() {
         </div>
       </div>
     </li>`
+
+  if (currentTimerBarItems !== undefined) {
+    for (let i = 0; i < currentTimerBarItems.length; i++) {
+      registeredMonsterNameSet.add(
+        currentTimerBarItems[i].querySelector('img').getAttribute('alt')
+      )
+    }
+
+    if (registeredMonsterNameSet.has(monsterImageName)) {
+      return
+    }
+  }
 
   timerBarList.insertAdjacentHTML('beforeend', newTimer)
   timerModalList.insertAdjacentHTML('beforeend', newTimer_timerModal)
