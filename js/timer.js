@@ -3,8 +3,8 @@ const setTimerButtonList = document.querySelectorAll(
 )
 const timerBar = document.querySelector('.timer-bar')
 const timerBarList = timerBar.querySelector('.timer-bar-list')
-const _timerModal = document.querySelector('.timer-modal')
-const timerModalList = _timerModal.querySelector('.timer-menu-list')
+const timerModal = document.querySelector('.timer-modal')
+const timerModalList = timerModal.querySelector('.timer-menu-list')
 
 let deleteButtonList = timerBar.querySelectorAll('.ic-close')
 let deleteButtonList_timerModal = timerModalList.querySelectorAll('.ic-close')
@@ -12,7 +12,7 @@ let registeredMonsterNameSet = new Set()
 let currentTimerBarItems
 let currentTimermodalItems
 
-function updateTimerBarItems() {
+function updateTimerItems() {
   currentTimerBarItems = document.querySelectorAll('.timer-bar .timer-bar-item')
   deleteButtonList = document.querySelectorAll('.timer-bar .ic-close')
 
@@ -22,6 +22,22 @@ function updateTimerBarItems() {
   deleteButtonList_timerModal = document.querySelectorAll(
     '.timer-modal .timer-menu-list .ic-close'
   )
+
+  deleteButtonList.forEach((button) => {
+    button.addEventListener('click', deleteTimer_timerBar)
+  })
+
+  deleteButtonList_timerModal.forEach((button) => {
+    button.addEventListener('click', deleteTimer_timerModal)
+  })
+}
+
+function timerBarDisplay() {
+  if (currentTimerBarItems.length >= 1) {
+    timerBar.classList.add('is-open')
+  } else {
+    timerBar.classList.remove('is-open')
+  }
 }
 
 function deleteTimer_timerBar() {
@@ -36,9 +52,11 @@ function deleteTimer_timerBar() {
       timerBarList.removeChild(selectTimerBarItem)
       timerModalList.removeChild(item)
       registeredMonsterNameSet.delete(selectMonster)
-      updateTimerBarItems()
+      updateTimerItems()
     }
   })
+
+  timerBarDisplay()
 }
 
 deleteButtonList.forEach((button) => {
@@ -57,9 +75,11 @@ function deleteTimer_timerModal() {
       timerBarList.removeChild(item)
       timerModalList.removeChild(selectTimerModalItem)
       registeredMonsterNameSet.delete(selectMonster)
-      updateTimerBarItems()
+      updateTimerItems()
     }
   })
+
+  timerBarDisplay()
 }
 
 deleteButtonList_timerModal.forEach((button) => {
@@ -67,12 +87,12 @@ deleteButtonList_timerModal.forEach((button) => {
 })
 
 function SetTimer() {
-  const monsterImage = this.parentNode.parentNode.parentNode.querySelector(
+  let monsterImage = this.parentNode.parentNode.parentNode.querySelector(
     '.monster-card-image img'
   )
-  const monsterImageSrc = monsterImage.getAttribute('src')
-  const monsterImageName = monsterImage.getAttribute('alt')
-  const time = this.parentNode.querySelector('.time').innerHTML
+  let monsterImageSrc = monsterImage.getAttribute('src')
+  let monsterImageName = monsterImage.getAttribute('alt')
+  let time = this.parentNode.querySelector('.time').innerHTML
 
   const newTimer = `<li class="timer-bar-item">
       <div class="timer">
@@ -132,15 +152,8 @@ function SetTimer() {
   timerBarList.insertAdjacentHTML('beforeend', newTimer)
   timerModalList.insertAdjacentHTML('beforeend', newTimer_timerModal)
 
-  updateTimerBarItems()
-
-  deleteButtonList.forEach((button) => {
-    button.addEventListener('click', deleteTimer_timerBar)
-  })
-
-  deleteButtonList_timerModal.forEach((button) => {
-    button.addEventListener('click', deleteTimer_timerModal)
-  })
+  updateTimerItems()
+  timerBarDisplay()
 }
 
 setTimerButtonList.forEach((button) => {

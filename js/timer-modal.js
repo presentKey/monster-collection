@@ -1,5 +1,4 @@
 const timerModalButton = document.querySelector('.gnb-timer-button')
-const timerModal = document.querySelector('.timer-modal')
 const timerModalCloseButton = timerModal.querySelector('.close-btn')
 const timerModalOverlay = document.querySelector('.overlay')
 
