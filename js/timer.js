@@ -10,13 +10,14 @@ let deleteButtonList = timerBar.querySelectorAll('.ic-close')
 let deleteButtonList_timerModal = timerModalList.querySelectorAll('.ic-close')
 let registeredMonsterNameSet = new Set()
 let currentTimerBarItems
-let currentTimermodalItems
+let currentTimerModalItems
+let timerInterval
 
 function updateTimerItems() {
   currentTimerBarItems = document.querySelectorAll('.timer-bar .timer-bar-item')
   deleteButtonList = document.querySelectorAll('.timer-bar .ic-close')
 
-  currentTimermodalItems = document.querySelectorAll(
+  currentTimerModalItems = document.querySelectorAll(
     '.timer-modal .timer-menu-item'
   )
   deleteButtonList_timerModal = document.querySelectorAll(
@@ -46,13 +47,14 @@ function deleteTimer_timerBar() {
     .querySelector('img')
     .getAttribute('alt')
 
-  currentTimermodalItems.forEach((item) => {
+  currentTimerModalItems.forEach((item) => {
     const existMonster = item.querySelector('img').getAttribute('alt')
     if (existMonster === selectMonster) {
       timerBarList.removeChild(selectTimerBarItem)
       timerModalList.removeChild(item)
       registeredMonsterNameSet.delete(selectMonster)
       updateTimerItems()
+      clearInterval(timerInterval)
     }
   })
 
@@ -76,6 +78,7 @@ function deleteTimer_timerModal() {
       timerModalList.removeChild(selectTimerModalItem)
       registeredMonsterNameSet.delete(selectMonster)
       updateTimerItems()
+      clearInterval(timerInterval)
     }
   })
 
@@ -104,7 +107,7 @@ function SetTimer() {
             />
           </div>
           <strong class="time"
-            ><span class="minute">${time}</span> :
+            ><span class="minute">${time.padStart(2, '0')}</span> :
             <span class="second">00</span></strong
           >
         </div>
@@ -125,7 +128,7 @@ function SetTimer() {
             />
           </div>
           <strong class="time"
-            ><span class="minute">${time}</span> :
+            ><span class="minute">${time.padStart(2, '0')}</span> :
             <span class="second">00</span></strong
           >
         </div>
@@ -156,6 +159,61 @@ function SetTimer() {
   timerBarDisplay()
 }
 
+function playTimer() {
+  let timerMin = this.parentNode.querySelector('.time').innerText
+  let monsterName = this.parentNode.parentNode.parentNode
+    .querySelector('.monster-card-image img')
+    .getAttribute('alt')
+  let registeredTimer_timerBar
+  let registeredTimer_timerModal
+  let registeredtMonsterName
+
+  currentTimerBarItems.forEach((timer) => {
+    registeredTimer_timerBar = timer
+    registeredtMonsterName = timer.querySelector('img').getAttribute('alt')
+  })
+
+  currentTimerModalItems.forEach((timer) => {
+    registeredTimer_timerModal = timer
+    registeredtMonsterName = timer.querySelector('img').getAttribute('alt')
+  })
+
+  let time = timerMin * 60
+
+  if (registeredMonsterNameSet.has(monsterName)) {
+    return
+  }
+
+  timerInterval = setInterval(() => {
+    let min = parseInt(time / 60)
+    let sec = time % 60
+    if (monsterName === registeredtMonsterName) {
+      registeredTimer_timerBar.querySelector('.minute').innerText = min
+        .toString()
+        .padStart(2, '0')
+      registeredTimer_timerBar.querySelector('.second').innerText = sec
+        .toString()
+        .padStart(2, '0')
+
+      registeredTimer_timerModal.querySelector('.minute').innerText = min
+        .toString()
+        .padStart(2, '0')
+      registeredTimer_timerModal.querySelector('.second').innerText = sec
+        .toString()
+        .padStart(2, '0')
+
+      time--
+
+      if (time < 0) {
+        clearInterval(timerInterval)
+        registeredTimer_timerBar.children[0].classList.add('is-alarm')
+        registeredTimer_timerModal.children[0].classList.add('is-alarm')
+      }
+    }
+  }, 1000)
+}
+
 setTimerButtonList.forEach((button) => {
   button.addEventListener('click', SetTimer)
+  button.addEventListener('click', playTimer)
 })
