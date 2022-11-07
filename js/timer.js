@@ -7,7 +7,6 @@ const timerModal = document.querySelector('.timer-modal')
 const timerModalList = timerModal.querySelector('.timer-menu-list')
 
 let registeredInformationMap = new Map()
-let intervalMap = new Map()
 let currentTimerBarItems
 let currentTimerModalItems
 let deleteButtonList_timerBar
@@ -51,40 +50,42 @@ function deleteTimer() {
   }
 }
 
-function timerInterval(monsterName, time, timerBar, timerModal) {
-  let timerInterval = setInterval(() => {
-    intervalMap.set(monsterName, timerInterval)
+function timerInterval(monsterName, time, timerBarItem, timerModalItem) {
+  let intervalMap = new Map()
+
+  let interval = setInterval(() => {
+    intervalMap.set(monsterName, interval)
     if (!registeredInformationMap.has(monsterName)) {
       clearInterval(intervalMap.get(monsterName))
       intervalMap.delete(monsterName)
-    } else if (timerBar === undefined) {
+    } else if (timerBarItem === undefined) {
       clearInterval(intervalMap.get(monsterName))
       intervalMap.delete(monsterName)
     } else {
       let min = parseInt(time / 60)
       let sec = time % 60
 
-      timerBar.querySelector('.minute').innerText = min
+      timerBarItem.querySelector('.minute').innerText = min
         .toString()
         .padStart(2, '0')
-      timerBar.querySelector('.second').innerText = sec
+      timerBarItem.querySelector('.second').innerText = sec
         .toString()
         .padStart(2, '0')
 
-      timerModal.querySelector('.minute').innerText = min
+      timerModalItem.querySelector('.minute').innerText = min
         .toString()
         .padStart(2, '0')
-      timerModal.querySelector('.second').innerText = sec
+      timerModalItem.querySelector('.second').innerText = sec
         .toString()
         .padStart(2, '0')
 
       time--
 
       if (time < 0) {
-        clearInterval(timerInterval)
+        clearInterval(interval)
         intervalMap.delete(monsterName)
-        timerBar.children[0].classList.add('is-alarm')
-        timerModal.children[0].classList.add('is-alarm')
+        timerBarItem.children[0].classList.add('is-alarm')
+        timerModalItem.children[0].classList.add('is-alarm')
       }
     }
   }, 1000)
