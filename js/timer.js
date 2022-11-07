@@ -12,7 +12,6 @@ let currentTimerBarItems
 let currentTimerModalItems
 let deleteButtonList_timerBar
 let deleteButtonList_timerModal
-let deleteAble
 
 function timerBarDisplay() {
   if (registeredInformationMap.size >= 1) {
@@ -41,8 +40,6 @@ function deleteTimer() {
     .querySelector('img')
     .getAttribute('alt')
 
-  deleteAble = true
-
   if (registeredInformationMap.has(selectMonster)) {
     timerBarList.removeChild(registeredInformationMap.get(selectMonster)[2])
     timerModalList.removeChild(registeredInformationMap.get(selectMonster)[3])
@@ -55,43 +52,39 @@ function deleteTimer() {
 }
 
 function timerInterval(monsterName, time, timerBar, timerModal) {
-  deleteAble = false
-
   let timerInterval = setInterval(() => {
     intervalMap.set(monsterName, timerInterval)
     if (!registeredInformationMap.has(monsterName)) {
       clearInterval(intervalMap.get(monsterName))
       intervalMap.delete(monsterName)
+    } else if (timerBar === undefined) {
+      clearInterval(intervalMap.get(monsterName))
+      intervalMap.delete(monsterName)
     } else {
-      if (deleteAble) {
-        clearInterval(intervalMap.get(monsterName))
+      let min = parseInt(time / 60)
+      let sec = time % 60
+
+      timerBar.querySelector('.minute').innerText = min
+        .toString()
+        .padStart(2, '0')
+      timerBar.querySelector('.second').innerText = sec
+        .toString()
+        .padStart(2, '0')
+
+      timerModal.querySelector('.minute').innerText = min
+        .toString()
+        .padStart(2, '0')
+      timerModal.querySelector('.second').innerText = sec
+        .toString()
+        .padStart(2, '0')
+
+      time--
+
+      if (time < 0) {
+        clearInterval(timerInterval)
         intervalMap.delete(monsterName)
-      } else {
-        let min = parseInt(time / 60)
-        let sec = time % 60
-
-        timerBar.querySelector('.minute').innerText = min
-          .toString()
-          .padStart(2, '0')
-        timerBar.querySelector('.second').innerText = sec
-          .toString()
-          .padStart(2, '0')
-
-        timerModal.querySelector('.minute').innerText = min
-          .toString()
-          .padStart(2, '0')
-        timerModal.querySelector('.second').innerText = sec
-          .toString()
-          .padStart(2, '0')
-
-        time--
-
-        if (time < 0) {
-          clearInterval(timerInterval)
-          intervalMap.delete(monsterName)
-          timerBar.children[0].classList.add('is-alarm')
-          timerModal.children[0].classList.add('is-alarm')
-        }
+        timerBar.children[0].classList.add('is-alarm')
+        timerModal.children[0].classList.add('is-alarm')
       }
     }
   }, 1000)
