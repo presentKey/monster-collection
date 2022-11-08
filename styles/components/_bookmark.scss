@@ -4,10 +4,19 @@
   &-detail {
     .title {
       @include text-style(16, $dark);
+      @include flexbox(between);
       padding: 2px;
       margin-bottom: 16px;
       background-color: rgba($blue, 0.6);
       border-radius: 4px;
+
+      .delete-all-btn {
+        @include text-style(13, $white);
+        padding: 0 6px;
+        margin-right: 6px;
+        background: $red;
+        border-radius: 4px;
+      }
     }
   }
 

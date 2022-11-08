@@ -2,6 +2,7 @@ const informationMonsterCard = document.querySelectorAll(
   '.information .monster-card'
 )
 const bookmarkPage = document.querySelector('.bookmark .title')
+const deleteAllButton = document.querySelector('.bookmark .delete-all-btn')
 
 function saveBookmark() {
   const monsterCard = this
@@ -50,12 +51,14 @@ if (bookmarkPage !== null) {
   showBookmark()
 }
 
-let bookmarkDeleteButtonList = document.querySelectorAll('.bookmark .ic-close')
+let bookmarkDeleteButtonList = document.querySelectorAll(
+  '.bookmark .delete-btn'
+)
 
 function deleteBookmark() {
   const monsterName =
-    this.parentNode.parentNode.querySelector('.monster-card-name').innerText
-  const targetContent = this.parentNode.parentNode
+    this.parentNode.querySelector('.monster-card-name').innerText
+  const targetContent = this.parentNode
 
   targetContent.parentNode.removeChild(targetContent)
   window.localStorage.removeItem(monsterName)
@@ -64,3 +67,19 @@ function deleteBookmark() {
 bookmarkDeleteButtonList.forEach((button) => {
   button.addEventListener('click', deleteBookmark)
 })
+
+function deleteAllBookmark() {
+  const bookmarkDetail = document.querySelector('.bookmark-detail')
+  const contentWrapperAll = document.querySelectorAll(
+    '.bookmark .content-wrapper'
+  )
+
+  for (const item of contentWrapperAll) {
+    bookmarkDetail.removeChild(item)
+  }
+  window.localStorage.clear()
+}
+
+if (deleteAllButton !== null) {
+  deleteAllButton.addEventListener('click', deleteAllBookmark)
+}
