@@ -48,7 +48,7 @@
   }
 
   @include responsive(T) {
-    padding: 50px 0px;
+    padding: 50px 0;
 
     &-item {
       margin-bottom: 100px;
