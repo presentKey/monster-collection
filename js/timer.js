@@ -6,6 +6,10 @@ const timerBarList = timerBar.querySelector('.timer-bar-list')
 const timerModal = document.querySelector('.timer-modal')
 const timerModalList = timerModal.querySelector('.timer-menu-list')
 
+const collectionShow = document.querySelector('.collection-show')
+const categoryNav = document.querySelector('.category-nav')
+const tabletMedia = window.matchMedia('screen and (min-width: 768px)')
+
 let registeredInformationMap = new Map()
 let resetIntervalMap = new Map()
 let currentTimerBarItems
@@ -15,12 +19,30 @@ let deleteButtonList_timerModal
 let resetButtonList_timerBar
 let resetButtonList_timerModal
 
+function mediaTimerBar() {
+  if (tabletMedia.matches && registeredInformationMap.size >= 1) {
+    collectionShow.style.paddingTop = '50px'
+    detailTab.style.top = '110px'
+    categoryNav.style.top = '109px'
+  } else if (tabletMedia.matches && registeredInformationMap.size === 0) {
+    collectionShow.style.paddingTop = '0px'
+    detailTab.style.top = '60px'
+    categoryNav.style.top = '59px'
+  } else {
+    collectionShow.style.paddingTop = '0px'
+    detailTab.style.top = '50px'
+  }
+}
+
+window.addEventListener('resize', _.throttle(mediaTimerBar, 1000))
+
 function timerBarDisplay() {
   if (registeredInformationMap.size >= 1) {
     timerBar.classList.add('is-open')
   } else {
     timerBar.classList.remove('is-open')
   }
+  mediaTimerBar()
 }
 
 function updateTimerItems() {

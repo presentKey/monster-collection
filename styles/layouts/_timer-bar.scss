@@ -3,7 +3,6 @@
   height: $timer-bar-height;
   background-color: $white;
   border-bottom: 1px solid $border;
-  transition: transform 300ms ease-in-out;
   transform: translate3d(0, -#{$timer-bar-height}, 0);
 
   &.is-open {
