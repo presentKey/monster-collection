@@ -7,10 +7,13 @@ const timerModal = document.querySelector('.timer-modal')
 const timerModalList = timerModal.querySelector('.timer-menu-list')
 
 let registeredInformationMap = new Map()
+let resetIntervalMap = new Map()
 let currentTimerBarItems
 let currentTimerModalItems
 let deleteButtonList_timerBar
 let deleteButtonList_timerModal
+let resetButtonList_timerBar
+let resetButtonList_timerModal
 
 function timerBarDisplay() {
   if (registeredInformationMap.size >= 1) {
@@ -30,6 +33,22 @@ function updateTimerItems() {
   deleteButtonList_timerModal = document.querySelectorAll(
     '.timer-modal .timer-menu-list .ic-close'
   )
+
+  resetButtonList_timerBar = document.querySelectorAll('.timer-bar .ic-history')
+  resetButtonList_timerModal = document.querySelectorAll(
+    '.timer-modal .timer-menu-list .ic-history'
+  )
+}
+
+function resetTimer(
+  resetFlag,
+  monsterName,
+  time,
+  timerBarItem,
+  timerModalItem
+) {
+  resetFlag = true
+  timerInterval(resetFlag, monsterName, time, timerBarItem, timerModalItem)
 }
 
 function deleteTimer() {
@@ -38,29 +57,58 @@ function deleteTimer() {
   let selectMonster = this.parentNode.parentNode
     .querySelector('img')
     .getAttribute('alt')
+  let resetFlag = false
 
   if (registeredInformationMap.has(selectMonster)) {
     timerBarList.removeChild(registeredInformationMap.get(selectMonster)[2])
     timerModalList.removeChild(registeredInformationMap.get(selectMonster)[3])
     registeredInformationMap.delete(selectMonster)
 
-    timerInterval(selectMonster)
+    timerInterval(resetFlag, selectMonster)
     updateTimerItems()
     timerBarDisplay()
   }
 }
 
-function timerInterval(monsterName, time, timerBarItem, timerModalItem) {
+function timerInterval(
+  resetFlag,
+  monsterName,
+  time,
+  timerBarItem,
+  timerModalItem
+) {
   let intervalMap = new Map()
 
   let interval = setInterval(() => {
     intervalMap.set(monsterName, interval)
+    resetIntervalMap.set(interval, monsterName)
+
+    if (resetFlag) {
+      if (timerModalItem.querySelector('.is-alarm')) {
+        timerBarItem.children[0].classList.remove('is-alarm')
+        timerModalItem.children[0].classList.remove('is-alarm')
+        resetFlag = false
+      } else {
+        for (let [key, value] of resetIntervalMap) {
+          if (value === monsterName) {
+            clearInterval(key)
+            intervalMap.delete(monsterName)
+            resetIntervalMap.delete(key)
+            resetFlag = false
+            return
+          }
+        }
+      }
+    }
+
     if (!registeredInformationMap.has(monsterName)) {
       clearInterval(intervalMap.get(monsterName))
       intervalMap.delete(monsterName)
+      resetIntervalMap.delete(interval)
     } else if (timerBarItem === undefined) {
       clearInterval(intervalMap.get(monsterName))
       intervalMap.delete(monsterName)
+      resetIntervalMap.delete(interval)
     } else {
       let min = parseInt(time / 60)
       let sec = time % 60
@@ -84,6 +132,7 @@ function timerInterval(monsterName, time, timerBarItem, timerModalItem) {
       if (time < 0) {
         clearInterval(interval)
         intervalMap.delete(monsterName)
+        resetIntervalMap.delete(interval)
         timerBarItem.children[0].classList.add('is-alarm')
         timerModalItem.children[0].classList.add('is-alarm')
       }
@@ -159,7 +208,9 @@ function setTimer() {
     currentTimerBarItems[currentTimerBarItems.length - 1],
     currentTimerModalItems[currentTimerModalItems.length - 1],
     deleteButtonList_timerBar[currentTimerBarItems.length - 1],
-    deleteButtonList_timerModal[currentTimerModalItems.length - 1]
+    deleteButtonList_timerModal[currentTimerModalItems.length - 1],
+    resetButtonList_timerBar[currentTimerBarItems.length - 1],
+    resetButtonList_timerModal[currentTimerModalItems.length - 1]
   )
 
   let registeredInformationValue =
@@ -168,8 +219,10 @@ function setTimer() {
   let registeredItem_timerModal = registeredInformationValue[3]
 
   let time = registeredInformationValue[1] * 60
+  let resetFlag = false
 
   timerInterval(
+    resetFlag,
     monsterImageName,
     time,
     registeredItem_timerBar,
@@ -180,6 +233,29 @@ function setTimer() {
     deleteButton[4].addEventListener('click', deleteTimer)
     deleteButton[5].addEventListener('click', deleteTimer)
   })
+
+  registeredInformationMap
+    .get(monsterImageName)[6]
+    .addEventListener('click', function () {
+      resetTimer(
+        resetFlag,
+        monsterImageName,
+        time,
+        registeredItem_timerBar,
+        registeredItem_timerModal
+      )
+    })
+  registeredInformationMap
+    .get(monsterImageName)[7]
+    .addEventListener('click', function () {
+      resetTimer(
+        resetFlag,
+        monsterImageName,
+        time,
+        registeredItem_timerBar,
+        registeredItem_timerModal
+      )
+    })
 }
 
 setTimerButtonList.forEach((button) => {
