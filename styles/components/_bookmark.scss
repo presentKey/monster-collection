@@ -18,10 +18,23 @@
   }
 
   .content-wrapper {
+    position: relative;
     margin-bottom: 36px;
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 8px;
+
+      &:active,
+      &:hover {
+        color: $red;
+      }
     }
   }
 

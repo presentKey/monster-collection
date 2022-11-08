@@ -25,23 +25,42 @@ informationMonsterCard.forEach((image) => {
 })
 
 function showBookmark() {
-  if (bookmarkPage !== null) {
-    const bookmarkDetail = document.querySelector('.bookmark-detail')
+  const bookmarkDetail = document.querySelector('.bookmark-detail')
 
-    for (let i = 0; i < window.localStorage.length; i++) {
-      const name = window.localStorage.key(i)
-      const HTML = window.localStorage.getItem(name)
-      const bookmarkWrapper = `<div class="content-wrapper"></div>`
+  for (let i = 0; i < window.localStorage.length; i++) {
+    const name = window.localStorage.key(i)
+    const HTML = window.localStorage.getItem(name)
+    const bookmarkWrapper = `<div class="content-wrapper">
+      <button class="delete-btn" type="button">
+        <i class="ic-close"></i>
+      </button>
+    </div>`
 
-      bookmarkDetail.insertAdjacentHTML('beforeend', bookmarkWrapper)
+    bookmarkDetail.insertAdjacentHTML('beforeend', bookmarkWrapper)
 
-      const bookmarkContent = document.querySelectorAll('.content-wrapper')
+    const bookmarkContent = document.querySelectorAll('.content-wrapper')
 
-      for (const content of JSON.parse(HTML)) {
-        bookmarkContent[i].insertAdjacentHTML('beforeend', content)
-      }
+    for (const content of JSON.parse(HTML)) {
+      bookmarkContent[i].insertAdjacentHTML('beforeend', content)
     }
   }
 }
 
-showBookmark()
+if (bookmarkPage !== null) {
+  showBookmark()
+}
+
+let bookmarkDeleteButtonList = document.querySelectorAll('.bookmark .ic-close')
+
+function deleteBookmark() {
+  const monsterName =
+    this.parentNode.parentNode.querySelector('.monster-card-name').innerText
+  const targetContent = this.parentNode.parentNode
+
+  targetContent.parentNode.removeChild(targetContent)
+  window.localStorage.removeItem(monsterName)
+}
+
+bookmarkDeleteButtonList.forEach((button) => {
+  button.addEventListener('click', deleteBookmark)
+})
