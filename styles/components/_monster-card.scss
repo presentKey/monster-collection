@@ -42,11 +42,25 @@
       height: 100%;
       padding: 4px;
       object-fit: contain;
+      transition: transform 200ms ease-in-out;
+
+      &:active {
+        background-color: rgba($secondary, 0.4);
+      }
     }
   }
 
   @include responsive(T) {
     width: calc(10% - #{$card-margin-md});
     margin-right: $card-margin-md;
+  }
+
+  @include responsive(D) {
+    &-image {
+      img:hover {
+        background-color: rgba($secondary, 0.4);
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    }
   }
 }
