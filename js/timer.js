@@ -18,23 +18,61 @@ let deleteButtonList_timerBar
 let deleteButtonList_timerModal
 let resetButtonList_timerBar
 let resetButtonList_timerModal
+let globalFooterPosition
+
+function detectFooterPosition() {
+  const globalFooter = document.querySelector('.global-footer')
+
+  globalFooterPosition =
+    window.scrollY + globalFooter.getBoundingClientRect().top
+}
+
+let timerBarState
+const openTimerBar = 'open'
+const closeTimerBar = 'close'
+
+function mediaScrollCategoryNav() {
+  if (timerBarState === openTimerBar) {
+    if (window.scrollY + window.innerHeight <= globalFooterPosition) {
+      categoryNav.style.height = 'calc(100vh - 110px)'
+    }
+    if (window.scrollY + window.innerHeight === document.body.offsetHeight) {
+      categoryNav.style.height = 'calc(100vh - 210px)'
+    }
+  } else {
+    if (window.scrollY + window.innerHeight <= globalFooterPosition) {
+      categoryNav.style.height = 'calc(100vh - 50px)'
+    }
+
+    if (window.scrollY + window.innerHeight === document.body.offsetHeight) {
+      categoryNav.style.height = 'calc(100vh - 160px)'
+    }
+  }
+}
 
 function mediaTimerBar() {
   if (tabletMedia.matches && registeredInformationMap.size >= 1) {
     collectionShow.style.paddingTop = '50px'
     detailTab.style.top = '110px'
     categoryNav.style.top = '109px'
+    timerBarState = openTimerBar
+    mediaScrollCategoryNav()
   } else if (tabletMedia.matches && registeredInformationMap.size === 0) {
     collectionShow.style.paddingTop = '0px'
     detailTab.style.top = '60px'
     categoryNav.style.top = '59px'
+    timerBarState = closeTimerBar
+    mediaScrollCategoryNav()
   } else {
     collectionShow.style.paddingTop = '0px'
     detailTab.style.top = '50px'
   }
 }
 
+window.addEventListener('load', detectFooterPosition)
+window.addEventListener('resize', _.throttle(detectFooterPosition, 1000))
 window.addEventListener('resize', _.throttle(mediaTimerBar, 1000))
+window.addEventListener('scroll', _.throttle(mediaScrollCategoryNav, 300))
 
 function timerBarDisplay() {
   if (registeredInformationMap.size >= 1) {

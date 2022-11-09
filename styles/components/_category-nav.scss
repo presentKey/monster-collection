@@ -1,11 +1,14 @@
 .category-nav {
+  $margin-top: 30px;
+
   position: sticky;
   top: $gnb-height-md - 1px;
+  height: calc(100vh - #{$gnb-height-md} - #{$margin-top});
   min-height: calc(
     100vh - #{$gnb-height-md + $timer-bar-height + $global-footer-height}
   );
   max-height: calc(100vh - #{$gnb-height-md});
-  margin-top: 30px;
+  margin-top: $margin-top;
   overflow-y: auto;
   overscroll-behavior: contain;
 
