@@ -32,11 +32,12 @@
 
     .ic-history,
     .ic-close {
-      transition: opacity 200ms ease-in-out;
+      cursor: pointer;
+      transition: color 200ms ease-in-out;
 
       &:active,
       &:hover {
-        opacity: 0.4;
+        color: $white;
       }
     }
 
