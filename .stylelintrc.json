@@ -6,6 +6,7 @@
   "plugins": ["stylelint-scss"],
   "rules": {
     "alpha-value-notation": "number",
+    "at-rule-empty-line-before": null,
     "at-rule-name-case": "lower",
     "at-rule-no-unknown": null,
     "at-rule-semicolon-newline-after": [
@@ -141,6 +142,7 @@
         "severity": "warning"
       }
     ],
+    "string-quotes": "single",
     "string-no-newline": [
       true,
       {
@@ -169,6 +171,7 @@
     "scss/no-duplicate-mixins": true,
     "scss/no-global-function-names": null,
     "scss/operator-no-unspaced": true,
+    "scss/operator-no-newline-after": null,
     "scss/percent-placeholder-pattern": "^.[a-z]+(-[a-z0-9])*"
   }
 }
