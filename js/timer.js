@@ -130,6 +130,11 @@ function deleteTimer() {
   }
 }
 
+function deleteInterval(interval, intervalMap) {
+  clearInterval(interval)
+  intervalMap.delete(interval)
+}
+
 function timerInterval(
   resetFlag,
   monsterName,
@@ -137,10 +142,7 @@ function timerInterval(
   timerBarItem,
   timerModalItem
 ) {
-  let intervalMap = new Map()
-
   let interval = setInterval(() => {
-    intervalMap.set(monsterName, interval)
     resetIntervalMap.set(interval, monsterName)
 
     if (resetFlag) {
@@ -149,11 +151,9 @@ function timerInterval(
         timerModalItem.children[0].classList.remove('is-alarm')
         resetFlag = false
       } else {
-        for (let [key, value] of resetIntervalMap) {
-          if (value === monsterName) {
-            clearInterval(key)
-            intervalMap.delete(monsterName)
-            resetIntervalMap.delete(key)
+        for (let [interval, name] of resetIntervalMap) {
+          if (name === monsterName) {
+            deleteInterval(interval, resetIntervalMap)
             resetFlag = false
             return
           }
@@ -162,13 +162,9 @@ function timerInterval(
     }
 
     if (!registeredInformationMap.has(monsterName)) {
-      clearInterval(intervalMap.get(monsterName))
-      intervalMap.delete(monsterName)
-      resetIntervalMap.delete(interval)
+      deleteInterval(interval, resetIntervalMap)
     } else if (timerBarItem === undefined) {
-      clearInterval(intervalMap.get(monsterName))
-      intervalMap.delete(monsterName)
-      resetIntervalMap.delete(interval)
+      deleteInterval(interval, resetIntervalMap)
     } else {
       let min = parseInt(time / 60)
       let sec = time % 60
@@ -190,9 +186,7 @@ function timerInterval(
       time--
 
       if (time < 0) {
-        clearInterval(interval)
-        intervalMap.delete(monsterName)
-        resetIntervalMap.delete(interval)
+        deleteInterval(interval, resetIntervalMap)
         timerBarItem.children[0].classList.add('is-alarm')
         timerModalItem.children[0].classList.add('is-alarm')
       }
