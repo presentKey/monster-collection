@@ -20,6 +20,10 @@
   @include responsive(T) {
     height: $gnb-height-md;
 
+    &.is-main {
+      height: $gnb-height-md;
+    }
+
     .timer-bar {
       top: $gnb-height-md;
     }
