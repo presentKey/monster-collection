@@ -4,8 +4,8 @@
   position: relative;
 
   &-slider {
+    position: relative;
     margin: 0 -#{$grid-margin};
-    margin-bottom: 4px;
   }
 
   .page-card {
@@ -46,6 +46,46 @@
     }
   }
 
+  &-controls {
+    @include position-center;
+    @include flexbox(between);
+    width: 100%;
+    padding: 0 15px;
+
+    .control-button {
+      width: 34px;
+      height: 34px;
+      font-size: 24px;
+      color: $primary;
+      background-color: $white;
+      border-radius: 50%;
+      transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
+
+      i {
+        display: block;
+      }
+
+      &.is-prev {
+        i {
+          margin-left: -3px;
+          transform: rotate(90deg);
+        }
+      }
+
+      &.is-next {
+        i {
+          margin-right: -3px;
+          transform: rotate(-90deg);
+        }
+      }
+
+      &:hover {
+        color: $white;
+        background-color: $green;
+      }
+    }
+  }
+
   &-thumbnail {
     @include position-center-x;
     top: 8px;
@@ -77,6 +117,37 @@
 
       img {
         display: none;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    @include flexbox;
+
+    &-slider {
+      width: 40%;
+      margin: 0;
+    }
+
+    .page-card {
+      &-text {
+        height: 50px;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-slider {
+      width: 100%;
+      margin: 0;
+    }
+    &-controls {
+      padding: 0 26px;
+
+      .control-button {
+        width: 40px;
+        height: 40px;
+        font-size: 28px;
       }
     }
   }
