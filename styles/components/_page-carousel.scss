@@ -11,6 +11,12 @@
 
   .page-card {
     position: relative;
+    transition: opacity 100ms ease-in-out;
+
+    &:active {
+      opacity: 0.6;
+    }
+
     &-image {
       position: relative;
       width: 100%;
@@ -145,6 +151,21 @@
       width: 100%;
       margin: 0;
     }
+
+    .page-card {
+      &:hover {
+        opacity: 0.6;
+      }
+
+      &-text {
+        height: 70px;
+
+        .text {
+          @include text-style(18, $black);
+        }
+      }
+    }
+
     &-controls {
       padding: 0 26px;
 
