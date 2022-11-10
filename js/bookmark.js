@@ -2,10 +2,25 @@ const informationMonsterCard = document.querySelectorAll(
   '.information .monster-card'
 )
 const bookmarkPage = document.querySelector('.bookmark .title')
+const bookmarkToast = document.querySelector('.bookmark-toast')
 const bookmarkText = 'bookmark'
 
 let bookmarkDeleteButtonList
 let deleteAllButton
+
+function toastAnimation() {
+  const toastPopUP = [
+    { top: '-30px', offset: 0 },
+    { top: '15px', offset: 0.7 },
+    { top: '-30px', offset: 1 },
+  ]
+  const toastTiming = {
+    duration: 3000,
+    easing: 'ease',
+  }
+
+  bookmarkToast.animate(toastPopUP, toastTiming)
+}
 
 function saveBookmark() {
   const monsterCard = this
@@ -24,6 +39,8 @@ function saveBookmark() {
     localStorageKey,
     JSON.stringify(bookmarkInformationArray)
   )
+
+  toastAnimation()
 }
 
 informationMonsterCard.forEach((image) => {
