@@ -2,6 +2,10 @@
   width: 100%;
   height: $gnb-height-sm + $detail-tab-height-sm;
 
+  &.is-main {
+    height: $gnb-height-sm;
+  }
+
   .gnb,
   .timer-bar {
     position: fixed;
