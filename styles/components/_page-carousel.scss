@@ -138,6 +138,7 @@
   }
 
   @include responsive(D) {
+    height: calc(100vh - #{$gnb-height-md} - #{$global-footer-height});
     padding: 0;
 
     &-slider {

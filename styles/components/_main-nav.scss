@@ -54,6 +54,7 @@
   }
 
   @include responsive(T) {
+    height: calc(100vh - #{$gnb-height-md} - #{$global-footer-height});
     &-item {
       width: calc(20% - 16px);
       margin: 8px;
@@ -62,5 +63,9 @@
         transform: scale(0.9);
       }
     }
+  }
+
+  @include responsive(D) {
+    @include flexbox;
   }
 }
