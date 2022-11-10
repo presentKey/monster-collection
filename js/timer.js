@@ -1,12 +1,9 @@
-const setTimerButtonList = document.querySelectorAll(
-  '.register .alarm-info button'
-)
 const timerBar = document.querySelector('.timer-bar')
 const timerBarList = timerBar.querySelector('.timer-bar-list')
 const timerModal = document.querySelector('.timer-modal')
 const timerModalList = timerModal.querySelector('.timer-menu-list')
 
-const collectionShow = document.querySelector('.collection-show')
+const mainSection = document.querySelector('main')
 const categoryNav = document.querySelector('.category-nav')
 const tabletMedia = window.matchMedia('screen and (min-width: 768px)')
 
@@ -50,22 +47,30 @@ function mediaScrollCategoryNav() {
   }
 }
 
+const bookmarkDetailTab = document.querySelector('.detail-tab')
+
 function mediaTimerBar() {
   if (tabletMedia.matches && registeredInformationMap.size >= 1) {
-    collectionShow.style.paddingTop = '50px'
-    detailTab.style.top = '110px'
+    if (bookmarkDetailTab !== null) {
+      bookmarkDetailTab.style.top = '110px'
+    }
+    mainSection.style.paddingTop = '50px'
     categoryNav.style.top = '109px'
     timerBarState = openTimerBar
     mediaScrollCategoryNav()
   } else if (tabletMedia.matches && registeredInformationMap.size === 0) {
-    collectionShow.style.paddingTop = '0px'
-    detailTab.style.top = '60px'
+    if (bookmarkDetailTab !== null) {
+      bookmarkDetailTab.style.top = '60px'
+    }
+    mainSection.style.paddingTop = '0px'
     categoryNav.style.top = '59px'
     timerBarState = closeTimerBar
     mediaScrollCategoryNav()
   } else {
-    collectionShow.style.paddingTop = '0px'
-    detailTab.style.top = '50px'
+    if (bookmarkDetailTab !== null) {
+      bookmarkDetailTab.style.top = '50px'
+    }
+    mainSection.style.paddingTop = '0px'
   }
 }
 
@@ -312,6 +317,12 @@ function setTimer() {
     })
 }
 
-setTimerButtonList.forEach((button) => {
-  button.addEventListener('click', setTimer)
+window.addEventListener('load', function () {
+  const setTimerButtonList = document.querySelectorAll(
+    '.register .alarm-info button'
+  )
+
+  setTimerButtonList.forEach((button) => {
+    button.addEventListener('click', setTimer)
+  })
 })
