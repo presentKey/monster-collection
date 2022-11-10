@@ -2,6 +2,7 @@
   $grid-margin: 15px;
 
   position: relative;
+  padding: 30px 0;
 
   &-slider {
     position: relative;
@@ -88,7 +89,7 @@
 
   &-thumbnail {
     @include position-center-x;
-    top: 8px;
+    top: 38px;
 
     .thumbnail-list {
       @include flexbox;
@@ -125,7 +126,7 @@
     @include flexbox;
 
     &-slider {
-      width: 40%;
+      width: 50%;
       margin: 0;
     }
 
@@ -137,6 +138,8 @@
   }
 
   @include responsive(D) {
+    padding: 0;
+
     &-slider {
       width: 100%;
       margin: 0;
