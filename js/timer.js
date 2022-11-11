@@ -129,7 +129,6 @@ function deleteTimer() {
     timerModalList.removeChild(registeredInformationMap.get(selectMonster)[3])
     registeredInformationMap.delete(selectMonster)
 
-    timerInterval(resetFlag, selectMonster)
     updateTimerItems()
     timerBarDisplay()
   }
