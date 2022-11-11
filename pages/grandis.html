@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>그란디스 - 몬스터 컬렉션</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/monster-collection/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/monster-collection/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/monster-collection/favicon-16x16.png" />
+    <link rel="manifest" href="/monster-collection/site.webmanifest" />
+    <link rel="mask-icon" href="/monster-collection/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/monster-collection/style.css" />
+  </head>
+  <body>
+    <header class="global-header">
+      <div class="gnb">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="gnb-wrapper">
+                <div class="gnb-left">
+                  <h1 class="logo">
+                    <a href="/monster-collection">몬스터컬렉션</a>
+                  </h1>
+
+                  <button
+                    class="gnb-menu-button sm-only"
+                    type="button"
+                    aria-label="메뉴 버튼"
+                  >
+                    <i class="ic-menu"></i>
+                  </button>
+                </div>
+
+                <div class="gnb-right">
+                  <div class="gnb-button-group">
+                    <button
+                      class="gnb-timer-button sm-only"
+                      type="button"
+                      aria-label="타이머 버튼"
+                    >
+                      <i class="ic-alarm"></i>
+                    </button>
+
+                    <a
+                      class="gnb-bookmark-button"
+                      href="/monster-collection/pages/bookmark.html"
+                      aria-label="북마크 버튼"
+                    >
+                      <i class="ic-bookmark"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timer-bar sm-hidden">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="timer-bar-content">
+                <ul class="timer-bar-list"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="collection-show">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <nav class="category-nav sm-hidden">
+              <h2 class="visually-hidden">메뉴</h2>
+
+              <div class="category-nav-content">
+                <ul class="category-nav-list">
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/job.html">직업</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/crosshunter.html">크로스헌터</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/fieldboss.html">필드보스</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/victoria-island.html">빅토리아 아일랜드</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/victoria-isles.html">빅토리아 인근 섬</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/edlstein.html">에델슈타인</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/elnath.html">엘나스 산맥</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/ludus-lake.html">루더스 호수</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/aqua-road.html">아쿠아로드</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/nihal-desert.html">니할사막</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/mu-lung.html">무릉도원</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/minar-forest.html">미나르 숲</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/temple-of-time.html">시간의 신전</a>
+                  </li>
+                  <li class="category-nav-item is-active">
+                    <a href="/monster-collection/pages/grandis.html">그란디스</a>
+                  </li>
+                  <li class="category-nav-item">
+                    <a href="/monster-collection/pages/arcane-river.html">아케인리버</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+
+          <div class="col-sm-4 col-md-10">
+            <div class="detail-tab">
+              <div class="detail-tab-content">
+                <ul class="detail-tab-list" role="tablist">
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="miumiu"
+                  >
+                    <button type="button">미우미우</button>
+                  </li>
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="pantheon"
+                  >
+                    <button type="button">판테온</button>
+                  </li>
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="verdel"
+                  >
+                    <button type="button">베르딜</button>
+                  </li>
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="heliseum"
+                  >
+                    <button type="button">헬리시움</button>
+                  </li>
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="asylum"
+                  >
+                    <button type="button">아쉴롬</button>
+                  </li>
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="savage-terminal"
+                  >
+                    <button type="button">새비지 터미널</button>
+                  </li>
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="cheong-woon"
+                  >
+                    <button type="button">청운</button>
+                  </li>
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="narin"
+                  >
+                    <button type="button">나린</button>
+                  </li>
+                  <li
+                    class="detail-tab-item"
+                    role="tab"
+                    aria-labelledby="toolen-city"
+                  >
+                    <button type="button">툴렌시티</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="line sm-only"></div>
+
+            <div class="information">
+              <ul class="information-list">
+                <li class="information-item">
+                  <article
+                    id="miumiu"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">미우미우</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">애벌레</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-mi-01.png"
+                              alt="애벌레"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">무당벌레</dt>
+                          <dd class="monster-card-image">
+                            <div class="monster-card-image">
+                              <img
+                                src="/monster-collection/assets/images/monster/gr-mi-02.png"
+                                alt="무당벌레"
+                              />
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">참새</dt>
+                          <dd class="monster-card-image">
+                            <div class="monster-card-image">
+                              <img
+                                src="/monster-collection/assets/images/monster/gr-mi-03.png"
+                                alt="참새"
+                              />
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">풍선쥐</dt>
+                          <dd class="monster-card-image">
+                            <div class="monster-card-image">
+                              <img
+                                src="/monster-collection/assets/images/monster/gr-mi-04.png"
+                                alt="풍선쥐"
+                              />
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">붉은 독 개구리</dt>
+                          <dd class="monster-card-image">
+                            <div class="monster-card-image">
+                              <img
+                                src="/monster-collection/assets/images/monster/gr-mi-05.png"
+                                alt="붉은 독 개구리"
+                              />
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">푸른 독 개구리</dt>
+                          <dd class="monster-card-image">
+                            <div class="monster-card-image">
+                              <img
+                                src="/monster-collection/assets/images/monster/gr-mi-06.png"
+                                alt="푸른 독 개구리"
+                              />
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">불량 병아리</dt>
+                          <dd class="monster-card-image">
+                            <div class="monster-card-image">
+                              <img
+                                src="/monster-collection/assets/images/monster/gr-mi-07.png"
+                                alt="불량 병아리"
+                              />
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">비행 병아리</dt>
+                          <dd class="monster-card-image">
+                            <div class="monster-card-image">
+                              <img
+                                src="/monster-collection/assets/images/monster/gr-mi-08.png"
+                                alt="비행 병아리"
+                              />
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">갈기털 하이에나</dt>
+                          <dd class="monster-card-image">
+                            <div class="monster-card-image">
+                              <img
+                                src="/monster-collection/assets/images/monster/gr-mi-09.png"
+                                alt="갈기털 하이에나"
+                              />
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">송곳니 하이에나</dt>
+                          <dd class="monster-card-image">
+                            <div class="monster-card-image">
+                              <img
+                                src="/monster-collection/assets/images/monster/gr-mi-10.png"
+                                alt="송곳니 하이에나"
+                              />
+                            </div>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span
+                            >은월 생성 시, 초반 스토리 진행중일 때 등록
+                            가능</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="information-item">
+                  <article
+                    id="pantheon"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">판테온</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">수상한 하급사제</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-ph-01.png"
+                              alt="수상한 하급사제"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">수상한 중급사제</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-ph-02.png"
+                              alt="수상한 중급사제"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">수상한 상급사제</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-ph-03.png"
+                              alt="수상한 상급사제"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>엔젤릭버스터 전용</span>
+                        </div>
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span
+                            >성물 탈환 & 근거지 소탕 & 사라진 식량 반환1</span
+                          >
+                        </div>
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">판테온 동쪽 숲</span>
+                          <span class="add-location">- 1층 중앙 히든 포탈</span>
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">변절한 하급사제</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-ph-04.png"
+                              alt="변절한 하급사제"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">변절한 중급사제</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-ph-05.png"
+                              alt="변절한 중급사제"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">변절한 우두머리</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-ph-06.png"
+                              alt="변절한 우두머리"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>엔젤릭버스터 전용</span>
+                        </div>
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>사라진 식량 반환2</span>
+                        </div>
+                        <div class="location-info">
+                          <i class="ic-location"></i>
+                          <span class="main-location">오렌지 톤 숲</span>
+                          <span class="add-location"
+                            >- 1층 오른쪽 히든 포탈</span
+                          >
+                          <button class="tag-blue" type="button">복사</button>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="information-item">
+                  <article
+                    id="verdel"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">베르딜</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">전사 스펙터</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-ve-01.png"
+                              alt="전사 스펙터"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">마법사 스펙터</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-ve-02.png"
+                              alt="마법사 스펙터"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span
+                            >베르딜에서 헬리시움보다 레벨 낮은 스펙터 등록
+                            가능</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="information-item">
+                  <article
+                    id="heliseum"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">헬리시움</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">매그너스</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-ph-07.png"
+                              alt="매그너스"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">프렌즈스토리</strong>
+                          <span>챕터 3</span>
+                          <i class="ic-chevron"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>심장이 두근두근1</span>
+                          <i class="ic-chevron"></i>
+                          <span
+                            >축구공 100번 안에 미등록 시, 게임 강제종료 후
+                            재도전</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="information-item">
+                  <article
+                    id="asylum"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">아쉴롬</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">그린 그로슐라</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-as-01.png"
+                              alt="그린 그로슐라"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">퍼플 에머시</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-as-02.png"
+                              alt="퍼플 에머시"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">파이어 파이로프</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-as-03.png"
+                              alt="파이어 파이로프"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">다크 옵시디안</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-as-04.png"
+                              alt="다크 옵시디안"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">블루 라리마</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-as-05.png"
+                              alt="블루 라리마"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">샤이닝 골드</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-as-06.png"
+                              alt="샤이닝 골드"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">샤이닝 넝쿨 골드</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-as-07.png"
+                              alt="샤이닝 넝쿨 골드"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span
+                            >일리움 생성 시, 초반 스토리 진행중일 때 등록
+                            가능</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">이동형 연습 로봇</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-as-08.png"
+                              alt="이동형 연습 로봇"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>일리움 전용</span>
+                        </div>
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>전투훈련</span>
+                          <i class="ic-chevron"></i>
+                          <span>훈련실 안쪽 입장</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">오염된 연습 로봇</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-as-09.png"
+                              alt="오염된 연습 로봇"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>일리움 전용</span>
+                        </div>
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>잃어버린 딘의 물건</span>
+                          <i class="ic-chevron"></i>
+                          <span>빈 강의실 안쪽 입장</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="information-item">
+                  <article
+                    id="savage-terminal"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">새비지 터미널</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">Mr. 해저드의 부하 A</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-sa-01.png"
+                              alt="Mr. 해저드의 부하 A"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>카데나 전용</span>
+                        </div>
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>험상궃은 녀석들</span>
+                          <i class="ic-chevron"></i>
+                          <span
+                            >Mr. 해저드의 부하 A 처치 후, 퀘스트
+                            포기(반복)</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="information-item">
+                  <article
+                    id="cheong-woon"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">청운</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">괴물송</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-ch-01.png"
+                              alt="괴물송"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>호영 전용</span>
+                        </div>
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>천지인의 도</span>
+                          <i class="ic-chevron"></i>
+                          <span>도술 수련장 1 입장</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="information-item">
+                  <article
+                    id="narin"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">나린</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">험상궃은 혁</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-na-01.png"
+                              alt="험상궃은 혁"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">건들거리는 명</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-na-02.png"
+                              alt="건들거리는 명"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">입맛다시는 열</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-na-03.png"
+                              alt="입맛다시는 열"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>라라 전용</span>
+                        </div>
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>화내는 건 좋지 않아요</span>
+                          <i class="ic-chevron"></i>
+                          <span>몬스터 처치 후, 퀘스트 포기(반복)</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">햇볕 찾는 둥그리공</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-na-04.png"
+                              alt="햇볕 찾는 둥그리공"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">그늘 찾는 둥그리공</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-na-05.png"
+                              alt="그늘 찾는 둥그리공"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">끈끈이 잎새파리</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-na-06.png"
+                              alt="끈끈이 잎새파리"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">찐득이 잎새파리</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-na-07.png"
+                              alt="찐득이 잎새파리"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>라라 전용</span>
+                        </div>
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>방울, 그리고 기물 2</span>
+                          <i class="ic-chevron"></i>
+                          <span>맵 입장 조건 달성</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+
+                <li class="information-item">
+                  <article
+                    id="toolen-city"
+                    role="tabpanel"
+                    class="information-detail"
+                  >
+                    <h2 class="title">툴렌시티</h2>
+
+                    <div class="content-wrapper">
+                      <div class="monster-group">
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">경비로봇 D2-78</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-tu-01.png"
+                              alt="경비로봇 D2-78"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">경비로봇 C1-49</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-tu-02.png"
+                              alt="경비로봇 C1-49"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">숙련된 드라카즈</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-tu-03.png"
+                              alt="숙련된 드라카즈"
+                            />
+                          </dd>
+                        </dl>
+                        <dl class="monster-card">
+                          <dt class="monster-card-name">능숙한 드라카즈</dt>
+                          <dd class="monster-card-image">
+                            <img
+                              src="/monster-collection/assets/images/monster/gr-tu-04.png"
+                              alt="능숙한 드라카즈"
+                            />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="register">
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <span>카인 전용</span>
+                        </div>
+                        <div class="register-info">
+                          <i class="ic-info"></i>
+                          <strong class="tag-green">QUEST</strong>
+                          <span>개인적인 감정</span>
+                          <i class="ic-chevron"></i>
+                          <span>맵 입장 조건 달성</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="global-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="global-footer-info">
+              <h2 class="global-footer-title">몬스터컬렉션</h2>
+              <p class="global-footer-content">
+                MONSTER-COLLECTION site is not associated with NEXON Korea.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <aside class="sidebar sm-only">
+      <h2 class="sidebar-logo">
+        <a href="/monster-collection">Monster Collection</a>
+        <button class="close-btn" type="button">
+          <i class="ic-close"></i>
+        </button>
+      </h2>
+
+      <nav class="sidebar-nav">
+        <h2 class="visually-hidden">메뉴</h2>
+
+        <div class="sidebar-nav-content">
+          <ul class="sidebar-nav-list">
+            <li class="sidebar-nav-item is-job">
+              <a href="/monster-collection/pages/job.html">직업</a>
+            </li>
+            <li class="sidebar-nav-item is-cr">
+              <a href="/monster-collection/pages/crosshunter.html">크로스헌터</a>
+            </li>
+            <li class="sidebar-nav-item is-fb">
+              <a href="/monster-collection/pages/fieldboss.html">필드보스</a>
+            </li>
+            <li class="sidebar-nav-item is-vi">
+              <a href="/monster-collection/pages/victoria-island">빅토리아 아일랜드</a>
+            </li>
+            <li class="sidebar-nav-item is-vn">
+              <a href="/monster-collection/pages/victoria-isles.html">빅토리아 인근 섬</a>
+            </li>
+            <li class="sidebar-nav-item is-ed">
+              <a href="/monster-collection/pages/edlstein.html">에델슈타인</a>
+            </li>
+            <li class="sidebar-nav-item is-el">
+              <a href="/monster-collection/pages/elnath.html">엘나스 산맥</a>
+            </li>
+            <li class="sidebar-nav-item is-lu">
+              <a href="/monster-collection/pages/ludus-lake.html">루더스 호수</a>
+            </li>
+            <li class="sidebar-nav-item is-aq">
+              <a href="/monster-collection/pages/aqua-road.html">아쿠아로드</a>
+            </li>
+            <li class="sidebar-nav-item is-ni">
+              <a href="/monster-collection/pages/nihal-desert.html">니할사막</a>
+            </li>
+            <li class="sidebar-nav-item is-mu">
+              <a href="/monster-collection/pages/mu-lung.html">무릉도원</a>
+            </li>
+            <li class="sidebar-nav-item is-mi">
+              <a href="/monster-collection/pages/minar-forest.html">미나르 숲</a>
+            </li>
+            <li class="sidebar-nav-item is-ti">
+              <a href="/monster-collection/pages/temple-of-time.html">시간의 신전</a>
+            </li>
+            <li class="sidebar-nav-item is-gr is-active">
+              <a href="/monster-collection/pages/grandis.html">그란디스</a>
+            </li>
+            <li class="sidebar-nav-item is-ar">
+              <a href="/monster-collection/pages/arcane-river.html">아케인리버</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <aside class="timer-modal sm-only">
+      <div class="timer-modal-header">
+        <h2 class="timer-title">타이머</h2>
+        <i class="ic-alarm" aria-hidden></i>
+        <button class="close-btn" type="button">
+          <i class="ic-close"></i>
+        </button>
+      </div>
+
+      <div class="timer-menu-content">
+        <ul class="timer-menu-list"></ul>
+      </div>
+    </aside>
+
+    <aside class="bookmark-toast">
+      <h2 class="bookmark-title">북마크에 추가되었습니다.</h2>
+    </aside>
+
+    <aside class="location-toast">
+      <h2 class="location-title">위치가 복사되었습니다.</h2>
+    </aside>
+
+    <div class="overlay" aria-hidden></div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+      integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/monster-collection/js/bookmark.js"></script>
+    <script src="/monster-collection/js/sidebar.js"></script>
+    <script src="/monster-collection/js/detail-tab.js"></script>
+    <script src="/monster-collection/js/timer.js"></script>
+    <script src="/monster-collection/js/timer-modal.js"></script>
+    <script src="/monster-collection/js/clipboard.js"></script>
+  </body>
+</html>
