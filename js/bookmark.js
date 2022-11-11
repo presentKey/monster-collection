@@ -8,7 +8,7 @@ const bookmarkText = 'bookmark'
 let bookmarkDeleteButtonList
 let deleteAllButton
 
-function toastAnimation() {
+function bookmarkToastAnimation() {
   const toastPopUP = [
     { top: '-30px', offset: 0 },
     { top: '15px', offset: 0.7 },
@@ -40,7 +40,7 @@ function saveBookmark() {
     JSON.stringify(bookmarkInformationArray)
   )
 
-  toastAnimation()
+  bookmarkToastAnimation()
 }
 
 informationMonsterCard.forEach((image) => {
