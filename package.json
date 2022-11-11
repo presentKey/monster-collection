@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "node-sass": "node-sass",
-    "sass": "node-sass -wr --source-map true ./styles/main.scss ./style.css"
+    "sass": "node-sass -wr --source-map true ./styles/main.scss ./style.css",
+    "sass:build": "node-sass -r --source-map true ./styles/main.scss ./style.css",
+    "build": "node ./scripts/build.js",
+    "deploy": "npm run sass:build && npm run build && node ./scripts/deploy.js"
   },
   "repository": {
     "type": "git",
@@ -20,9 +23,18 @@
   },
   "homepage": "https://github.com/presentKey/monster-collection#readme",
   "dependencies": {
+    "imagemin-optipng": "^8.0.0",
     "node-sass": "^7.0.3"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
+    "fs-extra": "^10.1.0",
+    "gh-pages": "^4.0.0",
+    "imagemin": "^8.0.1",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "postcss": "^8.4.18",
     "stylelint": "^14.14.0",
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard": "^29.0.0",
