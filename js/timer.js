@@ -2,6 +2,7 @@ const timerBar = document.querySelector('.timer-bar')
 const timerBarList = timerBar.querySelector('.timer-bar-list')
 const timerModal = document.querySelector('.timer-modal')
 const timerModalList = timerModal.querySelector('.timer-menu-list')
+const timerToast = document.querySelector('.timer-toast')
 
 const mainSection = document.querySelector('main')
 const categoryNav = document.querySelector('.category-nav')
@@ -16,6 +17,20 @@ let deleteButtonList_timerModal
 let resetButtonList_timerBar
 let resetButtonList_timerModal
 let globalFooterPosition
+
+function timerToastAnimation() {
+  const toastPopUP = [
+    { top: '-30px', offset: 0 },
+    { top: '15px', offset: 0.7 },
+    { top: '-30px', offset: 1 },
+  ]
+  const toastTiming = {
+    duration: 3000,
+    easing: 'ease',
+  }
+
+  timerToast.animate(toastPopUP, toastTiming)
+}
 
 function detectFooterPosition() {
   const globalFooter = document.querySelector('.global-footer')
@@ -314,6 +329,8 @@ function setTimer() {
         registeredItem_timerModal
       )
     })
+
+  timerToastAnimation()
 }
 
 window.addEventListener('load', function () {
