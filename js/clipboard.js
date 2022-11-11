@@ -1,4 +1,3 @@
-const copyButtonList = document.querySelectorAll('.location-info .tag-blue')
 const locationToast = document.querySelector('.location-toast')
 
 function locationToastAnimation() {
@@ -23,6 +22,10 @@ function copyLocation() {
   locationToastAnimation()
 }
 
-copyButtonList.forEach((button) => {
-  button.addEventListener('click', copyLocation)
+window.addEventListener('load', function () {
+  const copyButtonList = document.querySelectorAll('.location-info .tag-blue')
+
+  copyButtonList.forEach((button) => {
+    button.addEventListener('click', copyLocation)
+  })
 })
