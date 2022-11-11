@@ -1,0 +1,15 @@
+.timer-toast {
+  @include position-center-x;
+  @include flexbox;
+  position: fixed;
+  top: -30px;
+  z-index: $timer-toast-level;
+  width: 160px;
+  height: 30px;
+  background-color: #74b9ff;
+  border-radius: 15px;
+
+  .timer-title {
+    @include text-style(12, $primary);
+  }
+}
