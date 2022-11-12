@@ -95,7 +95,7 @@
 
   &-thumbnail {
     @include position-center-x;
-    top: 38px;
+    top: 10px;
 
     .thumbnail-list {
       @include flexbox;
@@ -144,7 +144,7 @@
   }
 
   @include responsive(D) {
-    height: calc(100vh - #{$gnb-height-md} - #{$global-footer-height});
+    height: 100%;
     padding: 0;
 
     &-slider {
