@@ -725,6 +725,7 @@ i {
   background-color: rgba(0, 0, 0, 0.1); }
 
 .information {
+  min-height: calc( 100vh - 50px - 39px - 100px);
   padding: 20px 0; }
   .information-item {
     margin-bottom: 88px; }
@@ -761,6 +762,7 @@ i {
       margin-bottom: 0; }
   @media screen and (min-width: 768px) {
     .information {
+      min-height: calc(100vh - 60px - 100px);
       padding: 50px 0; }
       .information-item {
         margin-bottom: 100px; }
@@ -911,6 +913,7 @@ i {
         letter-spacing: -0.01em; } }
 
 .bookmark {
+  min-height: calc(100vh - 50px - 100px);
   padding: 20px 0; }
   .bookmark-detail .title {
     font-size: 16px;
@@ -953,6 +956,7 @@ i {
         color: #fc5c65; }
   @media screen and (min-width: 768px) {
     .bookmark {
+      min-height: calc(100vh - 60px - 100px);
       padding: 30px 0; }
       .bookmark-detail .title {
         font-size: 18px;
@@ -1043,7 +1047,7 @@ i {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 38px; }
+    top: 10px; }
     .page-carousel-thumbnail .thumbnail-list {
       display: flex;
       align-items: center;
@@ -1078,7 +1082,7 @@ i {
         height: 50px; } }
   @media screen and (min-width: 1200px) {
     .page-carousel {
-      height: calc(100vh - 60px - 100px);
+      height: 100%;
       padding: 0; }
       .page-carousel-slider {
         width: 100%;
@@ -1148,13 +1152,11 @@ i {
     white-space: nowrap; }
 
 @media screen and (min-width: 768px) {
-  .main-nav {
-    height: calc(100vh - 60px - 100px); }
-    .main-nav-item {
-      width: calc(20% - 16px);
-      margin: 8px; }
-      .main-nav-item:hover {
-        transform: scale(0.9); } }
+  .main-nav-item {
+    width: calc(20% - 16px);
+    margin: 8px; }
+    .main-nav-item:hover {
+      transform: scale(0.9); } }
 
 @media screen and (min-width: 1200px) {
   .main-nav {
@@ -1595,5 +1597,11 @@ i {
     line-height: 16px;
     letter-spacing: -0.005em;
     color: #3f4150; }
+
+.main-home {
+  height: calc(100% - 50px - 100px); }
+  @media screen and (min-width: 768px) {
+    .main-home {
+      height: calc(100% - 60px - 100px); } }
 
 /*# sourceMappingURL=style.css.map */
