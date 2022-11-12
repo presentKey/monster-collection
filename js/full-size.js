@@ -6,7 +6,7 @@ function tabletMainNavHeight() {
   const calcTabletHeight = `calc(100vh - 160px - ${carouselHeight}px)`
   const calcDesktopHeight = 'calc(100vh - 160px)'
 
-  if (tabletSize.matches && !desktopSize.matches && window.innerHeight > 768) {
+  if (tabletSize.matches && !desktopSize.matches && window.innerHeight >= 768) {
     mainNav.style.height = calcTabletHeight
   } else if (desktopSize.matches) {
     mainNav.style.height = calcDesktopHeight
@@ -14,4 +14,4 @@ function tabletMainNavHeight() {
 }
 
 window.addEventListener('load', tabletMainNavHeight)
-window.addEventListener('resize', _.throttle(tabletMainNavHeight, 1000))
+window.addEventListener('resize', _.throttle(tabletMainNavHeight, 500))
