@@ -1,0 +1,7 @@
+.main-home {
+  height: calc(100% - #{$gnb-height-sm} - #{$global-footer-height});
+
+  @include responsive(T) {
+    height: calc(100% - #{$gnb-height-md} - #{$global-footer-height});
+  }
+}
