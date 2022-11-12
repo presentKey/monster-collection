@@ -1,4 +1,7 @@
 .information {
+  min-height: calc(
+    100vh - #{$gnb-height-sm} - #{$detail-tab-height} - #{$global-footer-height}
+  );
   padding: 20px 0;
 
   &-item {
@@ -48,6 +51,7 @@
   }
 
   @include responsive(T) {
+    min-height: calc(100vh - #{$gnb-height-md} - #{$global-footer-height});
     padding: 50px 0;
 
     &-item {

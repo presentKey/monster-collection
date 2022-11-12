@@ -1,4 +1,5 @@
 .bookmark {
+  min-height: calc(100vh - #{$gnb-height-sm} - #{$global-footer-height});
   padding: 20px 0;
 
   &-detail {
@@ -48,6 +49,7 @@
   }
 
   @include responsive(T) {
+    min-height: calc(100vh - #{$gnb-height-md} - #{$global-footer-height});
     padding: 30px 0;
 
     &-detail .title {
