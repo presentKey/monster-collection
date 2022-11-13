@@ -187,13 +187,17 @@ function minarForest(scrolledAmount) {
 }
 function templeOfTime(scrolledAmount) {
   if (scrolledAmount >= detailTabPanelPositionMap['temple-of-time']) {
+    newActiveTab = detailTabButtonList[2]
+  } else if (
+    scrolledAmount >= detailTabPanelPositionMap['gate-of-the-future']
+  ) {
     newActiveTab = detailTabButtonList[1]
   } else {
     newActiveTab = detailTabButtonList[0]
   }
 
   if (window.scrollY + window.innerHeight === document.body.offsetHeight) {
-    newActiveTab = detailTabButtonList[1]
+    newActiveTab = detailTabButtonList[2]
   }
 }
 function grandis(scrolledAmount) {
