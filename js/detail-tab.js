@@ -287,8 +287,8 @@ const ActiveTabMap = {
   아케인리버() {
     arcaneRiver()
   },
-  프렌즈() {
-    friends()
+  프렌즈(scrolledAmount) {
+    friends(scrolledAmount)
   },
 }
 
