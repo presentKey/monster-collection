@@ -221,6 +221,10 @@ function arcaneRiver() {
   newActiveTab = detailTabButtonList[0]
 }
 
+function friends() {
+  newActiveTab = detailTabButtonList[0]
+}
+
 const ActiveTabMap = {
   직업(scrolledAmount) {
     job(scrolledAmount)
@@ -265,6 +269,9 @@ const ActiveTabMap = {
     grandis(scrolledAmount)
   },
   아케인리버() {
+    arcaneRiver()
+  },
+  프렌즈() {
     arcaneRiver()
   },
 }

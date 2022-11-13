@@ -25,6 +25,7 @@ const pagesFileList = [
   'edlstein.html',
   'elnath.html',
   'fieldboss.html',
+  'friends.html',
   'grandis.html',
   'job.html',
   'ludus-lake.html',
