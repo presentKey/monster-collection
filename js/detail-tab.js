@@ -229,8 +229,16 @@ function arcaneRiver() {
   newActiveTab = detailTabButtonList[0]
 }
 
-function friends() {
-  newActiveTab = detailTabButtonList[0]
+function friends(scrolledAmount) {
+  if (scrolledAmount >= detailTabPanelPositionMap['new']) {
+    newActiveTab = detailTabButtonList[1]
+  } else {
+    newActiveTab = detailTabButtonList[0]
+  }
+
+  if (window.scrollY + window.innerHeight === document.body.offsetHeight) {
+    newActiveTab = detailTabButtonList[1]
+  }
 }
 
 const ActiveTabMap = {
@@ -280,7 +288,7 @@ const ActiveTabMap = {
     arcaneRiver()
   },
   프렌즈() {
-    arcaneRiver()
+    friends()
   },
 }
 
