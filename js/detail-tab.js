@@ -72,7 +72,11 @@ function detectTabPanelPosition() {
 }
 
 function job(scrolledAmount) {
-  if (scrolledAmount >= detailTabPanelPositionMap['demon-slayer']) {
+  if (scrolledAmount >= detailTabPanelPositionMap['kinesis']) {
+    newActiveTab = detailTabButtonList[10]
+  } else if (scrolledAmount >= detailTabPanelPositionMap['mihail']) {
+    newActiveTab = detailTabButtonList[9]
+  } else if (scrolledAmount >= detailTabPanelPositionMap['demon-slayer']) {
     newActiveTab = detailTabButtonList[8]
   } else if (scrolledAmount >= detailTabPanelPositionMap['zero']) {
     newActiveTab = detailTabButtonList[7]
@@ -93,7 +97,7 @@ function job(scrolledAmount) {
   }
 
   if (window.scrollY + window.innerHeight === document.body.offsetHeight) {
-    newActiveTab = detailTabButtonList[8]
+    newActiveTab = detailTabButtonList[10]
   }
 }
 function crosshunter(scrolledAmount) {
