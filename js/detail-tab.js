@@ -72,7 +72,11 @@ function detectTabPanelPosition() {
 }
 
 function job(scrolledAmount) {
-  if (scrolledAmount >= detailTabPanelPositionMap['demon-slayer']) {
+  if (scrolledAmount >= detailTabPanelPositionMap['kinesis']) {
+    newActiveTab = detailTabButtonList[10]
+  } else if (scrolledAmount >= detailTabPanelPositionMap['mihail']) {
+    newActiveTab = detailTabButtonList[9]
+  } else if (scrolledAmount >= detailTabPanelPositionMap['demon-slayer']) {
     newActiveTab = detailTabButtonList[8]
   } else if (scrolledAmount >= detailTabPanelPositionMap['zero']) {
     newActiveTab = detailTabButtonList[7]
@@ -93,7 +97,7 @@ function job(scrolledAmount) {
   }
 
   if (window.scrollY + window.innerHeight === document.body.offsetHeight) {
-    newActiveTab = detailTabButtonList[8]
+    newActiveTab = detailTabButtonList[10]
   }
 }
 function crosshunter(scrolledAmount) {
@@ -183,13 +187,17 @@ function minarForest(scrolledAmount) {
 }
 function templeOfTime(scrolledAmount) {
   if (scrolledAmount >= detailTabPanelPositionMap['temple-of-time']) {
+    newActiveTab = detailTabButtonList[2]
+  } else if (
+    scrolledAmount >= detailTabPanelPositionMap['gate-of-the-future']
+  ) {
     newActiveTab = detailTabButtonList[1]
   } else {
     newActiveTab = detailTabButtonList[0]
   }
 
   if (window.scrollY + window.innerHeight === document.body.offsetHeight) {
-    newActiveTab = detailTabButtonList[1]
+    newActiveTab = detailTabButtonList[2]
   }
 }
 function grandis(scrolledAmount) {
@@ -218,6 +226,10 @@ function grandis(scrolledAmount) {
   }
 }
 function arcaneRiver() {
+  newActiveTab = detailTabButtonList[0]
+}
+
+function friends() {
   newActiveTab = detailTabButtonList[0]
 }
 
@@ -265,6 +277,9 @@ const ActiveTabMap = {
     grandis(scrolledAmount)
   },
   아케인리버() {
+    arcaneRiver()
+  },
+  프렌즈() {
     arcaneRiver()
   },
 }
