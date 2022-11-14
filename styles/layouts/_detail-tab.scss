@@ -8,6 +8,7 @@
   margin: 0 -#{$grid-margin};
   overflow-x: auto;
   background-color: $white;
+  border-bottom: 1px solid $border;
 
   &::-webkit-scrollbar {
     display: none;
