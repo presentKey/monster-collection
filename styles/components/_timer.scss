@@ -35,9 +35,14 @@
       cursor: pointer;
       transition: color 200ms ease-in-out;
 
-      &:active,
-      &:hover {
+      &:active {
         color: $white;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: $white;
+        }
       }
     }
 
