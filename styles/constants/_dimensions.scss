@@ -1,10 +1,9 @@
 $gnb-height-sm: 50px;
 $gnb-height-md: 60px;
 
-$detail-tab-height: 40px - 1px;
-$line-height-sm: 1px;
+$detail-tab-height: 40px;
 
-$detail-tab-height-sm: $detail-tab-height + $line-height-sm;
+$detail-tab-height-sm: $detail-tab-height;
 $detail-tab-height-md: 54px;
 
 $timer-bar-height: 50px;
