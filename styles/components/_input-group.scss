@@ -1,12 +1,11 @@
 .input-group {
   position: relative;
   height: 36px;
-  margin-right: 16px;
 
   .form-input {
     @include text-style(14, $primary);
     display: block;
-    width: 260px;
+    width: 100%;
     height: 100%;
     padding: 0 40px;
     background-color: $white;
@@ -37,5 +36,17 @@
     right: 2px;
     padding: 8px;
     transform: translateY(-50%) rotate(-90deg);
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  @include responsive(T) {
+    margin-right: 16px;
+
+    .form-input {
+      width: 260px;
+    }
   }
 }

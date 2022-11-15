@@ -1,0 +1,24 @@
+.search-modal {
+  $search-modal-height: 120px;
+
+  @include flexbox(center, end);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $search-modal-level;
+  width: 100%;
+  height: 120px;
+  padding: 12px 8px;
+  background-color: $white;
+  border-radius: 0 0 8px 8px;
+  transition: transform 300ms ease-in-out;
+  transform: translate3d(0, -#{$search-modal-height}, 0);
+
+  &.is-open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .input-group {
+    flex-grow: 1;
+  }
+}
