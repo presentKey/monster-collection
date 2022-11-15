@@ -66,10 +66,28 @@
                   >
                     <i class="ic-menu"></i>
                   </button>
+
+                  <div class="input-group sm-hidden">
+                    <i class="ic-search"></i>
+                    <input
+                      class="form-input"
+                      type="text"
+                      placeholder="몬스터 검색"
+                    />
+                    <button type="button"><i class="ic-chevron"></i></button>
+                  </div>
                 </div>
 
                 <div class="gnb-right">
                   <div class="gnb-button-group">
+                    <button
+                      class="gnb-search-button sm-only"
+                      type="button"
+                      aria-label="검색 버튼"
+                    >
+                      <i class="ic-search"></i>
+                    </button>
+
                     <button
                       class="gnb-timer-button sm-only"
                       type="button"
@@ -666,6 +684,16 @@
       </div>
     </aside>
 
+    <aside class="search-modal sm-only">
+      <h2 class="search-modal-title visually-hidden">검색창</h2>
+
+      <div class="input-group">
+        <i class="ic-search"></i>
+        <input class="form-input" type="text" placeholder="몬스터 검색" />
+        <i class="ic-chevron"></i>
+      </div>
+    </aside>
+
     <aside class="bookmark-toast">
       <h2 class="bookmark-title">북마크에 추가되었습니다.</h2>
     </aside>
@@ -692,5 +720,6 @@
     <script src="/monster-collection/js/timer.js"></script>
     <script src="/monster-collection/js/timer-modal.js"></script>
     <script src="/monster-collection/js/clipboard.js"></script>
+    <script src="/monster-collection/js/search.js"></script>
   </body>
 </html>
