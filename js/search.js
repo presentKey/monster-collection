@@ -11,7 +11,7 @@ const searchSubmitButton = document.querySelector(
 const FormInput = document.querySelector('.gnb-left .form-input')
 
 const googleLink =
-  'https://www.google.com/search?q=site%3Apresentkey.github.io+'
+  'https://www.google.com/search?q=site%3Apresentkey.github.io%2Fmonster-collection%2F+'
 
 function openSearchModal() {
   searchModal.classList.add('is-open')
