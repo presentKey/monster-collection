@@ -1,0 +1,41 @@
+.input-group {
+  position: relative;
+  height: 36px;
+  margin-right: 16px;
+
+  .form-input {
+    @include text-style(14, $primary);
+    display: block;
+    width: 260px;
+    height: 100%;
+    padding: 0 40px;
+    background-color: $white;
+    border: 1px solid $secondary;
+    border-radius: 4px;
+
+    &::placeholder {
+      color: $secondary;
+    }
+
+    &:hover {
+      background-color: $background;
+    }
+  }
+
+  .ic-search,
+  .ic-chevron {
+    @include position-center-y;
+    font-size: 20px;
+    color: $primary;
+  }
+
+  .ic-search {
+    left: 10px;
+  }
+
+  .ic-chevron {
+    right: 2px;
+    padding: 8px;
+    transform: translateY(-50%) rotate(-90deg);
+  }
+}

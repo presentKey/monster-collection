@@ -18,8 +18,10 @@
     }
   }
 
-  &-timer-button {
-    margin-right: 4px;
+  &-button-group {
+    button {
+      margin-right: 4px;
+    }
   }
 
   .logo {
@@ -30,8 +32,8 @@
       left: -#{$padding};
       display: block;
       padding: $padding;
-      font-size: 20px;
-      line-height: 20px;
+      font-size: 18px;
+      line-height: 18px;
       color: $black;
       letter-spacing: -0.1em;
     }
@@ -43,6 +45,10 @@
     &-wrapper {
       @include flexbox(start);
       height: $gnb-height-md;
+    }
+
+    &-left {
+      @include flexbox(start);
     }
 
     .logo {

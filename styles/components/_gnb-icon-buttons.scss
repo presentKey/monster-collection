@@ -1,9 +1,10 @@
+.gnb-search-button,
 .gnb-menu-button,
 .gnb-bookmark-button,
 .gnb-timer-button {
   @include flexbox;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   color: $blue;
   border-radius: 50%;
   transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
@@ -12,14 +13,20 @@
     color: $primary;
   }
 
+  .ic-search,
   .ic-menu {
     font-size: 24px;
     color: $green-dark;
   }
 
+  .ic-search {
+    position: relative;
+    top: 3px;
+  }
+
   .ic-alarm,
   .ic-bookmark {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
