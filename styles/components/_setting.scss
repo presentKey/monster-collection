@@ -1,0 +1,54 @@
+.setting {
+  @include flexbox(end);
+  margin-bottom: 16px;
+
+  .set-save,
+  .set-modifier,
+  .set-select {
+    @include text-style(13, $black);
+    padding: 4px;
+    margin-right: 8px;
+    font-weight: 700;
+    background-color: rgba($green, 0.7);
+    border: 1px solid $secondary;
+    border-radius: 4px;
+    transition: opacity 200ms ease-in-out;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .save-btn,
+  .select-btn {
+    font-weight: 700;
+  }
+
+  .set-save {
+    background-color: $red;
+
+    button {
+      width: 56px;
+      color: $white;
+    }
+  }
+
+  .set-modifier {
+    @include flexbox;
+
+    input,
+    label {
+      cursor: pointer;
+    }
+
+    label {
+      padding-left: 4px;
+    }
+  }
+}
