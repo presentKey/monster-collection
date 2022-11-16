@@ -41,6 +41,7 @@
 
   .set-modifier {
     @include flexbox;
+    user-select: none;
 
     input,
     label {
