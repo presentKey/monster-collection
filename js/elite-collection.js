@@ -1,6 +1,51 @@
 const modifierButton = document.querySelector('.set-modifier')
 const selectButton = document.querySelector('.set-select')
+const eliteText = 'elite'
 const setModifier = 'setModifier'
+
+function firstTimeUser() {
+  const eliteItems = document.querySelectorAll('.elite-collection-item')
+
+  for (let i = 0; i < window.localStorage.length; i++) {
+    if (window.localStorage.key(i).startsWith(eliteText)) {
+      return
+    }
+  }
+
+  for (const [index, item] of eliteItems.entries()) {
+    const monsterName = item.querySelector('img').getAttribute('alt')
+    const itemArray = [index, item.outerHTML]
+    const localStorageKey = eliteText + monsterName
+    window.localStorage.setItem(localStorageKey, JSON.stringify(itemArray))
+  }
+}
+
+function loadCollection() {
+  const eliteList = document.querySelector('.elite-collection-list')
+  const eliteMap = new Map()
+
+  firstTimeUser()
+
+  for (let i = 0; i < window.localStorage.length; i++) {
+    if (window.localStorage.key(i).startsWith(eliteText)) {
+      const monsterName = window.localStorage.key(i)
+      const valueArray = JSON.parse(window.localStorage.getItem(monsterName))
+
+      eliteMap.set(monsterName, valueArray)
+    }
+  }
+
+  let ascSort = new Map([...eliteMap].sort((a, b) => a[1][0] - b[1][0]))
+  eliteList.innerHTML = ''
+
+  ascSort.forEach((value) => {
+    eliteList.insertAdjacentHTML('beforeend', value[1])
+  })
+
+  loadSetting()
+}
+
+window.addEventListener('load', loadCollection)
 
 function loadSetting() {
   const modifierCheckBox = document.querySelector('.set-modifier input')
@@ -11,8 +56,6 @@ function loadSetting() {
 
   showModifier()
 }
-
-window.addEventListener('load', loadSetting)
 
 function clickModifierButton(e) {
   if (e.target.tagName === 'LABEL') {
