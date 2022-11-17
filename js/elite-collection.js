@@ -1,4 +1,5 @@
 const modifierButton = document.querySelector('.set-modifier')
+const selectButton = document.querySelector('.set-select')
 const setModifier = 'setModifier'
 
 function showEliteCollection() {
@@ -39,3 +40,24 @@ function showModifier() {
 }
 
 modifierButton.addEventListener('click', clickModifierButton)
+
+function toggleSelectButton() {
+  const eliteCards = document.querySelectorAll('.elite-card')
+  const allSelect = '모두 선택'
+  const deselect = '선택 해제'
+  let currentButton = this.querySelector('button')
+
+  if (currentButton.innerText === allSelect) {
+    eliteCards.forEach((card) => {
+      card.classList.add('is-active')
+    })
+    currentButton.innerText = deselect
+  } else if (currentButton.innerText === deselect) {
+    eliteCards.forEach((card) => {
+      card.classList.remove('is-active')
+    })
+    currentButton.innerText = allSelect
+  }
+}
+
+selectButton.addEventListener('click', toggleSelectButton)
