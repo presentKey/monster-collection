@@ -1,3 +1,4 @@
+const eliteList = document.querySelector('.elite-collection-list')
 const modifierButton = document.querySelector('.set-modifier')
 const selectButton = document.querySelector('.set-select')
 const eliteText = 'elite'
@@ -21,7 +22,6 @@ function firstTimeUser() {
 }
 
 function loadCollection() {
-  const eliteList = document.querySelector('.elite-collection-list')
   const eliteMap = new Map()
 
   firstTimeUser()
@@ -45,8 +45,6 @@ function loadCollection() {
   loadSetting()
 }
 
-window.addEventListener('load', loadCollection)
-
 function loadSetting() {
   const modifierCheckBox = document.querySelector('.set-modifier input')
 
@@ -56,6 +54,8 @@ function loadSetting() {
 
   showModifier()
 }
+
+window.addEventListener('load', loadCollection)
 
 function clickModifierButton(e) {
   if (e.target.tagName === 'LABEL') {
@@ -104,3 +104,44 @@ function toggleSelectButton() {
 }
 
 selectButton.addEventListener('click', toggleSelectButton)
+
+let picked = null
+let pickedIndex = null
+
+function dragStart(e) {
+  const targetItem = e.target.parentNode.parentNode.parentNode
+
+  picked = targetItem
+  pickedIndex = [...targetItem.parentNode.children].indexOf(targetItem)
+}
+
+function dragOver(e) {
+  e.preventDefault()
+}
+
+function dragDrop(e) {
+  const targetItem = e.target.parentNode.parentNode.parentNode
+  const index = [...targetItem.parentNode.children].indexOf(targetItem)
+
+  let originPlace
+  let isLast = false
+
+  if (e.target.nodeName !== 'IMG') {
+    return
+  }
+
+  if (picked.nextSibling) {
+    originPlace = picked.nextSibling
+  } else {
+    originPlace = picked.previousSibling
+
+    isLast = true
+  }
+
+  index > pickedIndex ? targetItem.after(picked) : targetItem.before(picked)
+  isLast ? originPlace.after(targetItem) : originPlace.before(targetItem)
+}
+
+eliteList.addEventListener('dragstart', dragStart)
+eliteList.addEventListener('dragover', dragOver)
+eliteList.addEventListener('drop', dragDrop)

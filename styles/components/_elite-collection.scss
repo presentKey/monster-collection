@@ -21,6 +21,7 @@
 
   &-item {
     width: calc(20% - #{$card-margin-sm});
+    user-select: none;
   }
 
   .elite-card {
