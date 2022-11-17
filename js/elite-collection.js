@@ -2,7 +2,7 @@ const modifierButton = document.querySelector('.set-modifier')
 const selectButton = document.querySelector('.set-select')
 const setModifier = 'setModifier'
 
-function showEliteCollection() {
+function loadSetting() {
   const modifierCheckBox = document.querySelector('.set-modifier input')
 
   modifierCheckBox.checked = JSON.parse(
@@ -12,7 +12,7 @@ function showEliteCollection() {
   showModifier()
 }
 
-window.addEventListener('load', showEliteCollection)
+window.addEventListener('load', loadSetting)
 
 function clickModifierButton(e) {
   if (e.target.tagName === 'LABEL') {
