@@ -23,6 +23,7 @@ const pagesFileList = [
   'bookmark.html',
   'crosshunter.html',
   'edlstein.html',
+  'elite.html',
   'elnath.html',
   'fieldboss.html',
   'friends.html',
