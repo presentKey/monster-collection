@@ -1,0 +1,30 @@
+.rule {
+  padding: 4px;
+  margin-bottom: 20px;
+  background-color: rgba($red, 0.4);
+  border-radius: 4px;
+  &-detail {
+    @include text-style(14);
+
+    .info {
+      @include flexbox(start);
+      position: relative;
+      margin-bottom: 4px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      i {
+        position: absolute;
+        top: 6px;
+        color: $black;
+      }
+
+      p {
+        display: inline;
+        padding-left: 20px;
+      }
+    }
+  }
+}
