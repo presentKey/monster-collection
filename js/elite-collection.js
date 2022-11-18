@@ -3,15 +3,12 @@ const modifierButton = document.querySelector('.set-modifier')
 const selectButton = document.querySelector('.set-select')
 const eliteText = 'elite'
 const setModifier = 'setModifier'
+const setAllSelect = 'setAllselect'
+const allSelect = '모두 선택'
+const deselect = '선택 해제'
 
-function firstTimeUser() {
+function saveAllItems() {
   const eliteItems = document.querySelectorAll('.elite-collection-item')
-
-  for (let i = 0; i < window.localStorage.length; i++) {
-    if (window.localStorage.key(i).startsWith(eliteText)) {
-      return
-    }
-  }
 
   for (const [index, item] of eliteItems.entries()) {
     const monsterName = item.querySelector('img').getAttribute('alt')
@@ -19,6 +16,16 @@ function firstTimeUser() {
     const localStorageKey = eliteText + monsterName
     window.localStorage.setItem(localStorageKey, JSON.stringify(itemArray))
   }
+}
+
+function firstTimeUser() {
+  for (let i = 0; i < window.localStorage.length; i++) {
+    if (window.localStorage.key(i).startsWith(eliteText)) {
+      return
+    }
+  }
+
+  saveAllItems()
 }
 
 function loadCollection() {
@@ -53,6 +60,12 @@ function loadSetting() {
   )
 
   showModifier()
+
+  const selectButton = document.querySelector('.setting .select-btn')
+
+  JSON.parse(window.localStorage.getItem(setAllSelect))
+    ? (selectButton.innerText = deselect)
+    : (selectButton.innerText = allSelect)
 }
 
 window.addEventListener('load', loadCollection)
@@ -86,13 +99,13 @@ modifierButton.addEventListener('click', clickModifierButton)
 
 function toggleSelectButton() {
   const eliteCards = document.querySelectorAll('.elite-card')
-  const allSelect = '모두 선택'
-  const deselect = '선택 해제'
   let currentButton = this.querySelector('button')
+  let selected
 
   if (currentButton.innerText === allSelect) {
     eliteCards.forEach((card) => {
       card.classList.add('is-active')
+      selected = true
     })
     currentButton.innerText = deselect
   } else if (currentButton.innerText === deselect) {
@@ -100,7 +113,12 @@ function toggleSelectButton() {
       card.classList.remove('is-active')
     })
     currentButton.innerText = allSelect
+    selected = false
   }
+
+  saveAllItems()
+
+  window.localStorage.setItem(setAllSelect, selected)
 }
 
 selectButton.addEventListener('click', toggleSelectButton)
@@ -140,6 +158,15 @@ function dragDrop(e) {
 
   index > pickedIndex ? targetItem.after(picked) : targetItem.before(picked)
   isLast ? originPlace.after(targetItem) : originPlace.before(targetItem)
+
+  const pickedKey = eliteText + picked.querySelector('img').getAttribute('alt')
+  const targetKey =
+    eliteText + targetItem.querySelector('img').getAttribute('alt')
+  const pickedItemArray = [index, picked.outerHTML]
+  const targetItemArray = [pickedIndex, targetItem.outerHTML]
+
+  window.localStorage.setItem(pickedKey, JSON.stringify(pickedItemArray))
+  window.localStorage.setItem(targetKey, JSON.stringify(targetItemArray))
 }
 
 eliteList.addEventListener('dragstart', dragStart)
