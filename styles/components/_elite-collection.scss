@@ -37,12 +37,6 @@
       filter: grayscale(0);
     }
 
-    @media (hover: hover) {
-      &:hover {
-        background-color: $green-dark;
-      }
-    }
-
     .elite-image {
       position: relative;
       display: block;
@@ -62,7 +56,7 @@
         object-fit: contain;
         transition: transform 200ms ease-in-out;
 
-        @media (hover: hover) {
+        @media (hover: hover) and (pointer: fine) {
           &:hover {
             transform: translate(-50%, -50%) scale(1.2);
           }
