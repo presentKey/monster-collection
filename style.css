@@ -537,7 +537,7 @@ i {
   .gnb-timer-button .ic-search,
   .gnb-timer-button .ic-menu {
     font-size: 24px;
-    color: #2290a1; }
+    color: #4b7bee; }
   .gnb-search-button .ic-search,
   .gnb-menu-button .ic-search,
   .gnb-bookmark-button .ic-search,
@@ -557,7 +557,7 @@ i {
 @media screen and (min-width: 768px) {
   .gnb-bookmark-button:hover {
     color: #fff;
-    background-color: #2290a1; }
+    background-color: #4b7bee; }
   .gnb-bookmark-button .ic-bookmark {
     font-size: 24px; } }
 
@@ -760,30 +760,6 @@ i {
       .information-detail .title .limit-info span {
         font-size: 14px;
         font-weight: 400; }
-  .information .rule {
-    padding: 4px;
-    margin-bottom: 20px;
-    background-color: rgba(252, 92, 101, 0.4);
-    border-radius: 4px; }
-    .information .rule-detail {
-      font-size: 14px;
-      line-height: 24px;
-      letter-spacing: -0.01em; }
-      .information .rule-detail .info {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        position: relative;
-        margin-bottom: 4px; }
-        .information .rule-detail .info:last-child {
-          margin-bottom: 0; }
-        .information .rule-detail .info i {
-          position: absolute;
-          top: 6px;
-          color: #000; }
-        .information .rule-detail .info p {
-          display: inline;
-          padding-left: 20px; }
   .information .monster-group {
     display: flex;
     align-items: center;
@@ -876,7 +852,7 @@ i {
   margin-bottom: 20px; }
   .register:nth-child(odd) {
     padding: 6px 0;
-    background-color: rgba(140, 141, 150, 0.3);
+    background-color: #dcdddf;
     border-radius: 4px; }
   .register:last-child {
     margin-bottom: 0; }
@@ -1204,6 +1180,31 @@ i {
       top: -8px;
       padding: 50px 0; } }
 
+.rule {
+  padding: 4px;
+  margin-bottom: 20px;
+  background-color: rgba(252, 92, 101, 0.4);
+  border-radius: 4px; }
+  .rule-detail {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.01em; }
+    .rule-detail .info {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      margin-bottom: 4px; }
+      .rule-detail .info:last-child {
+        margin-bottom: 0; }
+      .rule-detail .info i {
+        position: absolute;
+        top: 6px;
+        color: #000; }
+      .rule-detail .info p {
+        display: inline;
+        padding-left: 20px; }
+
 .input-group {
   position: relative;
   height: 36px; }
@@ -1243,6 +1244,147 @@ i {
       margin-right: 16px; }
       .input-group .form-input {
         width: 260px; } }
+
+.elite-collection {
+  min-height: calc(100vh - 50px - 100px);
+  padding: 20px 0; }
+  .elite-collection .title {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #191a20;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2px;
+    margin-bottom: 16px;
+    background-color: rgba(75, 123, 238, 0.6);
+    border-radius: 4px; }
+  .elite-collection-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap; }
+  .elite-collection-item {
+    width: calc(20% - 2px);
+    user-select: none; }
+  .elite-collection .elite-card {
+    padding: 4px;
+    margin-right: 2px;
+    margin-bottom: 16px;
+    background-color: #fc5c65;
+    filter: grayscale(1);
+    border-radius: 4px;
+    transition: filter 200ms ease-in-out; }
+    .elite-collection .elite-card.is-active {
+      filter: grayscale(0); }
+    @media (hover: hover) {
+      .elite-collection .elite-card:hover {
+        background-color: #2290a1; } }
+    .elite-collection .elite-card .elite-image {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      overflow: hidden;
+      background-color: #f7f8fa;
+      border-radius: 4px; }
+      .elite-collection .elite-card .elite-image img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 4px;
+        object-fit: contain;
+        transition: transform 200ms ease-in-out; }
+        @media (hover: hover) {
+          .elite-collection .elite-card .elite-image img:hover {
+            transform: translate(-50%, -50%) scale(1.2); } }
+    .elite-collection .elite-card .name-modifier {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: -0.005em;
+      color: #000;
+      display: none;
+      height: 40px;
+      text-align: center; }
+      .elite-collection .elite-card .name-modifier.is-active {
+        display: flex; }
+      .elite-collection .elite-card .name-modifier strong {
+        width: 100%;
+        padding: 2px;
+        overflow: hidden;
+        white-space: nowrap; }
+  @media screen and (min-width: 768px) {
+    .elite-collection {
+      padding: 30px 0; }
+      .elite-collection-item {
+        width: calc(10% - 4px);
+        margin-right: 4px; }
+      .elite-collection .elite-card {
+        margin-bottom: 24px; } }
+  @media screen and (min-width: 1200px) {
+    .elite-collection .elite-card {
+      margin-bottom: 28px; }
+    .elite-collection .name-modifier strong {
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: -0.01em; } }
+
+.setting {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 16px; }
+  .setting .set-save,
+  .setting .set-modifier,
+  .setting .set-select {
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    color: #000;
+    padding: 4px;
+    margin-right: 8px;
+    font-weight: 700;
+    background-color: rgba(183, 204, 6, 0.7);
+    border: 1px solid #8c8d96;
+    border-radius: 4px;
+    transition: opacity 200ms ease-in-out; }
+    .setting .set-save:last-child,
+    .setting .set-modifier:last-child,
+    .setting .set-select:last-child {
+      margin-right: 0; }
+    @media (hover: hover) {
+      .setting .set-save:hover,
+      .setting .set-modifier:hover,
+      .setting .set-select:hover {
+        opacity: 0.7; } }
+  .setting .save-btn,
+  .setting .select-btn {
+    font-weight: 700; }
+  .setting .set-save {
+    background-color: #fc5c65; }
+    .setting .set-save button {
+      width: 56px;
+      color: #fff; }
+  .setting .set-modifier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none; }
+    .setting .set-modifier input,
+    .setting .set-modifier label {
+      cursor: pointer; }
+    .setting .set-modifier label {
+      padding-left: 4px; }
 
 .container {
   width: 100%;
