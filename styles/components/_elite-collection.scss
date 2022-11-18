@@ -25,17 +25,22 @@
   }
 
   .elite-card {
-    padding: 2px;
+    padding: 4px;
     margin-right: $card-margin-sm;
-    margin-bottom: 4px;
-    background-color: $green-dark;
+    margin-bottom: 16px;
+    background-color: $red;
     filter: grayscale(1);
     border-radius: 4px;
     transition: filter 200ms ease-in-out;
 
-    &:hover,
     &.is-active {
       filter: grayscale(0);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $green-dark;
+      }
     }
 
     .elite-image {
@@ -67,7 +72,7 @@
 
     .name-modifier {
       @include column-flexbox;
-      @include text-style(12, $white);
+      @include text-style(12, $black);
       display: none;
       height: 40px;
       text-align: center;
@@ -91,6 +96,20 @@
     &-item {
       width: calc(10% - #{$card-margin-md});
       margin-right: $card-margin-md;
+    }
+
+    .elite-card {
+      margin-bottom: 24px;
+    }
+  }
+
+  @include responsive(D) {
+    .elite-card {
+      margin-bottom: 28px;
+    }
+
+    .name-modifier strong {
+      @include text-style(13);
     }
   }
 }

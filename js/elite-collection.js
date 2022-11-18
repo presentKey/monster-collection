@@ -5,7 +5,7 @@ const eliteText = 'elite'
 const setModifier = 'setModifier'
 const setAllSelect = 'setAllselect'
 const allSelect = '모두 선택'
-const deselect = '선택 해제'
+const deselect = '모두 해제'
 
 function saveAllItems() {
   const eliteItems = document.querySelectorAll('.elite-collection-item')
@@ -50,6 +50,7 @@ function loadCollection() {
   })
 
   loadSetting()
+  getCard()
 }
 
 function loadSetting() {
@@ -122,6 +123,26 @@ function toggleSelectButton() {
 }
 
 selectButton.addEventListener('click', toggleSelectButton)
+
+function activeCard() {
+  const monsterName = this.querySelector('img').getAttribute('alt')
+  const localStorageKey = eliteText + monsterName
+  const getStoredArray = JSON.parse(
+    window.localStorage.getItem(localStorageKey)
+  )
+
+  this.classList.toggle('is-active')
+  getStoredArray[1] = this.parentNode.outerHTML
+  window.localStorage.setItem(localStorageKey, JSON.stringify(getStoredArray))
+}
+
+function getCard() {
+  const eliteCards = document.querySelectorAll('.elite-card')
+
+  eliteCards.forEach((card) => {
+    card.addEventListener('click', activeCard)
+  })
+}
 
 let picked = null
 let pickedIndex = null
