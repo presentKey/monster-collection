@@ -9,6 +9,7 @@ const searchSubmitButton = document.querySelector(
   '.gnb-left .input-group .ic-chevron'
 )
 const FormInput = document.querySelector('.gnb-left .form-input')
+const modalFormInput = document.querySelector('.search-modal .form-input')
 
 const googleLink =
   'https://www.google.com/search?q=site%3Apresentkey.github.io%2Fmonster-collection%2F+'
@@ -55,3 +56,13 @@ function keyPressSearch(e) {
   }
 }
 FormInput.addEventListener('keypress', keyPressSearch)
+
+function mobileKeyPressSearch(e) {
+  const inputText = document.querySelector('.search-modal .form-input').value
+
+  if (inputText !== '' && e.keyCode === 13) {
+    location.href = googleLink + inputText
+  }
+}
+
+modalFormInput.addEventListener('keypress', mobileKeyPressSearch)
