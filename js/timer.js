@@ -129,6 +129,11 @@ function resetTimer(
 ) {
   resetFlag = true
   timerInterval(resetFlag, monsterName, time, timerBarItem, timerModalItem)
+
+  setTimeout(() => {
+    timerBarItem.querySelector('.ic-history').style.color = '#3f4150'
+    timerModalItem.querySelector('.ic-history').style.color = '#3f4150'
+  }, 300)
 }
 
 function deleteTimer() {
