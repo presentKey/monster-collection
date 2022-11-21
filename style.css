@@ -655,10 +655,7 @@ i {
     .timer-button-group .ic-close {
       cursor: pointer;
       transition: color 200ms ease-in-out; }
-      .timer-button-group .ic-history:active,
-      .timer-button-group .ic-close:active {
-        color: #fff; }
-      @media (hover: hover) {
+      @media (hover: hover) and (pointer: fine) {
         .timer-button-group .ic-history:hover,
         .timer-button-group .ic-close:hover {
           color: #fff; } }
@@ -1278,9 +1275,6 @@ i {
     transition: filter 200ms ease-in-out; }
     .elite-collection .elite-card.is-active {
       filter: grayscale(0); }
-    @media (hover: hover) {
-      .elite-collection .elite-card:hover {
-        background-color: #2290a1; } }
     .elite-collection .elite-card .elite-image {
       position: relative;
       display: block;
@@ -1301,7 +1295,7 @@ i {
         padding: 4px;
         object-fit: contain;
         transition: transform 200ms ease-in-out; }
-        @media (hover: hover) {
+        @media (hover: hover) and (pointer: fine) {
           .elite-collection .elite-card .elite-image img:hover {
             transform: translate(-50%, -50%) scale(1.2); } }
     .elite-collection .elite-card .name-modifier {
@@ -1362,7 +1356,7 @@ i {
     .setting .set-modifier:last-child,
     .setting .set-select:last-child {
       margin-right: 0; }
-    @media (hover: hover) {
+    @media (hover: hover) and (pointer: fine) {
       .setting .set-save:hover,
       .setting .set-modifier:hover,
       .setting .set-select:hover {
