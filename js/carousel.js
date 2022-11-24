@@ -2,7 +2,7 @@ const pageCarousel = tns({
   container: '.page-carousel .slider-list',
   controls: false,
   gutter: 6,
-  edgePadding: 20,
+  edgePadding: 70,
   controls: true,
   controlsContainer: '.page-carousel .page-carousel-controls',
   navContainer: '.page-carousel .thumbnail-list',
@@ -12,10 +12,10 @@ const pageCarousel = tns({
   responsive: {
     768: {
       gutter: 8,
-      edgePadding: 36,
+      edgePadding: 110,
     },
     1200: {
-      edgePadding: 50,
+      edgePadding: 75,
     },
   },
 })
