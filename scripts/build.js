@@ -192,6 +192,7 @@ async function build() {
     path.resolve(__dirname, '../index.html'),
     path.join(buildDir, 'index.html')
   )
+  copySync(path.resolve(__dirname, '../data'), path.join(buildDir, 'data'))
   copySync(path.resolve(__dirname, '../pages'), path.join(buildDir, 'pages'))
   copySync(path.resolve(__dirname, '../js'), path.join(buildDir, 'js'))
   copySync(
