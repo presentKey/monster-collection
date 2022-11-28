@@ -10,6 +10,7 @@ const searchSubmitButton = document.querySelector(
 const FormInput = document.querySelector('.gnb-left .form-input')
 const modalFormInput = document.querySelector('.search-modal .form-input')
 const matchMedia_768 = matchMedia('screen and (min-width: 768px)').matches
+let checkArrowKey = false
 
 function loadItems() {
   return fetch('/monster-collection/data/search.json')
@@ -109,7 +110,12 @@ function onClickOutsidCloseKeywordBox(event) {
   }
 }
 
-function LocationHref() {
+function LocationHref(arrowKeyItem) {
+  if (arrowKeyItem !== undefined) {
+    location.href = arrowKeyItem.querySelector('a').getAttribute('href')
+    return
+  }
+
   const matchKeyword = matchMedia_768
     ? document.querySelector('.search .search-item')
     : document.querySelector('.search-modal .search-item')
@@ -119,33 +125,38 @@ function LocationHref() {
   }
 }
 
-let currentIndex = -1
+let currentIndex = 0
 let previousItem
 
-function arrowKeyMove(event) {
+function arrowKeyMove(event, inputText) {
   event.preventDefault()
   const matchKeywordList = matchMedia_768
     ? document.querySelectorAll('.search .search-item')
     : document.querySelectorAll('.search-modal .search-item')
   const length = matchKeywordList.length
 
-  if (event.keyCode === 38 || event.keyCode === 40) {
+  if (matchKeywordList.length === 0) {
+    return
+  }
+
+  if (event.keyCode === 38 || event.keyCode === 40 || event.keyCode === 13) {
     if (previousItem !== undefined) {
       previousItem.classList.remove('is-current')
     }
 
-    event.keyCode === 38 ? currentIndex-- : currentIndex++
+    if (event.keyCode === 38) currentIndex--
+    else if (event.keyCode === 40) currentIndex++
 
-    if (currentIndex >= length) {
-      currentIndex = 0
-    } else if (currentIndex < 0) {
-      currentIndex = length - 1
-    }
+    if (currentIndex >= length) currentIndex = 0
+    else if (currentIndex < 0) currentIndex = length - 1
+    else if (inputText === '') currentIndex = 0
 
-    let currentItem = matchKeywordList[currentIndex]
+    const currentItem = matchKeywordList[currentIndex]
     currentItem.classList.add('is-current')
     previousItem = currentItem
     FormInput.value = currentItem.querySelector('span').innerText
+
+    if (event.keyCode === 13) LocationHref(currentItem)
   }
 }
 
@@ -155,15 +166,16 @@ function onKeydownSearchInput(event) {
     : document.querySelector('.search-modal .form-input').value
 
   if (inputText === '') {
-    currentIndex = -1
+    currentIndex = 0
   }
 
-  if (inputText !== '' && event.keyCode === 13) {
+  if (inputText !== '' && event.keyCode === 13 && checkArrowKey === false) {
     LocationHref()
   }
 
-  if (event.keyCode === 38 || event.keyCode === 40) {
-    arrowKeyMove(event)
+  if (event.keyCode === 38 || event.keyCode === 40 || event.keyCode === 13) {
+    checkArrowKey = true
+    arrowKeyMove(event, inputText)
   }
 }
 
