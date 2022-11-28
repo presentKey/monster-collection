@@ -1,6 +1,6 @@
 const searchIconButton = document.querySelector('.gnb-right .ic-search')
 const searchModal = document.querySelector('.search-modal')
-const searchOverlay = document.querySelector('.overlay')
+const searchModalCloseBtn = document.querySelector('.search-modal .close-btn')
 
 const searchModalSubmitButton = document.querySelector(
   '.search-modal .ic-chevron'
@@ -16,17 +16,15 @@ const googleLink =
 
 function openSearchModal() {
   searchModal.classList.add('is-open')
-  searchOverlay.classList.add('is-active')
 }
 
 searchIconButton.addEventListener('click', openSearchModal)
 
 function closeSearchModal() {
   searchModal.classList.remove('is-open')
-  searchOverlay.classList.remove('is-active')
 }
 
-searchOverlay.addEventListener('click', closeSearchModal)
+searchModalCloseBtn.addEventListener('click', closeSearchModal)
 
 function mobileGoogleSearch() {
   const inputText = document.querySelector('.search-modal .form-input').value
