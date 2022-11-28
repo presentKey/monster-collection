@@ -67,14 +67,21 @@
                     <i class="ic-menu"></i>
                   </button>
 
-                  <div class="input-group sm-hidden">
-                    <i class="ic-search"></i>
-                    <input
-                      class="form-input"
-                      type="text"
-                      placeholder="몬스터 검색"
-                    />
-                    <button type="button"><i class="ic-chevron"></i></button>
+                  <div class="search sm-hidden">
+                    <div class="input-group">
+                      <i class="ic-search"></i>
+                      <input
+                        class="form-input"
+                        type="text"
+                        placeholder="몬스터 검색"
+                        spellcheck="false"
+                      />
+                      <button type="button"><i class="ic-chevron"></i></button>
+                    </div>
+
+                    <div class="search-keyword">
+                      <ul class="search-list"></ul>
+                    </div>
                   </div>
                 </div>
 
@@ -304,10 +311,20 @@
     <aside class="search-modal sm-only">
       <h2 class="search-modal-title visually-hidden">검색창</h2>
 
-      <div class="input-group">
-        <i class="ic-search"></i>
-        <input class="form-input" type="text" placeholder="몬스터 검색" />
-        <i class="ic-chevron"></i>
+      <div class="search-modal-header">
+        <div class="input-group">
+          <i class="ic-search"></i>
+          <input class="form-input" type="text" placeholder="몬스터 검색" />
+          <i class="ic-chevron"></i>
+        </div>
+
+        <button class="close-btn" type="button">
+          <i class="ic-close"></i>
+        </button>
+      </div>
+
+      <div class="search-keyword">
+        <ul class="search-list"></ul>
       </div>
     </aside>
 
