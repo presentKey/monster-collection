@@ -1,7 +1,6 @@
 const searchIconButton = document.querySelector('.gnb-right .ic-search')
 const searchModal = document.querySelector('.search-modal')
 const searchModalCloseBtn = document.querySelector('.search-modal .close-btn')
-
 const searchModalSubmitButton = document.querySelector(
   '.search-modal .ic-chevron'
 )
@@ -10,9 +9,7 @@ const searchSubmitButton = document.querySelector(
 )
 const FormInput = document.querySelector('.gnb-left .form-input')
 const modalFormInput = document.querySelector('.search-modal .form-input')
-
-const googleLink =
-  'https://www.google.com/search?q=site%3Apresentkey.github.io%2Fmonster-collection%2F+'
+const matchMedia_768 = matchMedia('screen and (min-width: 768px)').matches
 
 function loadItems() {
   return fetch('/monster-collection/data/search.json')
@@ -23,7 +20,7 @@ function loadItems() {
 function displayItems(items) {
   let searchList
 
-  if (matchMedia('screen and (min-width: 768px)').matches) {
+  if (matchMedia_768) {
     searchList = document.querySelector('.search .search-list')
   } else {
     searchList = document.querySelector('.search-modal .search-list')
@@ -45,7 +42,7 @@ function createHTMLString(item) {
 function setInputEvent(items) {
   let input
 
-  if (matchMedia('screen and (min-width: 768px)').matches) {
+  if (matchMedia_768) {
     input = document.querySelector('.gnb-left .form-input')
   } else {
     input = document.querySelector('.search-modal .form-input')
@@ -84,26 +81,6 @@ function closeSearchModal() {
 
 searchModalCloseBtn.addEventListener('click', closeSearchModal)
 
-function mobileGoogleSearch() {
-  const inputText = document.querySelector('.search-modal .form-input').value
-
-  if (inputText !== '') {
-    location.href = googleLink + inputText
-  }
-}
-
-searchModalSubmitButton.addEventListener('click', mobileGoogleSearch)
-
-function desktopGoogleSearch() {
-  const inputText = document.querySelector('.gnb-left .form-input').value
-
-  if (inputText !== '') {
-    location.href = googleLink + inputText
-  }
-}
-
-searchSubmitButton.addEventListener('click', desktopGoogleSearch)
-
 function openKeywordBox() {
   const keywordBox = document.querySelector('.search .search-keyword')
 
@@ -131,21 +108,38 @@ function onClickOutsidCloseKeywordBox(e) {
   }
 }
 
-function keyPressEnter(e) {
-  const inputText = document.querySelector('.gnb-left .form-input').value
+function Locationhref() {
+  const matchKeyword = matchMedia_768
+    ? document.querySelector('.search .search-item')
+    : document.querySelector('.search-modal .search-item')
 
-  if (inputText !== '' && e.keyCode === 13) {
-    location.href = googleLink + inputText
-  }
-}
-FormInput.addEventListener('keypress', keyPressEnter)
-
-function mobileKeyPressEnter(e) {
-  const inputText = document.querySelector('.search-modal .form-input').value
-
-  if (inputText !== '' && e.keyCode === 13) {
-    location.href = googleLink + inputText
+  if (matchKeyword !== null) {
+    location.href = matchKeyword.querySelector('a').getAttribute('href')
   }
 }
 
-modalFormInput.addEventListener('keypress', mobileKeyPressEnter)
+function onKeyupSearchInput(event) {
+  const inputText = matchMedia_768
+    ? document.querySelector('.gnb-left .form-input').value
+    : document.querySelector('.search-modal .form-input').value
+
+  if (inputText !== '' && event.keyCode === 13) {
+    Locationhref()
+  }
+}
+
+FormInput.addEventListener('keyup', onKeyupSearchInput)
+modalFormInput.addEventListener('keyup', onKeyupSearchInput)
+
+function onClickSearchButton() {
+  const inputText = matchMedia_768
+    ? document.querySelector('.gnb-left .form-input').value
+    : document.querySelector('.search-modal .form-input').value
+
+  if (inputText !== '') {
+    Locationhref()
+  }
+}
+
+searchSubmitButton.addEventListener('click', onClickSearchButton)
+searchModalSubmitButton.addEventListener('click', onClickSearchButton)
