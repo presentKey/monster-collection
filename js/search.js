@@ -42,11 +42,37 @@ function createHTMLString(item) {
   `
 }
 
+function setInputEvent(items) {
+  let input
+
+  if (matchMedia('screen and (min-width: 768px)').matches) {
+    input = document.querySelector('.gnb-left .form-input')
+  } else {
+    input = document.querySelector('.search-modal .form-input')
+  }
+
+  input.addEventListener('input', (event) => updateItems(event, items))
+}
+
+function updateItems(event, items) {
+  const value = event.target.value
+  let matchKeyword = []
+
+  items.forEach((item) => {
+    if (item.name.indexOf(value) != -1) {
+      matchKeyword.push(item)
+    }
+  })
+
+  displayItems(matchKeyword)
+}
+
 function openSearchModal() {
   searchModal.classList.add('is-open')
 
   loadItems().then((items) => {
     displayItems(items)
+    setInputEvent(items)
   })
 }
 
@@ -84,21 +110,22 @@ function openKeywordBox() {
 
   loadItems().then((items) => {
     displayItems(items)
+    setInputEvent(items)
   })
 }
 
 FormInput.addEventListener('focus', openKeywordBox)
 
-function keyPressSearch(e) {
+function keyPressEnter(e) {
   const inputText = document.querySelector('.gnb-left .form-input').value
 
   if (inputText !== '' && e.keyCode === 13) {
     location.href = googleLink + inputText
   }
 }
-FormInput.addEventListener('keypress', keyPressSearch)
+FormInput.addEventListener('keypress', keyPressEnter)
 
-function mobileKeyPressSearch(e) {
+function mobileKeyPressEnter(e) {
   const inputText = document.querySelector('.search-modal .form-input').value
 
   if (inputText !== '' && e.keyCode === 13) {
@@ -106,4 +133,4 @@ function mobileKeyPressSearch(e) {
   }
 }
 
-modalFormInput.addEventListener('keypress', mobileKeyPressSearch)
+modalFormInput.addEventListener('keypress', mobileKeyPressEnter)
