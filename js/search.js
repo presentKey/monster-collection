@@ -14,8 +14,40 @@ const modalFormInput = document.querySelector('.search-modal .form-input')
 const googleLink =
   'https://www.google.com/search?q=site%3Apresentkey.github.io%2Fmonster-collection%2F+'
 
+function loadItems() {
+  return fetch('/monster-collection/data/search.json')
+    .then((response) => response.json())
+    .then((json) => json.searchItems)
+}
+
+function displayItems(items) {
+  let searchList
+
+  if (matchMedia('screen and (min-width: 768px)').matches) {
+    searchList = document.querySelector('.search .search-list')
+  } else {
+    searchList = document.querySelector('.search-modal .search-list')
+  }
+
+  searchList.innerHTML = items.map((item) => createHTMLString(item)).join('')
+}
+
+function createHTMLString(item) {
+  return `
+  <li class="search-item">
+    <a href="${item.url}">
+      <span class="name">${item.name}</span>
+    </a>
+  </li>
+  `
+}
+
 function openSearchModal() {
   searchModal.classList.add('is-open')
+
+  loadItems().then((items) => {
+    displayItems(items)
+  })
 }
 
 searchIconButton.addEventListener('click', openSearchModal)
@@ -45,6 +77,17 @@ function desktopGoogleSearch() {
 }
 
 searchSubmitButton.addEventListener('click', desktopGoogleSearch)
+
+function openKeywordBox() {
+  const keywordBox = document.querySelector('.search .search-keyword')
+  keywordBox.classList.add('is-active')
+
+  loadItems().then((items) => {
+    displayItems(items)
+  })
+}
+
+FormInput.addEventListener('focus', openKeywordBox)
 
 function keyPressSearch(e) {
   const inputText = document.querySelector('.gnb-left .form-input').value
