@@ -1,0 +1,14 @@
+.search {
+  position: relative;
+
+  .search-keyword {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 200ms ease-in-out, opacity 200ms ease-in-out;
+
+    &.is-active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
