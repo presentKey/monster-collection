@@ -106,6 +106,11 @@ searchSubmitButton.addEventListener('click', desktopGoogleSearch)
 
 function openKeywordBox() {
   const keywordBox = document.querySelector('.search .search-keyword')
+
+  if (!keywordBox.classList.contains('is-active')) {
+    window.addEventListener('click', onClickOutsidCloseKeywordBox)
+  }
+
   keywordBox.classList.add('is-active')
 
   loadItems().then((items) => {
@@ -115,6 +120,16 @@ function openKeywordBox() {
 }
 
 FormInput.addEventListener('focus', openKeywordBox)
+
+function onClickOutsidCloseKeywordBox(e) {
+  const search = document.querySelector('.search')
+  const keywordBox = document.querySelector('.search .search-keyword')
+
+  if (!search.contains(e.target)) {
+    keywordBox.classList.remove('is-active')
+    window.removeEventListener('click', onClickOutsidCloseKeywordBox)
+  }
+}
 
 function keyPressEnter(e) {
   const inputText = document.querySelector('.gnb-left .form-input').value
