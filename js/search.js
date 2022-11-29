@@ -28,6 +28,7 @@ function displayItems(items) {
   }
 
   searchList.innerHTML = items.map((item) => createHTMLString(item)).join('')
+  selectFirstItem(searchList)
 }
 
 function createHTMLString(item) {
@@ -106,7 +107,8 @@ function onClickOutsidCloseKeywordBox(event) {
   if (!search.contains(event.target)) {
     keywordBox.classList.remove('is-active')
     window.removeEventListener('click', onClickOutsidCloseKeywordBox)
-    currentIndex = -1
+    currentIndex = 0
+    checkArrowKey = false
   }
 }
 
@@ -149,7 +151,6 @@ function arrowKeyMove(event, inputText) {
 
     if (currentIndex >= length) currentIndex = 0
     else if (currentIndex < 0) currentIndex = length - 1
-    else if (inputText === '') currentIndex = 0
 
     const currentItem = matchKeywordList[currentIndex]
     currentItem.classList.add('is-current')
@@ -158,6 +159,15 @@ function arrowKeyMove(event, inputText) {
 
     if (event.keyCode === 13) LocationHref(currentItem)
   }
+}
+
+function selectFirstItem(items) {
+  const li = items.querySelector('li')
+
+  if (li === null) return
+
+  li.classList.add('is-current')
+  previousItem = li
 }
 
 function onKeydownSearchInput(event) {
