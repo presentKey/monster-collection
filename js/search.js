@@ -58,7 +58,7 @@ function updateItems(event, items) {
   let matchKeyword = []
 
   items.forEach((item) => {
-    if (item.name.indexOf(value) != -1) {
+    if (item.name.replace(/ /g, '').indexOf(value.replace(/ /g, '')) != -1) {
       matchKeyword.push(item)
     }
   })
