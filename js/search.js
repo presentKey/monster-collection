@@ -106,6 +106,7 @@ function onClickOutsidCloseKeywordBox(event) {
 
   if (!search.contains(event.target)) {
     keywordBox.classList.remove('is-active')
+    search.querySelector('input').value = ''
     window.removeEventListener('click', onClickOutsidCloseKeywordBox)
     currentIndex = 0
     checkArrowKey = false
@@ -130,7 +131,7 @@ function LocationHref(arrowKeyItem) {
 let currentIndex = 0
 let previousItem
 
-function arrowKeyMove(event, inputText) {
+function arrowKeyMove(event) {
   event.preventDefault()
   const matchKeywordList = matchMedia_768
     ? document.querySelectorAll('.search .search-item')
@@ -185,7 +186,7 @@ function onKeydownSearchInput(event) {
 
   if (event.keyCode === 38 || event.keyCode === 40 || event.keyCode === 13) {
     checkArrowKey = true
-    arrowKeyMove(event, inputText)
+    arrowKeyMove(event)
   }
 }
 
