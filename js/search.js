@@ -258,6 +258,7 @@ function scrollToTarget(position) {
   window.scrollBy({
     top: scrollAmount,
   })
+  window.localStorage.removeItem(SEARCH_KEYWORD)
 }
 
 window.addEventListener('load', detectSearchTargetPosition)
