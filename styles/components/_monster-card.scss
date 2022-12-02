@@ -15,6 +15,10 @@
     margin-right: 0;
   }
 
+  &.is-search {
+    background-color: $red;
+  }
+
   &-name {
     @include text-style(12, $white);
     width: 100%;

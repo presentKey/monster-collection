@@ -237,19 +237,21 @@ function detectSearchTargetPosition() {
 
   const cardName = document.querySelectorAll('.monster-card-name')
   let position
+  let getCard
   for (const name of cardName) {
     if (name.innerText === window.localStorage.getItem(SEARCH_KEYWORD)) {
       position = name.getBoundingClientRect().top
+      getCard = name.parentNode
       break
     }
   }
   scrollToTarget(position)
+  setSearchTargetColor(getCard)
 }
 
 function scrollToTarget(position) {
-  const CARD_HEIGHT = 80
-  const TOP_HDEDER_MOBILE = 50 + 40 + CARD_HEIGHT
-  const TOP_HEADER_DESKTOP = 60 + 50 + CARD_HEIGHT
+  const TOP_HDEDER_MOBILE = 50 + 40 + 70
+  const TOP_HEADER_DESKTOP = 60 + 50 + 90
 
   const scrollAmount =
     position -
@@ -259,6 +261,10 @@ function scrollToTarget(position) {
     top: scrollAmount,
   })
   window.localStorage.removeItem(SEARCH_KEYWORD)
+}
+
+function setSearchTargetColor(card) {
+  card.classList.add('is-search')
 }
 
 window.addEventListener('load', detectSearchTargetPosition)
