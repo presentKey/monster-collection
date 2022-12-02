@@ -11,6 +11,7 @@ const FormInput = document.querySelector('.gnb-left .form-input')
 const modalFormInput = document.querySelector('.search-modal .form-input')
 const matchMedia_768 = matchMedia('screen and (min-width: 768px)').matches
 let checkArrowKey = false
+const SEARCH_KEYWORD = 'search'
 
 function loadItems() {
   return fetch('/monster-collection/data/search.json')
@@ -39,6 +40,19 @@ function createHTMLString(item) {
     </a>
   </li>
   `
+}
+
+function setSearchClickEvent() {
+  let searchList
+
+  if (matchMedia_768) {
+    searchList = document.querySelector('.search .search-list')
+  } else {
+    searchList = document.querySelector('.search-modal .search-list')
+  }
+  searchList.addEventListener('click', (event) =>
+    saveSearchKeyword(event.target.innerText)
+  )
 }
 
 function setInputEvent(items) {
@@ -76,9 +90,11 @@ function openSearchModal() {
 }
 
 searchIconButton.addEventListener('click', openSearchModal)
+searchIconButton.addEventListener('click', setSearchClickEvent)
 
 function closeSearchModal() {
   searchModal.classList.remove('is-open')
+  searchIconButton.removeEventListener('click', setSearchClickEvent)
 }
 
 searchModalCloseBtn.addEventListener('click', closeSearchModal)
@@ -99,6 +115,7 @@ function openKeywordBox() {
 }
 
 FormInput.addEventListener('focus', openKeywordBox)
+FormInput.addEventListener('click', setSearchClickEvent)
 
 function onClickOutsidCloseKeywordBox(event) {
   const search = document.querySelector('.search')
@@ -110,11 +127,13 @@ function onClickOutsidCloseKeywordBox(event) {
     window.removeEventListener('click', onClickOutsidCloseKeywordBox)
     currentIndex = 0
     checkArrowKey = false
+    FormInput.removeEventListener('click', setSearchClickEvent)
   }
 }
 
 function LocationHref(arrowKeyItem) {
   if (arrowKeyItem !== undefined) {
+    saveSearchKeyword(arrowKeyItem.querySelector('span').innerText)
     location.href = arrowKeyItem.querySelector('a').getAttribute('href')
     return
   }
@@ -124,6 +143,7 @@ function LocationHref(arrowKeyItem) {
     : document.querySelector('.search-modal .search-item')
 
   if (matchKeyword !== null) {
+    saveSearchKeyword(matchKeyword.querySelector('span').innerText)
     location.href = matchKeyword.querySelector('a').getAttribute('href')
   }
 }
@@ -205,3 +225,39 @@ function onClickSearchButton() {
 
 searchSubmitButton.addEventListener('click', onClickSearchButton)
 searchModalSubmitButton.addEventListener('click', onClickSearchButton)
+
+function saveSearchKeyword(keyword) {
+  window.localStorage.setItem(SEARCH_KEYWORD, keyword)
+}
+
+function detectSearchTargetPosition() {
+  if (!window.localStorage.getItem(SEARCH_KEYWORD)) {
+    return
+  }
+
+  const cardName = document.querySelectorAll('.monster-card-name')
+  let position
+  for (const name of cardName) {
+    if (name.innerText === window.localStorage.getItem(SEARCH_KEYWORD)) {
+      position = name.getBoundingClientRect().top
+      break
+    }
+  }
+  scrollToTarget(position)
+}
+
+function scrollToTarget(position) {
+  const CARD_HEIGHT = 80
+  const TOP_HDEDER_MOBILE = 50 + 40 + CARD_HEIGHT
+  const TOP_HEADER_DESKTOP = 60 + 50 + CARD_HEIGHT
+
+  const scrollAmount =
+    position -
+    (window.innerWidth >= 768 ? TOP_HEADER_DESKTOP : TOP_HDEDER_MOBILE)
+
+  window.scrollBy({
+    top: scrollAmount,
+  })
+}
+
+window.addEventListener('load', detectSearchTargetPosition)
