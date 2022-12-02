@@ -799,6 +799,8 @@ i {
   border-radius: 4px; }
   .monster-card:last-child {
     margin-right: 0; }
+  .monster-card.is-search {
+    background-color: #fc5c65; }
   .monster-card-name {
     font-size: 12px;
     line-height: 16px;
