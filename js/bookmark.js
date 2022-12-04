@@ -22,11 +22,25 @@ function bookmarkToastAnimation() {
   bookmarkToast.animate(toastPopUP, toastTiming)
 }
 
+function checkSearchClass(card) {
+  const check = card.classList.contains('is-search') ? true : false
+  return check
+}
+
+function deleteSearchClass(card) {
+  if (card.classList.contains('is-search')) card.classList.remove('is-search')
+  return card
+}
+
 function saveBookmark() {
-  const monsterCard = this
+  let monsterCard = this
   const monsterName = this.querySelector('.monster-card-name').innerHTML
   const registerInformation =
     this.parentNode.parentNode.querySelectorAll('.register')
+
+  checkSearch = checkSearchClass(monsterCard)
+  monsterCard = deleteSearchClass(monsterCard)
+
   const bookmarkInformationArray = [monsterCard.outerHTML]
 
   for (const registerHTML of registerInformation) {
@@ -39,6 +53,8 @@ function saveBookmark() {
     localStorageKey,
     JSON.stringify(bookmarkInformationArray)
   )
+
+  if (checkSearch) monsterCard.classList.add('is-search')
 
   bookmarkToastAnimation()
 }
