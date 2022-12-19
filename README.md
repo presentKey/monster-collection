@@ -8,6 +8,8 @@
 
 1. 타이머
 
+<img src="https://user-images.githubusercontent.com/115006670/208450853-03358fcb-5deb-4e91-93f8-7f5257efc737.gif">
+
 2. 북마크
 
 3. 위치 복사
